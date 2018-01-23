@@ -1,0 +1,1431 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 118111600640 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2651), pid=62764, tid=0x00007f455c633700
+#
+# JRE version:  (8.0_151-b12) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.151-b12 mixed mode linux-amd64 )
+# Core dump written. Default location: /home/glushenkov/IdeaProjects/examples/core or core.62764
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f455400abd0):  JavaThread "Unknown thread" [_thread_in_vm, id=62768, stack(0x00007f455c533000,0x00007f455c634000)]
+
+Stack: [0x00007f455c533000,0x00007f455c634000],  sp=0x00007f455c6326a0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xb66702]
+V  [libjvm.so+0x4f8907]
+V  [libjvm.so+0x91c126]
+V  [libjvm.so+0x9168fe]
+V  [libjvm.so+0xa498fa]
+V  [libjvm.so+0xb28a8a]
+V  [libjvm.so+0xb28d95]
+V  [libjvm.so+0x64872f]
+V  [libjvm.so+0xb0b7db]
+V  [libjvm.so+0x6d7431]  JNI_CreateJavaVM+0x61
+C  [libjli.so+0x2da3]
+C  [libpthread.so.0+0x761b]  start_thread+0xdb
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007f455400abd0 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=62768, stack(0x00007f455c533000,0x00007f455c634000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+564ab2902000-564ab2903000 r-xp 00000000 fd:00 1187034                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/bin/java
+564ab2b02000-564ab2b03000 r--p 00000000 fd:00 1187034                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/bin/java
+564ab2b03000-564ab2b04000 rw-p 00001000 fd:00 1187034                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/bin/java
+564ab467d000-564ab469e000 rw-p 00000000 00:00 0                          [heap]
+7f4478000000-7f4478021000 rw-p 00000000 00:00 0 
+7f4478021000-7f447c000000 ---p 00000000 00:00 0 
+7f447c000000-7f447c021000 rw-p 00000000 00:00 0 
+7f447c021000-7f4480000000 ---p 00000000 00:00 0 
+7f4480000000-7f4480021000 rw-p 00000000 00:00 0 
+7f4480021000-7f4484000000 ---p 00000000 00:00 0 
+7f4484000000-7f4484021000 rw-p 00000000 00:00 0 
+7f4484021000-7f4488000000 ---p 00000000 00:00 0 
+7f4488000000-7f4488021000 rw-p 00000000 00:00 0 
+7f4488021000-7f448c000000 ---p 00000000 00:00 0 
+7f448c000000-7f448c021000 rw-p 00000000 00:00 0 
+7f448c021000-7f4490000000 ---p 00000000 00:00 0 
+7f4490000000-7f4490021000 rw-p 00000000 00:00 0 
+7f4490021000-7f4494000000 ---p 00000000 00:00 0 
+7f4494000000-7f4494021000 rw-p 00000000 00:00 0 
+7f4494021000-7f4498000000 ---p 00000000 00:00 0 
+7f4498000000-7f4498021000 rw-p 00000000 00:00 0 
+7f4498021000-7f449c000000 ---p 00000000 00:00 0 
+7f449c000000-7f449c021000 rw-p 00000000 00:00 0 
+7f449c021000-7f44a0000000 ---p 00000000 00:00 0 
+7f44a0000000-7f44a0021000 rw-p 00000000 00:00 0 
+7f44a0021000-7f44a4000000 ---p 00000000 00:00 0 
+7f44a4000000-7f44a4021000 rw-p 00000000 00:00 0 
+7f44a4021000-7f44a8000000 ---p 00000000 00:00 0 
+7f44a8000000-7f44a8021000 rw-p 00000000 00:00 0 
+7f44a8021000-7f44ac000000 ---p 00000000 00:00 0 
+7f44ac000000-7f44ac021000 rw-p 00000000 00:00 0 
+7f44ac021000-7f44b0000000 ---p 00000000 00:00 0 
+7f44b0000000-7f44b0021000 rw-p 00000000 00:00 0 
+7f44b0021000-7f44b4000000 ---p 00000000 00:00 0 
+7f44b4000000-7f44b4021000 rw-p 00000000 00:00 0 
+7f44b4021000-7f44b8000000 ---p 00000000 00:00 0 
+7f44b8000000-7f44b8021000 rw-p 00000000 00:00 0 
+7f44b8021000-7f44bc000000 ---p 00000000 00:00 0 
+7f44bc000000-7f44bc021000 rw-p 00000000 00:00 0 
+7f44bc021000-7f44c0000000 ---p 00000000 00:00 0 
+7f44c0000000-7f44c0021000 rw-p 00000000 00:00 0 
+7f44c0021000-7f44c4000000 ---p 00000000 00:00 0 
+7f44c4000000-7f44c4021000 rw-p 00000000 00:00 0 
+7f44c4021000-7f44c8000000 ---p 00000000 00:00 0 
+7f44c8000000-7f44c8021000 rw-p 00000000 00:00 0 
+7f44c8021000-7f44cc000000 ---p 00000000 00:00 0 
+7f44cc000000-7f44cc021000 rw-p 00000000 00:00 0 
+7f44cc021000-7f44d0000000 ---p 00000000 00:00 0 
+7f44d0000000-7f44d0021000 rw-p 00000000 00:00 0 
+7f44d0021000-7f44d4000000 ---p 00000000 00:00 0 
+7f44d4000000-7f44d4021000 rw-p 00000000 00:00 0 
+7f44d4021000-7f44d8000000 ---p 00000000 00:00 0 
+7f44d8000000-7f44d8021000 rw-p 00000000 00:00 0 
+7f44d8021000-7f44dc000000 ---p 00000000 00:00 0 
+7f44dc000000-7f44dc021000 rw-p 00000000 00:00 0 
+7f44dc021000-7f44e0000000 ---p 00000000 00:00 0 
+7f44e0000000-7f44e0021000 rw-p 00000000 00:00 0 
+7f44e0021000-7f44e4000000 ---p 00000000 00:00 0 
+7f44e4000000-7f44e4021000 rw-p 00000000 00:00 0 
+7f44e4021000-7f44e8000000 ---p 00000000 00:00 0 
+7f44e8000000-7f44e8021000 rw-p 00000000 00:00 0 
+7f44e8021000-7f44ec000000 ---p 00000000 00:00 0 
+7f44ee2e3000-7f44ee2e4000 ---p 00000000 00:00 0 
+7f44ee2e4000-7f44ee3e4000 rw-p 00000000 00:00 0 
+7f44ee3e4000-7f44ee3e5000 ---p 00000000 00:00 0 
+7f44ee3e5000-7f44ee4e5000 rw-p 00000000 00:00 0 
+7f44ee4e5000-7f44ee4e6000 ---p 00000000 00:00 0 
+7f44ee4e6000-7f44ee5e6000 rw-p 00000000 00:00 0 
+7f44ee5e6000-7f44ee5e7000 ---p 00000000 00:00 0 
+7f44ee5e7000-7f44ee6e7000 rw-p 00000000 00:00 0 
+7f44ee6e7000-7f44ee6e8000 ---p 00000000 00:00 0 
+7f44ee6e8000-7f44ee7e8000 rw-p 00000000 00:00 0 
+7f44ee7e8000-7f44ee7e9000 ---p 00000000 00:00 0 
+7f44ee7e9000-7f44ee8e9000 rw-p 00000000 00:00 0 
+7f44ee8e9000-7f44ee8ea000 ---p 00000000 00:00 0 
+7f44ee8ea000-7f44ee9ea000 rw-p 00000000 00:00 0 
+7f44ee9ea000-7f44ee9eb000 ---p 00000000 00:00 0 
+7f44ee9eb000-7f44eeaeb000 rw-p 00000000 00:00 0 
+7f44eeaeb000-7f44eeaec000 ---p 00000000 00:00 0 
+7f44eeaec000-7f44eebec000 rw-p 00000000 00:00 0 
+7f44eebec000-7f44eebed000 ---p 00000000 00:00 0 
+7f44eebed000-7f44eeced000 rw-p 00000000 00:00 0 
+7f44eeced000-7f44eecee000 ---p 00000000 00:00 0 
+7f44eecee000-7f44eedee000 rw-p 00000000 00:00 0 
+7f44eedee000-7f44eedef000 ---p 00000000 00:00 0 
+7f44eedef000-7f44eeeef000 rw-p 00000000 00:00 0 
+7f44eeeef000-7f44eeef0000 ---p 00000000 00:00 0 
+7f44eeef0000-7f44eeff0000 rw-p 00000000 00:00 0 
+7f44eeff0000-7f44eeff1000 ---p 00000000 00:00 0 
+7f44eeff1000-7f44ef0f1000 rw-p 00000000 00:00 0 
+7f44ef0f1000-7f44ef0f2000 ---p 00000000 00:00 0 
+7f44ef0f2000-7f44ef1f2000 rw-p 00000000 00:00 0 
+7f44ef1f2000-7f44ef1f3000 ---p 00000000 00:00 0 
+7f44ef1f3000-7f44ef2f3000 rw-p 00000000 00:00 0 
+7f44ef2f3000-7f44ef2f4000 ---p 00000000 00:00 0 
+7f44ef2f4000-7f44ef3f4000 rw-p 00000000 00:00 0 
+7f44ef3f4000-7f44ef3f5000 ---p 00000000 00:00 0 
+7f44ef3f5000-7f44ef4f5000 rw-p 00000000 00:00 0 
+7f44ef4f5000-7f44ef4f6000 ---p 00000000 00:00 0 
+7f44ef4f6000-7f44ef5f6000 rw-p 00000000 00:00 0 
+7f44ef5f6000-7f44ef5f7000 ---p 00000000 00:00 0 
+7f44ef5f7000-7f44ef6f7000 rw-p 00000000 00:00 0 
+7f44ef6f7000-7f44ef6f8000 ---p 00000000 00:00 0 
+7f44ef6f8000-7f44ef7f8000 rw-p 00000000 00:00 0 
+7f44ef7f8000-7f44ef7f9000 ---p 00000000 00:00 0 
+7f44ef7f9000-7f44ef8f9000 rw-p 00000000 00:00 0 
+7f44ef8f9000-7f44ef8fa000 ---p 00000000 00:00 0 
+7f44ef8fa000-7f44ef9fa000 rw-p 00000000 00:00 0 
+7f44ef9fa000-7f44ef9fb000 ---p 00000000 00:00 0 
+7f44ef9fb000-7f44efafb000 rw-p 00000000 00:00 0 
+7f44efafb000-7f44efafc000 ---p 00000000 00:00 0 
+7f44efafc000-7f44efbfc000 rw-p 00000000 00:00 0 
+7f44efbfc000-7f44efbfd000 ---p 00000000 00:00 0 
+7f44efbfd000-7f44efcfd000 rw-p 00000000 00:00 0 
+7f44efcfd000-7f44efcfe000 ---p 00000000 00:00 0 
+7f44efcfe000-7f44efdfe000 rw-p 00000000 00:00 0 
+7f44efdfe000-7f44efdff000 ---p 00000000 00:00 0 
+7f44efdff000-7f44efeff000 rw-p 00000000 00:00 0 
+7f44efeff000-7f44eff00000 ---p 00000000 00:00 0 
+7f44eff00000-7f44f0000000 rw-p 00000000 00:00 0 
+7f44f0000000-7f44f0021000 rw-p 00000000 00:00 0 
+7f44f0021000-7f44f4000000 ---p 00000000 00:00 0 
+7f44f4000000-7f44f4021000 rw-p 00000000 00:00 0 
+7f44f4021000-7f44f8000000 ---p 00000000 00:00 0 
+7f44f8000000-7f44f8021000 rw-p 00000000 00:00 0 
+7f44f8021000-7f44fc000000 ---p 00000000 00:00 0 
+7f44fc000000-7f44fc021000 rw-p 00000000 00:00 0 
+7f44fc021000-7f4500000000 ---p 00000000 00:00 0 
+7f4500000000-7f4500021000 rw-p 00000000 00:00 0 
+7f4500021000-7f4504000000 ---p 00000000 00:00 0 
+7f4504000000-7f4504021000 rw-p 00000000 00:00 0 
+7f4504021000-7f4508000000 ---p 00000000 00:00 0 
+7f4508000000-7f4508021000 rw-p 00000000 00:00 0 
+7f4508021000-7f450c000000 ---p 00000000 00:00 0 
+7f450c000000-7f450c021000 rw-p 00000000 00:00 0 
+7f450c021000-7f4510000000 ---p 00000000 00:00 0 
+7f4510000000-7f4510021000 rw-p 00000000 00:00 0 
+7f4510021000-7f4514000000 ---p 00000000 00:00 0 
+7f4514000000-7f4514021000 rw-p 00000000 00:00 0 
+7f4514021000-7f4518000000 ---p 00000000 00:00 0 
+7f4518000000-7f4518021000 rw-p 00000000 00:00 0 
+7f4518021000-7f451c000000 ---p 00000000 00:00 0 
+7f451c000000-7f451c021000 rw-p 00000000 00:00 0 
+7f451c021000-7f4520000000 ---p 00000000 00:00 0 
+7f4520000000-7f4520021000 rw-p 00000000 00:00 0 
+7f4520021000-7f4524000000 ---p 00000000 00:00 0 
+7f4524000000-7f4524021000 rw-p 00000000 00:00 0 
+7f4524021000-7f4528000000 ---p 00000000 00:00 0 
+7f4528000000-7f4528021000 rw-p 00000000 00:00 0 
+7f4528021000-7f452c000000 ---p 00000000 00:00 0 
+7f452c000000-7f452c021000 rw-p 00000000 00:00 0 
+7f452c021000-7f4530000000 ---p 00000000 00:00 0 
+7f4530000000-7f4530021000 rw-p 00000000 00:00 0 
+7f4530021000-7f4534000000 ---p 00000000 00:00 0 
+7f4534000000-7f4534021000 rw-p 00000000 00:00 0 
+7f4534021000-7f4538000000 ---p 00000000 00:00 0 
+7f4538000000-7f4538021000 rw-p 00000000 00:00 0 
+7f4538021000-7f453c000000 ---p 00000000 00:00 0 
+7f453c000000-7f453c021000 rw-p 00000000 00:00 0 
+7f453c021000-7f4540000000 ---p 00000000 00:00 0 
+7f4540000000-7f4540021000 rw-p 00000000 00:00 0 
+7f4540021000-7f4544000000 ---p 00000000 00:00 0 
+7f45440f1000-7f45440f2000 ---p 00000000 00:00 0 
+7f45440f2000-7f45441f2000 rw-p 00000000 00:00 0 
+7f45441f2000-7f45441f3000 ---p 00000000 00:00 0 
+7f45441f3000-7f45442f3000 rw-p 00000000 00:00 0 
+7f45442f3000-7f45442f4000 ---p 00000000 00:00 0 
+7f45442f4000-7f45443f4000 rw-p 00000000 00:00 0 
+7f45443f4000-7f45443f5000 ---p 00000000 00:00 0 
+7f45443f5000-7f45444f5000 rw-p 00000000 00:00 0 
+7f45444f5000-7f45444f6000 ---p 00000000 00:00 0 
+7f45444f6000-7f45445f6000 rw-p 00000000 00:00 0 
+7f45445f6000-7f45445f7000 ---p 00000000 00:00 0 
+7f45445f7000-7f45446f7000 rw-p 00000000 00:00 0 
+7f45446f7000-7f45446f8000 ---p 00000000 00:00 0 
+7f45446f8000-7f45447f8000 rw-p 00000000 00:00 0 
+7f45447f8000-7f45447f9000 ---p 00000000 00:00 0 
+7f45447f9000-7f45448f9000 rw-p 00000000 00:00 0 
+7f45448f9000-7f45448fa000 ---p 00000000 00:00 0 
+7f45448fa000-7f45449fa000 rw-p 00000000 00:00 0 
+7f45449fa000-7f45449fb000 ---p 00000000 00:00 0 
+7f45449fb000-7f4544afb000 rw-p 00000000 00:00 0 
+7f4544afb000-7f4544afc000 ---p 00000000 00:00 0 
+7f4544afc000-7f4544bfc000 rw-p 00000000 00:00 0 
+7f4544bfc000-7f4544bfd000 ---p 00000000 00:00 0 
+7f4544bfd000-7f4544cfd000 rw-p 00000000 00:00 0 
+7f4544cfd000-7f4544cfe000 ---p 00000000 00:00 0 
+7f4544cfe000-7f4544dfe000 rw-p 00000000 00:00 0 
+7f4544dfe000-7f4544dff000 ---p 00000000 00:00 0 
+7f4544dff000-7f4544eff000 rw-p 00000000 00:00 0 
+7f4544eff000-7f4544f00000 ---p 00000000 00:00 0 
+7f4544f00000-7f4545000000 rw-p 00000000 00:00 0 
+7f4545000000-7f4545270000 rwxp 00000000 00:00 0 
+7f4545270000-7f4554000000 ---p 00000000 00:00 0 
+7f4554000000-7f455407e000 rw-p 00000000 00:00 0 
+7f455407e000-7f4558000000 ---p 00000000 00:00 0 
+7f455808a000-7f455808b000 ---p 00000000 00:00 0 
+7f455808b000-7f455818b000 rw-p 00000000 00:00 0 
+7f455818b000-7f455818c000 ---p 00000000 00:00 0 
+7f455818c000-7f455828c000 rw-p 00000000 00:00 0 
+7f455828c000-7f455828d000 ---p 00000000 00:00 0 
+7f455828d000-7f455838d000 rw-p 00000000 00:00 0 
+7f455838d000-7f455838e000 ---p 00000000 00:00 0 
+7f455838e000-7f455848e000 rw-p 00000000 00:00 0 
+7f455848e000-7f455848f000 ---p 00000000 00:00 0 
+7f455848f000-7f455858f000 rw-p 00000000 00:00 0 
+7f455858f000-7f4558590000 ---p 00000000 00:00 0 
+7f4558590000-7f455869a000 rw-p 00000000 00:00 0 
+7f455869a000-7f4558a50000 ---p 00000000 00:00 0 
+7f4558a50000-7f4558a58000 r-xp 00000000 fd:00 1450817                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libzip.so
+7f4558a58000-7f4558c57000 ---p 00008000 fd:00 1450817                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libzip.so
+7f4558c57000-7f4558c58000 r--p 00007000 fd:00 1450817                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libzip.so
+7f4558c58000-7f4558c59000 rw-p 00000000 00:00 0 
+7f4558c59000-7f455945e000 r--s 00000000 fd:00 525217                     /var/lib/sss/mc/passwd
+7f455945e000-7f4559466000 r-xp 00000000 fd:00 934238                     /usr/lib64/libnss_sss.so.2
+7f4559466000-7f4559665000 ---p 00008000 fd:00 934238                     /usr/lib64/libnss_sss.so.2
+7f4559665000-7f4559666000 r--p 00007000 fd:00 934238                     /usr/lib64/libnss_sss.so.2
+7f4559666000-7f4559667000 rw-p 00008000 fd:00 934238                     /usr/lib64/libnss_sss.so.2
+7f4559667000-7f4559671000 r-xp 00000000 fd:00 1450794                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libinstrument.so
+7f4559671000-7f4559870000 ---p 0000a000 fd:00 1450794                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libinstrument.so
+7f4559870000-7f4559871000 r--p 00009000 fd:00 1450794                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libinstrument.so
+7f4559871000-7f4559872000 rw-p 0000a000 fd:00 1450794                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libinstrument.so
+7f4559872000-7f45598a0000 r-xp 00000000 fd:00 1450799                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libjava.so
+7f45598a0000-7f4559aa0000 ---p 0002e000 fd:00 1450799                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libjava.so
+7f4559aa0000-7f4559aa1000 r--p 0002e000 fd:00 1450799                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libjava.so
+7f4559aa1000-7f4559aa2000 rw-p 0002f000 fd:00 1450799                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libjava.so
+7f4559aa2000-7f4559aa3000 rw-p 00000000 00:00 0 
+7f4559aa3000-7f4559ab0000 r-xp 00000000 fd:00 1450816                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libverify.so
+7f4559ab0000-7f4559cb0000 ---p 0000d000 fd:00 1450816                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libverify.so
+7f4559cb0000-7f4559cb2000 r--p 0000d000 fd:00 1450816                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/libverify.so
+7f4559cb2000-7f4559cb3000 rw-p 00000000 00:00 0 
+7f4559cb3000-7f4559cba000 r-xp 00000000 fd:00 928975                     /usr/lib64/librt-2.26.so
+7f4559cba000-7f4559eb9000 ---p 00007000 fd:00 928975                     /usr/lib64/librt-2.26.so
+7f4559eb9000-7f4559eba000 r--p 00006000 fd:00 928975                     /usr/lib64/librt-2.26.so
+7f4559eba000-7f4559ebb000 rw-p 00007000 fd:00 928975                     /usr/lib64/librt-2.26.so
+7f4559ebb000-7f4559ed1000 r-xp 00000000 fd:00 929872                     /usr/lib64/libgcc_s-7-20170915.so.1
+7f4559ed1000-7f455a0d0000 ---p 00016000 fd:00 929872                     /usr/lib64/libgcc_s-7-20170915.so.1
+7f455a0d0000-7f455a0d1000 r--p 00015000 fd:00 929872                     /usr/lib64/libgcc_s-7-20170915.so.1
+7f455a0d1000-7f455a0d2000 rw-p 00016000 fd:00 929872                     /usr/lib64/libgcc_s-7-20170915.so.1
+7f455a0d2000-7f455a226000 r-xp 00000000 fd:00 928480                     /usr/lib64/libm-2.26.so
+7f455a226000-7f455a425000 ---p 00154000 fd:00 928480                     /usr/lib64/libm-2.26.so
+7f455a425000-7f455a426000 r--p 00153000 fd:00 928480                     /usr/lib64/libm-2.26.so
+7f455a426000-7f455a427000 rw-p 00154000 fd:00 928480                     /usr/lib64/libm-2.26.so
+7f455a427000-7f455a59f000 r-xp 00000000 fd:00 930409                     /usr/lib64/libstdc++.so.6.0.24
+7f455a59f000-7f455a79e000 ---p 00178000 fd:00 930409                     /usr/lib64/libstdc++.so.6.0.24
+7f455a79e000-7f455a7a8000 r--p 00177000 fd:00 930409                     /usr/lib64/libstdc++.so.6.0.24
+7f455a7a8000-7f455a7aa000 rw-p 00181000 fd:00 930409                     /usr/lib64/libstdc++.so.6.0.24
+7f455a7aa000-7f455a7ad000 rw-p 00000000 00:00 0 
+7f455a7ad000-7f455b50d000 r-xp 00000000 fd:00 1450821                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/server/libjvm.so
+7f455b50d000-7f455b70c000 ---p 00d60000 fd:00 1450821                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/server/libjvm.so
+7f455b70c000-7f455b7a8000 r--p 00d5f000 fd:00 1450821                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/server/libjvm.so
+7f455b7a8000-7f455b7d1000 rw-p 00dfb000 fd:00 1450821                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/jre/lib/amd64/server/libjvm.so
+7f455b7d1000-7f455b801000 rw-p 00000000 00:00 0 
+7f455b801000-7f455b9db000 r-xp 00000000 fd:00 928310                     /usr/lib64/libc-2.26.so
+7f455b9db000-7f455bbda000 ---p 001da000 fd:00 928310                     /usr/lib64/libc-2.26.so
+7f455bbda000-7f455bbde000 r--p 001d9000 fd:00 928310                     /usr/lib64/libc-2.26.so
+7f455bbde000-7f455bbe0000 rw-p 001dd000 fd:00 928310                     /usr/lib64/libc-2.26.so
+7f455bbe0000-7f455bbe4000 rw-p 00000000 00:00 0 
+7f455bbe4000-7f455bbe7000 r-xp 00000000 fd:00 928413                     /usr/lib64/libdl-2.26.so
+7f455bbe7000-7f455bde6000 ---p 00003000 fd:00 928413                     /usr/lib64/libdl-2.26.so
+7f455bde6000-7f455bde7000 r--p 00002000 fd:00 928413                     /usr/lib64/libdl-2.26.so
+7f455bde7000-7f455bde8000 rw-p 00003000 fd:00 928413                     /usr/lib64/libdl-2.26.so
+7f455bde8000-7f455bdf6000 r-xp 00000000 fd:00 1320133                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/lib/amd64/jli/libjli.so
+7f455bdf6000-7f455bff5000 ---p 0000e000 fd:00 1320133                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/lib/amd64/jli/libjli.so
+7f455bff5000-7f455bff6000 r--p 0000d000 fd:00 1320133                    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.151-1.b12.fc27.x86_64/lib/amd64/jli/libjli.so
+7f455bff6000-7f455bff7000 rw-p 00000000 00:00 0 
+7f455bff7000-7f455c00d000 r-xp 00000000 fd:00 930598                     /usr/lib64/libz.so.1.2.11
+7f455c00d000-7f455c20c000 ---p 00016000 fd:00 930598                     /usr/lib64/libz.so.1.2.11
+7f455c20c000-7f455c20d000 r--p 00015000 fd:00 930598                     /usr/lib64/libz.so.1.2.11
+7f455c20d000-7f455c20e000 rw-p 00000000 00:00 0 
+7f455c20e000-7f455c228000 r-xp 00000000 fd:00 928874                     /usr/lib64/libpthread-2.26.so
+7f455c228000-7f455c427000 ---p 0001a000 fd:00 928874                     /usr/lib64/libpthread-2.26.so
+7f455c427000-7f455c428000 r--p 00019000 fd:00 928874                     /usr/lib64/libpthread-2.26.so
+7f455c428000-7f455c429000 rw-p 0001a000 fd:00 928874                     /usr/lib64/libpthread-2.26.so
+7f455c429000-7f455c42d000 rw-p 00000000 00:00 0 
+7f455c42d000-7f455c454000 r-xp 00000000 fd:00 931499                     /usr/lib64/ld-2.26.so
+7f455c4b3000-7f455c533000 rw-s 00000000 00:2a 1149559                    /tmp/hsperfdata_glushenkov/62764
+7f455c533000-7f455c536000 ---p 00000000 00:00 0 
+7f455c536000-7f455c636000 rw-p 00000000 00:00 0 
+7f455c650000-7f455c651000 rw-p 00000000 00:00 0 
+7f455c651000-7f455c652000 r--p 00000000 00:00 0 
+7f455c652000-7f455c654000 rw-p 00000000 00:00 0 
+7f455c654000-7f455c655000 r--p 00027000 fd:00 931499                     /usr/lib64/ld-2.26.so
+7f455c655000-7f455c656000 rw-p 00028000 fd:00 931499                     /usr/lib64/ld-2.26.so
+7f455c656000-7f455c657000 rw-p 00000000 00:00 0 
+7ffc28aca000-7ffc28aeb000 rw-p 00000000 00:00 0                          [stack]
+7ffc28bea000-7ffc28bed000 r--p 00000000 00:00 0                          [vvar]
+7ffc28bed000-7ffc28bef000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xms110G -Xmx110G -XX:+UseShenandoahGC -verbose:gc -javaagent:/home/glushenkov/Documents/IntelliJ/lib/idea_rt.jar=43629:/home/glushenkov/Documents/IntelliJ/bin -Dfile.encoding=UTF-8 
+java_command: shenandoah_first_acquaintance.e1
+java_class_path (initial): /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/rt.jar:/home/glushenkov/IdeaProjects/examples/out/production/examples:/home/glushenkov/Documents/IntelliJ/lib/idea_rt.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/glushenkov/.local/bin:/home/glushenkov/bin
+USERNAME=glushenkov
+SHELL=/bin/bash
+DISPLAY=:1
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xb67040], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xb67040], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x917bd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x917bd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x917bd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x917bd0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x917a80], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 27 (Twenty Seven)
+
+uname:Linux 4.14.8-300.fc27.x86_64 #1 SMP Wed Dec 20 19:00:18 UTC 2017 x86_64
+libc:glibc 2.26 NPTL 2.26 
+rlimit: STACK 8192k, CORE infinity, NPROC 513384, NOFILE 4096, AS infinity
+load average:2.08 1.87 1.68
+
+/proc/meminfo:
+MemTotal:       131683660 kB
+MemFree:        37694016 kB
+MemAvailable:   41693856 kB
+Buffers:          503464 kB
+Cached:          3981424 kB
+SwapCached:            0 kB
+Active:         90245244 kB
+Inactive:        1896304 kB
+Active(anon):   87636768 kB
+Inactive(anon):   175544 kB
+Active(file):    2608476 kB
+Inactive(file):  1720760 kB
+Unevictable:          80 kB
+Mlocked:              80 kB
+SwapTotal:       4194300 kB
+SwapFree:        4194300 kB
+Dirty:              1348 kB
+Writeback:             0 kB
+AnonPages:      87656932 kB
+Mapped:           913492 kB
+Shmem:            155660 kB
+Slab:            1155812 kB
+SReclaimable:     925624 kB
+SUnreclaim:       230188 kB
+KernelStack:       32032 kB
+PageTables:       264996 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    70036128 kB
+Committed_AS:   137876332 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      686864 kB
+DirectMap2M:    16795648 kB
+DirectMap1G:    116391936 kB
+
+
+CPU:total 36 (initial active 36) (18 cores per cpu, 2 threads per core) family 6 model 85 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 0
+cpu cores	: 18
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 1
+cpu cores	: 18
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 2
+cpu cores	: 18
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 3
+cpu cores	: 18
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1400.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 4
+cpu cores	: 18
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1400.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 8
+cpu cores	: 18
+apicid		: 16
+initial apicid	: 16
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 2400.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 9
+cpu cores	: 18
+apicid		: 18
+initial apicid	: 18
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 10
+cpu cores	: 18
+apicid		: 20
+initial apicid	: 20
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 8
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 11
+cpu cores	: 18
+apicid		: 22
+initial apicid	: 22
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 9
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1400.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 16
+cpu cores	: 18
+apicid		: 32
+initial apicid	: 32
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 10
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 17
+cpu cores	: 18
+apicid		: 34
+initial apicid	: 34
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 11
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 18
+cpu cores	: 18
+apicid		: 36
+initial apicid	: 36
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 12
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1900.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 19
+cpu cores	: 18
+apicid		: 38
+initial apicid	: 38
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 13
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 20
+cpu cores	: 18
+apicid		: 40
+initial apicid	: 40
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 14
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1700.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 24
+cpu cores	: 18
+apicid		: 48
+initial apicid	: 48
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 15
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 25
+cpu cores	: 18
+apicid		: 50
+initial apicid	: 50
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 16
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 26
+cpu cores	: 18
+apicid		: 52
+initial apicid	: 52
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 17
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1500.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 27
+cpu cores	: 18
+apicid		: 54
+initial apicid	: 54
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 18
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 0
+cpu cores	: 18
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 19
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 1
+cpu cores	: 18
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 20
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1500.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 2
+cpu cores	: 18
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 21
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 3
+cpu cores	: 18
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 22
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 4
+cpu cores	: 18
+apicid		: 9
+initial apicid	: 9
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 23
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 8
+cpu cores	: 18
+apicid		: 17
+initial apicid	: 17
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 24
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 9
+cpu cores	: 18
+apicid		: 19
+initial apicid	: 19
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 25
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1700.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 10
+cpu cores	: 18
+apicid		: 21
+initial apicid	: 21
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 26
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 11
+cpu cores	: 18
+apicid		: 23
+initial apicid	: 23
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 27
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 16
+cpu cores	: 18
+apicid		: 33
+initial apicid	: 33
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 28
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 17
+cpu cores	: 18
+apicid		: 35
+initial apicid	: 35
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 29
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 18
+cpu cores	: 18
+apicid		: 37
+initial apicid	: 37
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 30
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1200.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 19
+cpu cores	: 18
+apicid		: 39
+initial apicid	: 39
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 31
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 20
+cpu cores	: 18
+apicid		: 41
+initial apicid	: 41
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 32
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1700.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 24
+cpu cores	: 18
+apicid		: 49
+initial apicid	: 49
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 33
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1400.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 25
+cpu cores	: 18
+apicid		: 51
+initial apicid	: 51
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 34
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 2601.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 26
+cpu cores	: 18
+apicid		: 53
+initial apicid	: 53
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 35
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model nameFork	: Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz
+stepping	: 4
+microcode	: 0x2000035
+cpu MHz		: 1300.000
+cache size	: 25344 KB
+physical id	: 0
+siblings	: 36
+core id		: 27
+cpu cores	: 18
+apicid		: 55
+initial apicid	: 55
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 intel_pt mba tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+bugs		:
+bogomips	: 5400.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 131683660k(37693336k free), swap 4194300k(4194300k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.151-b12) for linux-amd64 JRE (1.8.0_151-b12), built on Oct 25 2017 14:26:28 by "mockbuild" with gcc 7.2.1 20170915 (Red Hat 7.2.1-2)
+
+time: Fri Jan  5 01:48:28 2018
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

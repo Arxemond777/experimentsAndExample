@@ -1,0 +1,10 @@
+module java_9 {
+
+//    exports java_9;
+    opens java_9;
+
+    requires javafx.base;
+    requires javafx.swing;
+    requires jdk.unsupported;
+
+}

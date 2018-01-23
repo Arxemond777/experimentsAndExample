@@ -1,0 +1,27 @@
+# вынос багфикса
+
+git checkout master
+git merge —no-ff subp-4261
+git push origin master
+
+git checkout latest
+(перенос изменений руками || git cherry-pick нужный_хеш_из_гит_лог_мастер_0 нужный_хеш_из_гит_лог_мастер_1 —no-commit)
+
+git tag -a v2.96.3 # в гите был v2.96.2, в pom v2.96.3
+git push origin v2.96.3
+git push origin latest
+
+#и нкрементим версию в pom файле -> v2.96.4
+git add .; git commit -m "2.96.4 версия следующего релиза из latest"; git push origin latest
+________________________________________________________________________________________________________________________
+# вынос мастера
+
+git checkout latest
+git merge --strategy-option theirs master
+
+git tag -a v2.97.3 # в гите был v2.96.2, в pom v2.96.3
+git push origin v2.97.3
+git push origin latest
+
+# инкрементим версию в pom файле -> v2.97.4
+git add .; git commit -m "2.97.4 версия следующего релиза из latest"; git push origin latest

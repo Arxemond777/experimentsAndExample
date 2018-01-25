@@ -1,0 +1,4 @@
+#Application Parameters
+#Sat Jan 28 22:31:56 MSK 2017
+dwbbdf=524
+TestPropertu.xsize=52

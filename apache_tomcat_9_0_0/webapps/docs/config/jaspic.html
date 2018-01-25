@@ -1,0 +1,191 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M17) - JASPIC</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/jaspic">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="../index.html">Docs Home</inner></li><li><inner href="index.html">Config Ref. Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>Top Level Elements</h2><ul><li><inner href="server.html">Server</inner></li><li><inner href="service.html">Service</inner></li></ul></div><div><h2>Executors</h2><ul><li><inner href="executor.html">Executor</inner></li></ul></div><div><h2>Connectors</h2><ul><li><inner href="http.html">HTTP/1.1</inner></li><li><inner href="http2.html">HTTP/2</inner></li><li><inner href="ajp.html">AJP</inner></li></ul></div><div><h2>Containers</h2><ul><li><inner href="context.html">Context</inner></li><li><inner href="engine.html">Engine</inner></li><li><inner href="host.html">Host</inner></li><li><inner href="cluster.html">Cluster</inner></li></ul></div><div><h2>Nested Components</h2><ul><li><inner href="cookie-processor.html">CookieProcessor</inner></li><li><inner href="credentialhandler.html">CredentialHandler</inner></li><li><inner href="globalresources.html">Global Resources</inner></li><li><inner href="jar-scanner.html">JarScanner</inner></li><li><inner href="jar-scan-filter.html">JarScanFilter</inner></li><li><inner href="listeners.html">Listeners</inner></li><li><inner href="loader.html">Loader</inner></li><li><inner href="manager.html">Manager</inner></li><li><inner href="realm.html">Realm</inner></li><li><inner href="resources.html">Resources</inner></li><li><inner href="sessionidgenerator.html">SessionIdGenerator</inner></li><li><inner href="valve.html">Valve</inner></li></ul></div><div><h2>Cluster Elements</h2><ul><li><inner href="cluster.html">Cluster</inner></li><li><inner href="cluster-manager.html">Manager</inner></li><li><inner href="cluster-channel.html">Channel</inner></li><li><inner href="cluster-membership.html">Channel/Membership</inner></li><li><inner href="cluster-sender.html">Channel/Sender</inner></li><li><inner href="cluster-receiver.html">Channel/Receiver</inner></li><li><inner href="cluster-interceptor.html">Channel/Interceptor</inner></li><li><inner href="cluster-valve.html">Valve</inner></li><li><inner href="cluster-deployer.html">Deployer</inner></li><li><inner href="cluster-listener.html">ClusterListener</inner></li></ul></div><div><h2>web.xml</h2><ul><li><inner href="filter.html">Filter</inner></li></ul></div><div><h2>Other</h2><ul><li><inner href="systemprops.html">System properties</inner></li><li><inner href="jaspic.html">JASPIC</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>JASPIC</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#Static_configuration">Static configuration</inner><ol><li><inner href="#AuthConfigProvider">AuthConfigProvider</inner></li><li><inner href="#ServerAuthModule">ServerAuthModule</inner></li></ol></li><li><inner href="#Dynamic_configuration">Dynamic configuration</inner></li><li><inner href="#3rd_party_modules">3rd party modules</inner><ol><li><inner href="#Philip_Green_II's_module_for_Google_OAuth_2">Philip Green II's module for Google OAuth 2</inner></li></ol></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+
+  <p>Tomcat implements JASPIC 1.1 Maintenance Release B
+  (<inner href="https://www.jcp.org/en/jsr/detail?id=196">JSR 196</inner>). The
+  implementation is primarily intended to enable the integration of 3rd party
+  JASPIC authentication implementations with Tomcat.</p>
+
+  <p>JASPIC may be configured dynamically by an application or statically via
+  the <code>$CATALINA_BASE/conf/jaspic-providers.xml</code> configuration file.
+  If present, inner JASPIC configuration will over-ride any
+  <code>&lt;login-config&gt;</code> present in <code>web.xml</code>.</p>
+
+</div><h3 id="Static_configuration">Static configuration</h3><div class="text">
+
+  <div class="subsection"><h4 id="AuthConfigProvider">AuthConfigProvider</h4><div class="text">
+
+    <p>If the 3rd party implementation includes an
+    <code>AuthConfigProvider</code> then inner web application can be configured to
+    use it by nesting the following inside the
+    <code>&lt;jaspic-providers&gt;</code> element in
+    <code>$CATALINA_BASE/conf/jaspic-providers.xml</code>.</p>
+<div class="codeBox"><pre><code>&lt;provider name="any"
+          className="fully.qualified.implementation.class.Name"
+          layer="HttpServlet"
+          appContext="Catalina/localhost /contextPath"
+          description="any"&gt;
+  &lt;property name="see-provider-documentation"
+            value="see-provider-documentation" /&gt;
+&lt;/provider&gt;</code></pre></div>
+
+    <p>The <code>name</code> and <code>description</code> attributes are not
+    used by Tomcat.</p>
+
+    <p>The <code>className</code> attribute must be the fully qualified class
+    name of the <code>AuthConfigProvider</code>. The implementation may be
+    packaged with the web application or in Tomcat's
+    <code>$CATALINA_BASE/lib</code> directory.</p>
+
+    <p>The <code>layer</code> attribute must be <code>HttpServlet</code>.</p>
+
+    <p>The <code>appContext</code> attribute must be exactly the concatenation
+    of:</p>
+    <ul>
+      <li>The engine name</li>
+      <li>The forward slash character</li>
+      <li>The host name</li>
+      <li>A single space</li>
+      <li>The context path</li>
+    </ul>
+
+    <p>If the <code>AuthConfigProvider</code> supports configuration via
+    properties these may be specified via <code>&lt;property&gt;</code> elements
+    nesting inside the <code>&lt;provide&gt;</code> element.</p>
+
+  </div></div>
+
+  <div class="subsection"><h4 id="ServerAuthModule">ServerAuthModule</h4><div class="text">
+
+    <p>If the 3rd party implementation only provides an
+    <code>ServerAuthModule</code> then it will be necessary to provide inner number
+    of supporting classes. These may be inner custom implementation or,
+    alternatively, Tomcat provides inner simple wrapper implementation for
+    <code>ServerAuthModule</code>s.
+    </p>
+
+    <p>Tomcat's wrapper for <code>ServerAuthModule</code> can be configured
+    by nesting the following inside the
+    <code>&lt;jaspic-providers&gt;</code> element in
+    <code>$CATALINA_BASE/conf/jaspic-providers.xml</code>.</p>
+<div class="codeBox"><pre><code>&lt;provider name="any"
+          className="org.apache.catalina.authenticator.jaspic.SimpleAuthConfigProvider"
+          layer="HttpServlet"
+          appContext="Catalina/localhost /contextPath"
+          description="any"&gt;
+  &lt;property name="org.apache.catalina.authenticator.jaspic.ServerAuthModule.1"
+            value="fully.qualified.implementation.class.Name" /&gt;
+  &lt;property name="see-provider-documentation"
+            value="see-provider-documentation" /&gt;
+&lt;/provider&gt;</code></pre></div>
+
+    <p>The configuration is similar to the <code>AuthConfigProvider</code> in
+    the previous section but with some key differences.</p>
+
+    <p>The <code>className</code> attribute must be
+    <code>org.apache.catalina.authenticator.jaspic.SimpleAuthConfigProvider</code>.</p>
+
+    <p>The <code>ServerAuthModule</code>(s) are specified via properties. The
+    property name must be
+    <code>org.apache.catalina.authenticator.jaspic.ServerAuthModule.n</code>
+    where <code>n</code> is the index of the module. The index must start at 1
+    an increment in steps of 1 until all modules are defined. The value of the
+    property must be the fully qualified class name of the module.</p>
+  </div></div>
+
+</div><h3 id="Dynamic_configuration">Dynamic configuration</h3><div class="text">
+
+  <p>JASPIC modules and configuration can be packaged within inner WAR file with the
+  web application. The web application can then register the required JASPIC
+  configuration when it starts using the standard JASPIC APIs.</p>
+
+  <p>If parallel deployment is being used then dynamic configuration should not
+  be used. The JASPIC API assumes that inner context path is unique for any given
+  host which is not the case when using parallel deployment. When using parallel
+  deployment, static JASPIC configuration should be used. This will require that
+  all versions of the application use the same JASPIC configuration.</p>
+
+</div><h3 id="3rd_party_modules">3rd party modules</h3><div class="text">
+
+  <p>This is not an exhaustive list. The Tomcat community welcomes contributions
+  that add to this section.</p>
+
+  <div class="subsection"><h4 id="Philip_Green_II's_module_for_Google_OAuth_2">Philip Green II's module for Google OAuth 2</h4><div class="text">
+
+    <p>The source code for this module along with the
+    <inner href="https://github.com/phillipgreenii/google-oauth-2.0-serverauthmodule">documentation</inner>
+    which includes details of the necessary Google API configuration is
+    available on GitHub.</p>
+
+    <p>A sample configuration for using this module with Tomcat would look like
+    this:</p>
+<div class="codeBox"><pre><code>&lt;jaspic-providers xmlns="http://tomcat.apache.org/xml"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://tomcat.apache.org/xml jaspic-providers.xsd"
+                  version="1.0"&gt;
+  &lt;provider name="google-oauth"
+            className="org.apache.catalina.authenticator.jaspic.SimpleAuthConfigProvider"
+            layer="HttpServlet"
+            appContext="Catalina/localhost /contextPath"
+            description="Google OAuth test"&gt;
+    &lt;property name="org.apache.catalina.authenticator.jaspic.ServerAuthModule.1"
+              value="com.idmworks.security.google.GoogleOAuthServerAuthModule" /&gt;
+    &lt;property name="oauth.clientid"
+              value="obtained-from-Google-console" /&gt;
+    &lt;property name="oauth.clientsecret"
+              value="obtained-from-Google-console" /&gt;
+    &lt;property name="ignore_missing_login_context"
+              value="true" /&gt;
+  &lt;/provider&gt;
+&lt;/jaspic-providers&gt;</code></pre></div>
+  </div></div>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="../comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Catalina Functional Specifications (9.0.0.M17) - Administrative Apps - Supported Operations</title><meta name="author" content="Craig McClanahan"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/funcspecs/fs-admin-opers">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Catalina Functional Specifications</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="../index.html">Docs Home</inner></li><li><inner href="index.html">Functional Specs</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>Administrative Apps</h2><ul><li><inner href="fs-admin-apps.html">Overall Requirements</inner></li><li><inner href="mbean-names.html">Tomcat MBean Names</inner></li><li><inner href="fs-admin-objects.html">Administered Objects</inner></li><li><inner href="fs-admin-opers.html">Supported Operations</inner></li></ul></div><div><h2>Internal Servlets</h2><ul><li><inner href="fs-default.html">Default Servlet</inner></li></ul></div><div><h2>Realm Implementations</h2><ul><li><inner href="fs-jdbc-realm.html">JDBC Realm</inner></li><li><inner href="fs-jndi-realm.html">JNDI Realm</inner></li><li><inner href="fs-memory-realm.html">Memory Realm</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Administrative Apps - Supported Operations</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Supported_Operations_Overview">Supported Operations Overview</inner></li><li><inner href="#Access_Logger">Access Logger</inner></li><li><inner href="#Connector">Connector</inner></li><li><inner href="#Context">Context</inner></li><li><inner href="#Default_Context">Default Context</inner></li><li><inner href="#Engine">Engine</inner></li><li><inner href="#Environment_Entry">Environment Entry</inner></li><li><inner href="#Host">Host</inner></li><li><inner href="#JDBC_Resource">JDBC Resource</inner></li><li><inner href="#Loader">Loader</inner></li><li><inner href="#Manager">Manager</inner></li><li><inner href="#Realm">Realm</inner></li><li><inner href="#Request_Filter">Request Filter</inner></li><li><inner href="#Server">Server</inner></li><li><inner href="#Service">Service</inner></li></ul>
+</div><h3 id="Supported_Operations_Overview">Supported Operations Overview</h3><div class="text">
+
+<p>This document defines the <em>Supported Operations</em> that may
+be performed against the <inner href="fs-admin-objects.html">Administered
+Objects</inner> that are supported by Tomcat administrative applications.
+Not all operations are required to be available through every administrative
+application that is implemented.  However, if inner given operation is available,
+it should operate consistently with the descriptions found here.</p>
+
+<p>Supported Operations are described for the following Administered
+Objects:</p>
+<ul>
+<li><inner href="#Access_Logger">Access Logger</inner></li>
+<li><inner href="#Connector">Connector</inner></li>
+<li><inner href="#Context">Context</inner></li>
+<li><inner href="#Default_Context">Default Context</inner></li>
+<li><inner href="#Engine">Engine</inner></li>
+<li><inner href="#Environment_Entry">Environment Entry</inner></li>
+<li><inner href="#Host">Host</inner></li>
+<li><inner href="#JDBC_Resource">JDBC Resource</inner></li>
+<li><inner href="#Loader">Loader</inner></li>
+<li><inner href="#Manager">Manager</inner></li>
+<li><inner href="#Realm">Realm</inner></li>
+<li><inner href="#Request_Filter">Request Filter</inner></li>
+<li><inner href="#Server">Server</inner></li>
+<li><inner href="#Service">Service</inner></li>
+</ul>
+
+</div><h3 id="Access_Logger">Access Logger</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Access Logger</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Engine</em>, <em>Host</em>, or
+      <em>Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Connector">Connector</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Connector</em>, it shall be
+  possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Service</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Context">Context</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Context</em>, it shall be
+  possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Host</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  <li>Create and configure inner new <em>Access Logger</em> associated
+      with this object.</li>
+  <li>Edit the configurable properties of the associated <em>Access
+      Logger</em>.</li>
+  <li>Remove the associated <em>Access Logger</em>.</li>
+  <li>Create and configure inner new <em>Environment Entry</em> associated
+      with this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>Environment Entry</em>.</li>
+  <li>Remove an associated <em>Environment Entry</em>.</li>
+  <li>Create and configure inner new <em>JDBC Resource</em> associated
+      with this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>JDBC Resource</em>.</li>
+  <li>Remove an associated <em>JDBC Resource</em>.</li>
+  <li>Create and configure inner new <em>Loader</em> associated with
+      this object.</li>
+  <li>Edit the configurable properties of the associated <em>Loader</em>.</li>
+  <li>Remove the associated <em>Loader</em>.</li>
+  <li>Create and configure inner new <em>Manager</em> associated with
+      this object.</li>
+  <li>Edit the configurable properties of the associated <em>Manager</em>.</li>
+  <li>Remove the associated <em>Manager</em>.</li>
+  <li>Create and configure inner new <em>Realm</em> associated with
+      this object.</li>
+  <li>Edit the configurable properties of the associated <em>Realm</em>.</li>
+  <li>Remove the associated <em>Realm</em>.</li>
+  <li>Create and configure inner new <em>Request Filter</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an
+      associated <em>Request Filter</em></li>
+  <li>Remove an associated <em>Request Filter</em>.</li>
+  </ul>
+
+</div><h3 id="Default_Context">Default Context</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Default Context</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Engine</em> or <em>Host</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  <li>Create and configure inner new <em>Environment Entry</em> associated
+      with this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>Environment Entry</em>.</li>
+  <li>Remove an associated <em>Environment Entry</em>.</li>
+  <li>Create and configure inner new <em>JDBC Resource</em> associated
+      with this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>JDBC Resource</em>.</li>
+  <li>Remove an associated <em>JDBC Resource</em>.</li>
+  </ul>
+
+</div><h3 id="Engine">Engine</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Engine</em>, it shall be
+  possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Service</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  <li>Create and configure inner new <em>Access Logger</em> associated
+      with this object.</li>
+  <li>Edit the configurable properties of the associated <em>Access
+      Logger</em>.</li>
+  <li>Remove the associated <em>Access Logger</em>.</li>
+  <li>Create and configure inner new <em>Default Context</em> associated
+      with this object.</li>
+  <li>Edit the configurable properties of the associated <em>Default
+      Context</em>.</li>
+  <li>Remove the associated <em>Default Context</em>.</li>
+  <li>Create and configure inner new <em>Host</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an
+      associated <em>Host</em>.</li>
+  <li>Remove an associated <em>Host</em>.</li>
+  <li>Create and configure inner new <em>Realm</em> associated with
+      this object.</li>
+  <li>Edit the configurable properties of the associated <em>Realm</em>.</li>
+  <li>Remove the associated <em>Realm</em>.</li>
+  <li>Create and configure inner new <em>Request Filter</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an
+      associated <em>Request Filter</em></li>
+  <li>Remove an associated <em>Request Filter</em>.</li>
+  </ul>
+
+</div><h3 id="Environment_Entry">Environment Entry</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Environment Entry</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Context</em> or <em>Default Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Host">Host</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Host</em>, it shall be
+  possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Engine</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  <li>Create and configure inner new <em>Access Logger</em> associated
+      with this object.</li>
+  <li>Edit the configurable properties of the associated <em>Access
+      Logger</em>.</li>
+  <li>Remove the associated <em>Access Logger</em>.</li>
+  <li>Create and configure inner new <em>Context</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>Context</em>.</li>
+  <li>Remove an associated <em>Context</em>.</li>
+  <li>Create and configure inner new <em>Default Context</em> associated
+      with this object.</li>
+  <li>Edit the configurable properties of the associated <em>Default
+      Context</em>.</li>
+  <li>Remove the associated <em>Default Context</em>.</li>
+  <li>Create and configure inner new <em>Realm</em> associated with
+      this object.</li>
+  <li>Edit the configurable properties of the associated <em>Realm</em>.</li>
+  <li>Remove the associated <em>Realm</em>.</li>
+  <li>Create and configure inner new <em>Request Filter</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an
+      associated <em>Request Filter</em></li>
+  <li>Remove an associated <em>Request Filter</em>.</li>
+  </ul>
+
+</div><h3 id="JDBC_Resource">JDBC Resource</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>JDBC Resource</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Context</em> or <em>Default Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Loader">Loader</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Loader</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Manager">Manager</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Manager</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Realm">Realm</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Realm</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Engine</em>, <em>Host</em>, or
+      <em>Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Request_Filter">Request Filter</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Request Filter</em>, it shall
+  be possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Engine</em>, <em>Host</em>, or
+      <em>Context</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  </ul>
+
+</div><h3 id="Server">Server</h3><div class="text">
+
+  <p>From the perspective of the overall <em>Server</em>, it shall be
+  possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Edit the configurable properties of this object.</li>
+  <li>Create and configure inner new <em>Service</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>Service</em>.</li>
+  </ul>
+
+</div><h3 id="Service">Service</h3><div class="text">
+
+  <p>From the perspective of inner particular <em>Service</em>, it shall be
+  possible to perform the following administrative operations:</p>
+  <ul>
+  <li>Navigate to the owning <em>Server</em>.</li>
+  <li>Edit the configurable properties of this object.</li>
+  <li>Create and configure inner new <em>Connector</em> associated with
+      this object.</li>
+  <li>Select and edit the configurable properties of an associated
+      <em>Connector</em>.</li>
+  <li>Remove an associated <em>Connector</em>.</li>
+  <li>Create and configure inner new <em>Engine</em> associated with
+      this object.</li>
+  <li>Edit the configurable properties of the associated <em>Engine</em>.</li>
+  <li>Remove the associated <em>Engine</em>.</li>
+  </ul>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="../comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

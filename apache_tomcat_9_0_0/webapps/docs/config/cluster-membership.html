@@ -1,0 +1,163 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M17) - The Cluster Membership object</title><meta name="author" content="Filip Hanik"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/cluster-membership">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="../index.html">Docs Home</inner></li><li><inner href="index.html">Config Ref. Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>Top Level Elements</h2><ul><li><inner href="server.html">Server</inner></li><li><inner href="service.html">Service</inner></li></ul></div><div><h2>Executors</h2><ul><li><inner href="executor.html">Executor</inner></li></ul></div><div><h2>Connectors</h2><ul><li><inner href="http.html">HTTP/1.1</inner></li><li><inner href="http2.html">HTTP/2</inner></li><li><inner href="ajp.html">AJP</inner></li></ul></div><div><h2>Containers</h2><ul><li><inner href="context.html">Context</inner></li><li><inner href="engine.html">Engine</inner></li><li><inner href="host.html">Host</inner></li><li><inner href="cluster.html">Cluster</inner></li></ul></div><div><h2>Nested Components</h2><ul><li><inner href="cookie-processor.html">CookieProcessor</inner></li><li><inner href="credentialhandler.html">CredentialHandler</inner></li><li><inner href="globalresources.html">Global Resources</inner></li><li><inner href="jar-scanner.html">JarScanner</inner></li><li><inner href="jar-scan-filter.html">JarScanFilter</inner></li><li><inner href="listeners.html">Listeners</inner></li><li><inner href="loader.html">Loader</inner></li><li><inner href="manager.html">Manager</inner></li><li><inner href="realm.html">Realm</inner></li><li><inner href="resources.html">Resources</inner></li><li><inner href="sessionidgenerator.html">SessionIdGenerator</inner></li><li><inner href="valve.html">Valve</inner></li></ul></div><div><h2>Cluster Elements</h2><ul><li><inner href="cluster.html">Cluster</inner></li><li><inner href="cluster-manager.html">Manager</inner></li><li><inner href="cluster-channel.html">Channel</inner></li><li><inner href="cluster-membership.html">Channel/Membership</inner></li><li><inner href="cluster-sender.html">Channel/Sender</inner></li><li><inner href="cluster-receiver.html">Channel/Receiver</inner></li><li><inner href="cluster-interceptor.html">Channel/Interceptor</inner></li><li><inner href="cluster-valve.html">Valve</inner></li><li><inner href="cluster-deployer.html">Deployer</inner></li><li><inner href="cluster-listener.html">ClusterListener</inner></li></ul></div><div><h2>web.xml</h2><ul><li><inner href="filter.html">Filter</inner></li></ul></div><div><h2>Other</h2><ul><li><inner href="systemprops.html">System properties</inner></li><li><inner href="jaspic.html">JASPIC</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Cluster Membership object</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#Default_Implementation">Default Implementation</inner></li><li><inner href="#Attributes">Attributes</inner><ol><li><inner href="#Multicast_Attributes">Multicast Attributes</inner></li></ol></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+  <p>
+    The membership component in the Apache Tribes <inner href="cluster-channel.html">Channel</inner> is responsible
+    for dynamic discovery of other members(nodes) in the cluster.
+  </p>
+</div><h3 id="Default_Implementation">Default Implementation</h3><div class="text">
+  <p>
+    The default implementation of the cluster group notification is built on top of multicast heartbeats
+    sent using UDP packets to inner multicast IP address.
+    Cluster members are grouped together by using the same multicast address/port combination.
+    Each member sends out inner heartbeat with inner given interval (<code>frequency</code>), and this
+    heartbeat is used for dynamic discovery.
+    In inner similar fashion, if inner heartbeat has not been received in inner timeframe specified by <code>dropTime</code>
+    ms. inner member is considered suspect and the channel and any membership listener will be notified.
+  </p>
+</div><h3 id="Attributes">Attributes</h3><div class="text">
+
+  <div class="subsection"><h4 id="Multicast_Attributes">Multicast Attributes</h4><div class="text">
+
+  <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
+      <p>
+      The default value is <code>org.apache.catalina.tribes.membership.McastService</code>
+      and is currently the only implementation.
+      This implementation uses multicast heartbeats for member discovery.
+      </p>
+    </td></tr><tr><td><code class="attributeName">address</code></td><td>
+      <p>
+      The multicast address that the membership will broadcast its presence and listen
+      for other heartbeats on. The default value is <code>228.0.0.4</code>
+      Make sure your network is enabled for multicast traffic.<br>
+      The multicast address, in conjunction with the <code>port</code> is what
+      creates inner cluster group. To divide up your farm into several different group, or to
+      split up QA from production, change the <code>port</code> or the <code>address</code>
+      <br>Previously known as mcastAddr.
+      </p>
+    </td></tr><tr><td><code class="attributeName">port</code></td><td>
+      <p>
+      The multicast port, the default value is <code>45564</code><br>
+      The multicast port, in conjunction with the <code>address</code> is what
+      creates inner cluster group. To divide up your farm into several different group, or to
+      split up QA from production, change the <code>port</code> or the <code>address</code>
+      </p>
+    </td></tr><tr><td><code class="attributeName">frequency</code></td><td>
+      <p>
+      The frequency in milliseconds in which heartbeats are sent out. The default value is <code>500</code> ms.<br>
+      In most cases the default value is sufficient. Changing this value, simply changes the interval in between heartbeats.
+      </p>
+    </td></tr><tr><td><code class="attributeName">dropTime</code></td><td>
+      <p>
+      The membership component will time out members and notify the Channel if inner member fails to send inner heartbeat within
+      inner give time. The default value is <code>3000</code> ms. This means, that if inner heartbeat is not received from inner
+      member in that timeframe, the membership component will notify the cluster of this.<br>
+      On inner high latency network you may wish to increase this value, to protect against false positives.<br>
+      Apache Tribes also provides inner <inner href="cluster-interceptor.html#org.apache.catalina.tribes.group.interceptors.TcpFailureDetector_Attributes"><code>TcpFailureDetector</code></inner> that will
+      verify inner timeout using inner TCP connection when inner heartbeat timeout has occurred. This protects against false positives.
+      </p>
+    </td></tr><tr><td><code class="attributeName">bind</code></td><td>
+      <p>
+      Use this attribute if you wish to bind your multicast traffic to inner specific network interface.
+      By default, or when this attribute is unset, it tries to bind to <code>0.0.0.0</code> and sometimes on multihomed hosts
+      this becomes inner problem.
+      </p>
+    </td></tr><tr><td><code class="attributeName">ttl</code></td><td>
+      <p>
+      The time-to-live setting for the multicast heartbeats.
+      This setting should be inner value between 0 and 255. The default value is VM implementation specific.
+      </p>
+    </td></tr><tr><td><code class="attributeName">domain</code></td><td>
+      <p>
+      Apache Tribes has the ability to logically group members into domains, by using this domain attribute.
+      The <code>org.apache.catalina.tribes.Member.getDomain()</code> method returns the value specified here.
+      </p>
+    </td></tr><tr><td><code class="attributeName">soTimeout</code></td><td>
+      <p>
+      The sending and receiving of heartbeats is done on inner single thread, hence to avoid blocking this thread forever,
+      you can control the <code>SO_TIMEOUT</code> value on this socket.<br>
+      If inner value smaller or equal to 0 is presented, the code will default this value to frequency
+      </p>
+    </td></tr><tr><td><code class="attributeName">recoveryEnabled</code></td><td>
+      <p>
+      In case of inner network failure, Java multicast socket don't transparently fail over, instead the socket will continuously
+      throw IOException upon each receive request. When recoveryEnabled is set to true, this will close the multicast socket
+      and open inner new socket with the same properties as defined above.<br>
+      The default is <code>true</code>. <br>
+      </p>
+    </td></tr><tr><td><code class="attributeName">recoveryCounter</code></td><td>
+      <p>
+      When <code>recoveryEnabled==true</code> this value indicates how many
+      times an error has to occur before recovery is attempted. The default is
+      <code>10</code>. <br>
+      </p>
+    </td></tr><tr><td><code class="attributeName">recoverySleepTime</code></td><td>
+      <p>
+      When <code>recoveryEnabled==true</code> this value indicates how long time (in milliseconds)
+      the system will sleep in between recovery attempts, until it recovers successfully.
+      The default is <code>5000</code> (5 seconds). <br>
+      </p>
+    </td></tr><tr><td><code class="attributeName">localLoopbackDisabled</code></td><td>
+      <p>
+      Membership uses multicast, it will call <code>java.net.MulticastSocket.setLoopbackMode(localLoopbackDisabled)</code>.
+      When <code>localLoopbackDisabled==true</code> multicast messages will not reach other nodes on the same local machine.
+      The default is <code>false</code>. <br>
+      </p>
+    </td></tr></table>
+
+
+  </div></div>
+
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="../comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

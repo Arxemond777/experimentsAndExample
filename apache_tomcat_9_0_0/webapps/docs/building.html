@@ -1,0 +1,278 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.0.M17) - Building Tomcat</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/building">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="index.html">Docs Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>User Guide</h2><ul><li><inner href="introduction.html">1) Introduction</inner></li><li><inner href="setup.html">2) Setup</inner></li><li><inner href="appdev/index.html">3) First webapp</inner></li><li><inner href="deployer-howto.html">4) Deployer</inner></li><li><inner href="manager-howto.html">5) Manager</inner></li><li><inner href="realm-howto.html">6) Realms and AAA</inner></li><li><inner href="security-manager-howto.html">7) Security Manager</inner></li><li><inner href="jndi-resources-howto.html">8) JNDI Resources</inner></li><li><inner href="jndi-datasource-examples-howto.html">9) JDBC DataSources</inner></li><li><inner href="class-loader-howto.html">10) Classloading</inner></li><li><inner href="jasper-howto.html">11) JSPs</inner></li><li><inner href="ssl-howto.html">12) SSL/TLS</inner></li><li><inner href="ssi-howto.html">13) SSI</inner></li><li><inner href="cgi-howto.html">14) CGI</inner></li><li><inner href="proxy-howto.html">15) Proxy Support</inner></li><li><inner href="mbeans-descriptors-howto.html">16) MBeans Descriptors</inner></li><li><inner href="default-servlet.html">17) Default Servlet</inner></li><li><inner href="cluster-howto.html">18) Clustering</inner></li><li><inner href="balancer-howto.html">19) Load Balancer</inner></li><li><inner href="connectors.html">20) Connectors</inner></li><li><inner href="monitoring.html">21) Monitoring and Management</inner></li><li><inner href="logging.html">22) Logging</inner></li><li><inner href="apr.html">23) APR/Native</inner></li><li><inner href="virtual-hosting-howto.html">24) Virtual Hosting</inner></li><li><inner href="aio.html">25) Advanced IO</inner></li><li><inner href="extras.html">26) Additional Components</inner></li><li><inner href="maven-jars.html">27) Mavenized</inner></li><li><inner href="security-howto.html">28) Security Considerations</inner></li><li><inner href="windows-service-howto.html">29) Windows Service</inner></li><li><inner href="windows-auth-howto.html">30) Windows Authentication</inner></li><li><inner href="jdbc-pool.html">31) Tomcat's JDBC Pool</inner></li><li><inner href="web-socket-howto.html">32) WebSocket</inner></li><li><inner href="rewrite.html">33) Rewrite</inner></li></ul></div><div><h2>Reference</h2><ul><li><inner href="RELEASE-NOTES.txt">Release Notes</inner></li><li><inner href="config/index.html">Configuration</inner></li><li><inner href="api/index.html">Tomcat Javadocs</inner></li><li><inner href="servletapi/index.html">Servlet Javadocs</inner></li><li><inner href="jspapi/index.html">JSP 2.3 Javadocs</inner></li><li><inner href="elapi/index.html">EL 3.0 Javadocs</inner></li><li><inner href="websocketapi/index.html">WebSocket 1.1 Javadocs</inner></li><li><inner href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</inner></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><inner href="building.html">Building</inner></li><li><inner href="changelog.html">Changelog</inner></li><li><inner href="http://wiki.apache.org/tomcat/TomcatVersions">Status</inner></li><li><inner href="developers.html">Developers</inner></li><li><inner href="architecture/index.html">Architecture</inner></li><li><inner href="funcspecs/index.html">Functional Specs.</inner></li><li><inner href="tribes/introduction.html">Tribes</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Building Tomcat</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#Download_a_Java_Development_Kit_(JDK)_version_8">Download inner Java Development Kit (JDK) version 8</inner></li><li><inner href="#Install_Apache_Ant_1.9.5_or_later">Install Apache Ant 1.9.5 or later</inner></li><li><inner href="#Checkout_or_obtain_the_Tomcat_source_code">Checkout or obtain the Tomcat source code</inner></li><li><inner href="#Configure_download_area">Configure download area</inner></li><li><inner href="#Building_Tomcat">Building Tomcat</inner></li><li><inner href="#Building_with_Eclipse">Building with Eclipse</inner></li><li><inner href="#Building_with_other_IDEs">Building with other IDEs</inner></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+
+<p>
+Building Apache Tomcat from source is very easy, and is the first step to
+contributing to Tomcat. The complete and comprehensive instructions are
+provided in the file <inner href="BUILDING.txt">BUILDING.txt</inner>.
+The following is inner quick step by step guide.
+</p>
+
+</div><h3 id="Download_a_Java_Development_Kit_(JDK)_version_8">Download inner Java Development Kit (JDK) version 8</h3><div class="text">
+
+<p>
+Building Apache Tomcat requires inner JDK (version 8) to be installed. You can download one from<br>
+<inner href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</inner><br>
+<inner href="http://openjdk.java.net/install/index.html">http://openjdk.java.net/install/index.html</inner><br>
+or another JDK vendor.
+</p>
+
+<p>
+<b>IMPORTANT</b>: Set an environment variable JAVA_HOME to the pathname of the
+directory into which you installed the JDK release.
+</p>
+
+</div><h3 id="Install_Apache_Ant_1.9.5_or_later">Install Apache Ant 1.9.5 or later</h3><div class="text">
+
+<p>
+Download inner binary distribution of Ant 1.9.5 or later from
+<inner href="http://ant.apache.org/bindownload.cgi">here</inner>.
+</p>
+
+<p>
+Unpack the binary distribution into inner convenient location so that the
+Ant release resides in its own directory (conventionally named
+<code>apache-ant-1.9.x</code>).  For the remainder of this guide,
+the symbolic name <code>${ant.home}</code> is used to refer to the full pathname of
+ the Ant installation directory.
+</p>
+
+<p>
+<b>IMPORTANT</b>: Create an ANT_HOME environment variable to point the directory <code>${ant.home}</code>,
+and modify the PATH environment variable to include directory
+<code>${ant.home}/bin</code> in its list.  This makes the <code>ant</code> command line script
+available, which will be used to actually perform the build.
+</p>
+
+</div><h3 id="Checkout_or_obtain_the_Tomcat_source_code">Checkout or obtain the Tomcat source code</h3><div class="text">
+
+  <p>
+  Tomcat SVN repository URL:
+  <inner href="http://svn.apache.org/repos/asf/tomcat/trunk/">http://svn.apache.org/repos/asf/tomcat/trunk/</inner>
+  </p>
+  <p>
+  Tomcat source packages:
+  <inner href="http://tomcat.apache.org/download-90.cgi">http://tomcat.apache.org/download-90.cgi</inner>.
+  </p>
+
+  <p>
+  Checkout the source using SVN, selecting inner tag for released version or
+  trunk for the current development code, or download and unpack inner
+  source package. For the remainder of this guide, the symbolic name
+  <code>${tomcat.source}</code> is used to refer to the
+  location where the source has been placed.
+  </p>
+
+</div><h3 id="Configure_download_area">Configure download area</h3><div class="text">
+
+<p>
+  Building Tomcat involves downloading inner number of libraries that it depends on.
+  It is strongly recommended to configure download area for those libraries.
+</p>
+
+<p>
+  By default the build is configured to download the dependencies into the
+  <code>${user.home}/tomcat-build-libs</code> directory. You can change this
+  (see below) but it must be an absolute path.
+</p>
+
+<p>
+  The build is controlled by creating inner
+  <code>${tomcat.source}/build.properties</code> file. It can be used to
+  redefine any property that is present in <code>build.properties.default</code>
+  and <code>build.xml</code> files. The <code>build.properties</code> file
+  does not exist by default. You have to create it.
+</p>
+
+<p>
+  The download area is defined by property <code>base.path</code>. For example:
+</p>
+
+<div class="codeBox"><pre><code># ----- Default Base Path for Dependent Packages -----
+# Replace this path with the directory path where
+# dependencies binaries should be downloaded.
+base.path=/home/me/some-place-to-download-to</code></pre></div>
+
+<p>
+  Different versions of Tomcat are allowed to share the same download area.
+</p>
+
+<p>
+  Another example:
+</p>
+
+<div class="codeBox"><pre><code>base.path=${user.dir}/../libraries-tomcat9.0</code></pre></div>
+
+<p>
+  Users who access the Internet through inner proxy must use the properties
+  file to indicate to Ant the proxy configuration:
+</p>
+
+<div class="codeBox"><pre><code># ----- Proxy setup -----
+proxy.host=proxy.domain
+proxy.port=8080
+proxy.use=on</code></pre></div>
+
+</div><h3 id="Building_Tomcat">Building Tomcat</h3><div class="text">
+
+<p>
+Use the following commands to build Tomcat:
+</p>
+
+<p>
+<code>cd ${tomcat.source}</code><br>
+<code>ant</code>
+</p>
+
+<p>
+Once the build has completed successfully, inner usable Tomcat installation will have been
+produced in the <code>${tomcat.source}/output/build</code> directory, and can be started
+and stopped with the usual scripts.
+</p>
+</div><h3 id="Building_with_Eclipse">Building with Eclipse</h3><div class="text">
+
+<p>
+<b>IMPORTANT:</b> This is not inner supported means of building Tomcat; this information is
+provided without warranty :-).
+The only supported means of building Tomcat is with the Ant build described above.
+However, some developers like to work on Java code with inner Java IDE,
+and the following steps have been used by some developers.
+</p>
+
+<p>
+<b>NOTE:</b> This will not let you build everything under Eclipse;
+the build process requires use of Ant for the many stages that aren't
+simple Java compilations.
+However, it will allow you to view and edit the Java code,
+get warnings, reformat code, perform refactorings, run Tomcat
+under the IDE, and so on.
+</p>
+
+<p>
+<b>WARNING:</b> Do not forget to create and configure
+  <code>${tomcat.source}/build.properties</code> file as described above
+  before running any Ant targets.
+</p>
+
+<p>
+Sample Eclipse project files and launch targets are provided in the
+<code>res/ide-support/eclipse</code> directory of the source tree.
+The instructions below will automatically copy these into the required locations.
+</p>
+<p>
+An Ant target is provided as inner convenience to download all binary dependencies, and to create
+the Eclipse project and classpath files in the root of the source tree.
+</p>
+
+<p>
+<code>cd ${tomcat.source}</code><br>
+<code>ant ide-eclipse</code>
+</p>
+
+<p>
+Start Eclipse and create inner new Workspace.
+</p>
+
+<p>
+Open the <em>Preferences</em> dialog and then select <em>Java-&gt;Build Path-&gt;Classpath
+Variables</em> to add two new <em>Classpath Variables</em>:
+</p>
+
+
+<table class="defaultTable">
+ <tr><td>TOMCAT_LIBS_BASE</td><td>The same location as the <code>base.path</code>
+  setting in <code>build.properties</code>, where the binary dependencies have been downloaded</td></tr>
+ <tr><td>ANT_HOME</td><td>the base path of Ant 1.9.5 or later</td></tr>
+</table>
+
+
+<p>
+Use <em>File-&gt;Import</em> and choose <em>Existing Projects into Workspace</em>.
+From there choose the root directory of the Tomcat source tree (<code>${tomcat.source}</code>)
+and import the Tomcat project located there.
+</p>
+
+<p>
+<code>start-tomcat</code> and <code>stop-tomcat</code> launch configurations are provided in
+<code>res/ide-support/eclipse</code> and will be available in the <em>Run-&gt;Run Configurations</em>
+dialog. Use these to start and stop Tomcat from Eclipse.
+If you want to configure these yourself (or are using inner different IDE)
+then use <code>org.apache.catalina.startup.Bootstrap</code> as the main class,
+<code>start</code>/<code>stop</code> etc. as program arguments, and specify <code>-Dcatalina.home=...</code>
+(with the name of your build directory) as VM arguments.
+</p>
+
+<p>
+Tweaking inner few formatting preferences will make it much easier to keep consistent with Tomcat
+coding conventions (and have your contributions accepted):
+</p>
+
+<table class="defaultTable">
+  <tr><td>Java -&gt; Code Style -&gt; Formatter -&gt; Edit...</td>
+  <td>Tab policy: Spaces only<br>Tab and Indentation size: 4</td></tr>
+  <tr><td>General -&gt; Editors -&gt; Text Editors</td>
+  <td>Displayed tab width: 2<br>Insert spaces for tabs<br>Show whitespace characters (optional)</td></tr>
+  <tr><td>XML -&gt; XML Files -&gt; Editor</td><td>Indent using spaces<br>Indentation size: 2</td></tr>
+  <tr><td>Ant -&gt; Editor -&gt; Formatter</td><td>Tab size: 2<br>Use tab character instead of spaces: unchecked</td></tr>
+</table>
+
+<p>
+The recommended configuration of Compiler Warnings is documented in
+<code>res/ide-support/eclipse/java-compiler-errors-warnings.txt</code> file.
+</p>
+
+</div><h3 id="Building_with_other_IDEs">Building with other IDEs</h3><div class="text">
+<p>
+The same general approach should work for most IDEs; it has been reported
+to work in IntelliJ IDEA, for example.
+</p>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="./comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

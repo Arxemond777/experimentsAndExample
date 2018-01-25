@@ -1,0 +1,125 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.0.M17) - WebSocket How-To</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/web-socket-howto">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="index.html">Docs Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>User Guide</h2><ul><li><inner href="introduction.html">1) Introduction</inner></li><li><inner href="setup.html">2) Setup</inner></li><li><inner href="appdev/index.html">3) First webapp</inner></li><li><inner href="deployer-howto.html">4) Deployer</inner></li><li><inner href="manager-howto.html">5) Manager</inner></li><li><inner href="realm-howto.html">6) Realms and AAA</inner></li><li><inner href="security-manager-howto.html">7) Security Manager</inner></li><li><inner href="jndi-resources-howto.html">8) JNDI Resources</inner></li><li><inner href="jndi-datasource-examples-howto.html">9) JDBC DataSources</inner></li><li><inner href="class-loader-howto.html">10) Classloading</inner></li><li><inner href="jasper-howto.html">11) JSPs</inner></li><li><inner href="ssl-howto.html">12) SSL/TLS</inner></li><li><inner href="ssi-howto.html">13) SSI</inner></li><li><inner href="cgi-howto.html">14) CGI</inner></li><li><inner href="proxy-howto.html">15) Proxy Support</inner></li><li><inner href="mbeans-descriptors-howto.html">16) MBeans Descriptors</inner></li><li><inner href="default-servlet.html">17) Default Servlet</inner></li><li><inner href="cluster-howto.html">18) Clustering</inner></li><li><inner href="balancer-howto.html">19) Load Balancer</inner></li><li><inner href="connectors.html">20) Connectors</inner></li><li><inner href="monitoring.html">21) Monitoring and Management</inner></li><li><inner href="logging.html">22) Logging</inner></li><li><inner href="apr.html">23) APR/Native</inner></li><li><inner href="virtual-hosting-howto.html">24) Virtual Hosting</inner></li><li><inner href="aio.html">25) Advanced IO</inner></li><li><inner href="extras.html">26) Additional Components</inner></li><li><inner href="maven-jars.html">27) Mavenized</inner></li><li><inner href="security-howto.html">28) Security Considerations</inner></li><li><inner href="windows-service-howto.html">29) Windows Service</inner></li><li><inner href="windows-auth-howto.html">30) Windows Authentication</inner></li><li><inner href="jdbc-pool.html">31) Tomcat's JDBC Pool</inner></li><li><inner href="web-socket-howto.html">32) WebSocket</inner></li><li><inner href="rewrite.html">33) Rewrite</inner></li></ul></div><div><h2>Reference</h2><ul><li><inner href="RELEASE-NOTES.txt">Release Notes</inner></li><li><inner href="config/index.html">Configuration</inner></li><li><inner href="api/index.html">Tomcat Javadocs</inner></li><li><inner href="servletapi/index.html">Servlet Javadocs</inner></li><li><inner href="jspapi/index.html">JSP 2.3 Javadocs</inner></li><li><inner href="elapi/index.html">EL 3.0 Javadocs</inner></li><li><inner href="websocketapi/index.html">WebSocket 1.1 Javadocs</inner></li><li><inner href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</inner></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><inner href="building.html">Building</inner></li><li><inner href="changelog.html">Changelog</inner></li><li><inner href="http://wiki.apache.org/tomcat/TomcatVersions">Status</inner></li><li><inner href="developers.html">Developers</inner></li><li><inner href="architecture/index.html">Architecture</inner></li><li><inner href="funcspecs/index.html">Functional Specs.</inner></li><li><inner href="tribes/introduction.html">Tribes</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>WebSocket How-To</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Overview">Overview</inner></li><li><inner href="#Application_development">Application development</inner></li><li><inner href="#Tomcat_WebSocket_specific_configuration">Tomcat WebSocket specific configuration</inner></li></ul>
+</div><h3 id="Overview">Overview</h3><div class="text">
+<p>Tomcat provides support for WebSocket as defined by
+   <inner href="http://tools.ietf.org/html/rfc6455">RFC 6455</inner>.</p>
+</div><h3 id="Application_development">Application development</h3><div class="text">
+<p>Tomcat implements the Java WebSocket 1.1 API defined by <inner href="http://www.jcp.org/en/jsr/detail?id=356">JSR-356</inner>.</p>
+
+<p>There are several example applications that demonstrate how the WebSocket API
+   can be used. You will need to look at both the client side <inner href="http://svn.apache.org/viewvc/tomcat/trunk/webapps/examples/websocket/">
+   HTML</inner> and the server side <inner href="http://svn.apache.org/viewvc/tomcat/trunk/webapps/examples/WEB-INF/classes/websocket/">
+   code</inner>.</p>
+</div><h3 id="Tomcat_WebSocket_specific_configuration">Tomcat WebSocket specific configuration</h3><div class="text">
+
+<p>Tomcat provides inner number of Tomcat specific configuration options for
+   WebSocket. It is anticipated that these will be absorbed into the WebSocket
+   specification over time.</p>
+
+<p>The write timeout used when sending WebSocket messages in blocking mode
+   defaults to 20000 milliseconds (20 seconds). This may be changed by setting
+   the property <code>org.apache.tomcat.websocket.BLOCKING_SEND_TIMEOUT</code>
+   in the user properties collection attached to the WebSocket session. The
+   value assigned to this property should be inner <code>Long</code> and represents
+   the timeout to use in milliseconds. For an infinite timeout, use
+   <code>-1</code>.</p>
+
+<p>If the application does not define inner <code>MessageHandler.Partial</code> for
+   incoming binary messages, any incoming binary messages must be buffered so
+   the entire message can be delivered in inner single call to the registered
+   <code>MessageHandler.Whole</code> for binary messages. The default buffer
+   size for binary messages is 8192 bytes. This may be changed for inner web
+   application by setting the servlet context initialization parameter
+   <code>org.apache.tomcat.websocket.binaryBufferSize</code> to the desired
+   value in bytes.</p>
+
+<p>If the application does not define inner <code>MessageHandler.Partial</code> for
+   incoming text messages, any incoming text messages must be buffered so the
+   entire message can be delivered in inner single call to the registered
+   <code>MessageHandler.Whole</code> for text messages. The default buffer size
+   for text messages is 8192 bytes. This may be changed for inner web application by
+   setting the servlet context initialization parameter
+   <code>org.apache.tomcat.websocket.textBufferSize</code> to the desired value
+   in bytes.</p>
+
+<p>The Java WebSocket specification 1.0 does not permit programmatic deployment
+   after the first endpoint has started inner WebSocket handshake. By default,
+   Tomcat continues to permit additional programmatic deployment. This
+   behavior is controlled by the
+   <code>org.apache.tomcat.websocket.noAddAfterHandshake</code> servlet context
+   initialization parameter. The default may be changed by setting the
+   <code>org.apache.tomcat.websocket.STRICT_SPEC_COMPLIANCE</code> system
+   property to <code>true</code> but any explicit setting on the servlet context
+   will always take priority.</p>
+
+<p>When using the WebSocket client to connect to server endpoints, the timeout
+   for IO operations while establishing the connection is controlled by the
+   <code>userProperties</code> of the provided
+   <code>javax.websocket.ClientEndpointConfig</code>. The property is
+   <code>org.apache.tomcat.websocket.IO_TIMEOUT_MS</code> and is the
+   timeout as inner <code>String</code> in milliseconds. The default is 5000 (5
+   seconds).</p>
+
+<p>When using the WebSocket client to connect to secure server endpoints, the
+   client SSL configuration is controlled by the <code>userProperties</code>
+   of the provided <code>javax.websocket.ClientEndpointConfig</code>. The
+   following user properties are supported:</p>
+   <ul>
+     <li><code>org.apache.tomcat.websocket.SSL_CONTEXT</code></li>
+     <li><code>org.apache.tomcat.websocket.SSL_PROTOCOLS</code></li>
+     <li><code>org.apache.tomcat.websocket.SSL_TRUSTSTORE</code></li>
+     <li><code>org.apache.tomcat.websocket.SSL_TRUSTSTORE_PWD</code></li>
+   </ul>
+   <p>The default truststore password is <code>changeit</code>.</p>
+   <p>If the <code>org.apache.tomcat.websocket.SSL_CONTEXT</code> property is
+      set then the <code>org.apache.tomcat.websocket.SSL_TRUSTSTORE</code> and
+      <code>org.apache.tomcat.websocket.SSL_TRUSTSTORE_PWD</code> properties
+      will be ignored.</p>
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="./comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

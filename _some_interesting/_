@@ -1,0 +1,7 @@
+----------------------------------------------------GC-----------------------------------------------------------------------
+
+0) _Gerbert_Schildt_java_8.other_trash посмотреть GC -verbose:gc -XX:+PrintGCTimeStamps https://habrahabr.ru/post/269621/
+1) https://habrahabr.ru/post/321856/ - GC Epsilon (без GC) ВКЛ кастомный GC XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC
+
+
+-----------------------------------------------------------------------------------------------------------------------------

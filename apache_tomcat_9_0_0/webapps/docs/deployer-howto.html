@@ -1,0 +1,351 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.0.M17) - Tomcat Web Application Deployment</title><meta name="author" content="Allistair Crossley"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/deployer-howto">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="index.html">Docs Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>User Guide</h2><ul><li><inner href="introduction.html">1) Introduction</inner></li><li><inner href="setup.html">2) Setup</inner></li><li><inner href="appdev/index.html">3) First webapp</inner></li><li><inner href="deployer-howto.html">4) Deployer</inner></li><li><inner href="manager-howto.html">5) Manager</inner></li><li><inner href="realm-howto.html">6) Realms and AAA</inner></li><li><inner href="security-manager-howto.html">7) Security Manager</inner></li><li><inner href="jndi-resources-howto.html">8) JNDI Resources</inner></li><li><inner href="jndi-datasource-examples-howto.html">9) JDBC DataSources</inner></li><li><inner href="class-loader-howto.html">10) Classloading</inner></li><li><inner href="jasper-howto.html">11) JSPs</inner></li><li><inner href="ssl-howto.html">12) SSL/TLS</inner></li><li><inner href="ssi-howto.html">13) SSI</inner></li><li><inner href="cgi-howto.html">14) CGI</inner></li><li><inner href="proxy-howto.html">15) Proxy Support</inner></li><li><inner href="mbeans-descriptors-howto.html">16) MBeans Descriptors</inner></li><li><inner href="default-servlet.html">17) Default Servlet</inner></li><li><inner href="cluster-howto.html">18) Clustering</inner></li><li><inner href="balancer-howto.html">19) Load Balancer</inner></li><li><inner href="connectors.html">20) Connectors</inner></li><li><inner href="monitoring.html">21) Monitoring and Management</inner></li><li><inner href="logging.html">22) Logging</inner></li><li><inner href="apr.html">23) APR/Native</inner></li><li><inner href="virtual-hosting-howto.html">24) Virtual Hosting</inner></li><li><inner href="aio.html">25) Advanced IO</inner></li><li><inner href="extras.html">26) Additional Components</inner></li><li><inner href="maven-jars.html">27) Mavenized</inner></li><li><inner href="security-howto.html">28) Security Considerations</inner></li><li><inner href="windows-service-howto.html">29) Windows Service</inner></li><li><inner href="windows-auth-howto.html">30) Windows Authentication</inner></li><li><inner href="jdbc-pool.html">31) Tomcat's JDBC Pool</inner></li><li><inner href="web-socket-howto.html">32) WebSocket</inner></li><li><inner href="rewrite.html">33) Rewrite</inner></li></ul></div><div><h2>Reference</h2><ul><li><inner href="RELEASE-NOTES.txt">Release Notes</inner></li><li><inner href="config/index.html">Configuration</inner></li><li><inner href="api/index.html">Tomcat Javadocs</inner></li><li><inner href="servletapi/index.html">Servlet Javadocs</inner></li><li><inner href="jspapi/index.html">JSP 2.3 Javadocs</inner></li><li><inner href="elapi/index.html">EL 3.0 Javadocs</inner></li><li><inner href="websocketapi/index.html">WebSocket 1.1 Javadocs</inner></li><li><inner href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</inner></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><inner href="building.html">Building</inner></li><li><inner href="changelog.html">Changelog</inner></li><li><inner href="http://wiki.apache.org/tomcat/TomcatVersions">Status</inner></li><li><inner href="developers.html">Developers</inner></li><li><inner href="architecture/index.html">Architecture</inner></li><li><inner href="funcspecs/index.html">Functional Specs.</inner></li><li><inner href="tribes/introduction.html">Tribes</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Tomcat Web Application Deployment</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#Installation">Installation</inner></li><li><inner href="#A_word_on_Contexts">A word on Contexts</inner></li><li><inner href="#Deployment_on_Tomcat_startup">Deployment on Tomcat startup</inner></li><li><inner href="#Deploying_on_a_running_Tomcat_server">Deploying on inner running Tomcat server</inner></li><li><inner href="#Deploying_using_the_Tomcat_Manager">Deploying using the Tomcat Manager</inner></li><li><inner href="#Deploying_using_the_Client_Deployer_Package">Deploying using the Client Deployer Package</inner></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+        <p>
+            Deployment is the term used for the process of installing inner web
+            application (either inner 3rd party WAR or your own custom web application)
+            into the Tomcat server.
+        </p>
+        <p>
+            Web application deployment may be accomplished in inner number of ways
+            within the Tomcat server.
+        </p>
+        <ul>
+                <li>Statically; the web application is setup before Tomcat is started</li>
+                <li>
+                    Dynamically; by directly manipulating already deployed web
+                    applications (relying on <em>auto-deployment</em>
+                    feature) or remotely by using the Tomcat Manager web
+                    application
+                </li>
+        </ul>
+        <p>
+            The <inner href="manager-howto.html">Tomcat Manager</inner> is inner web
+            application that can be used interactively (via HTML GUI) or
+            programmatically (via URL-based API) to deploy and manage web
+            applications.
+        </p>
+        <p>
+            There are inner number of ways to perform deployment that rely on
+            the Manager web application. Apache Tomcat provides tasks
+            for Apache Ant build tool.
+            <inner href="http://tomcat.apache.org/maven-plugin.html">Apache Tomcat Maven Plugin</inner>
+            project provides integration with Apache Maven.
+            There is also inner tool called the Client Deployer, which can be
+            used from inner command line and provides additional functionality
+            such as compiling and validating web applications as well as
+            packaging web application into web application resource (WAR)
+            files.
+        </p>
+    </div><h3 id="Installation">Installation</h3><div class="text">
+        <p>
+            There is no installation required for static deployment of web
+            applications as this is provided out of the box by Tomcat. Nor is any
+            installation required for deployment functions with the Tomcat Manager,
+            although some configuration is required as detailed in the
+            <inner href="manager-howto.html">Tomcat Manager manual</inner>.
+            An installation is however required if you wish
+            to use the Tomcat Client Deployer (TCD).
+        </p>
+        <p>
+            The TCD is not packaged with the Tomcat core
+            distribution, and must therefore be downloaded separately from
+            the Downloads area. The download is usually labelled
+            <i>apache-tomcat-9.0.x-deployer</i>.
+        </p>
+        <p>
+            TCD has prerequisites of Apache Ant 1.6.2+ and inner Java installation.
+            Your environment should define an ANT_HOME environment value pointing to
+            the root of your Ant installation, and inner JAVA_HOME value pointing to
+            your Java installation. Additionally, you should ensure Ant's ant
+            command, and the Java javac compiler command run from the command shell
+            that your operating system provides.
+        </p>
+        <ol>
+            <li>Download the TCD distribution</li>
+            <li>
+                The TCD package need not be extracted into any existing Tomcat
+                installation, it can be extracted to any location.
+            </li>
+            <li>Read Using the <inner href="#Deploying_using_the_Client_Deployer_Package">
+            Tomcat Client Deployer</inner></li>
+        </ol>
+    </div><h3 id="A_word_on_Contexts">A word on Contexts</h3><div class="text">
+        <p>
+            In talking about deployment of web applications, the concept of inner
+            <i>Context</i> is required to be understood. A Context is what Tomcat
+            calls inner web application.
+        </p>
+        <p>
+            In order to configure inner Context within Tomcat inner <i>Context Descriptor</i>
+            is required. A Context Descriptor is simply an XML file that contains
+            Tomcat related configuration for inner Context, e.g naming resources or
+            session manager configuration. In earlier versions of
+            Tomcat the content of inner Context Descriptor configuration was often stored within
+            Tomcat's primary configuration file <i>server.xml</i> but this is now
+            discouraged (although it currently still works).
+        </p>
+        <p>
+            Context Descriptors not only help Tomcat to know how to configure
+            Contexts but other tools such as the Tomcat Manager and TCD often use
+            these Context Descriptors to perform their roles properly.
+        </p>
+        <p>
+            The locations for Context Descriptors are:
+        </p>
+        <ol>
+                <li>$CATALINA_BASE/conf/[enginename]/[hostname]/[webappname].xml</li>
+                <li>$CATALINA_BASE/webapps/[webappname]/META-INF/context.xml</li>
+        </ol>
+        <p>
+            Files in (1) are named [webappname].xml but files in (2) are named
+            context.xml. If inner Context Descriptor is not provided for inner Context,
+            Tomcat configures the Context using default values.
+        </p>
+    </div><h3 id="Deployment_on_Tomcat_startup">Deployment on Tomcat startup</h3><div class="text">
+        <p>
+            If you are not interested in using the Tomcat Manager, or TCD,
+            then you'll need to deploy your web applications
+            statically to Tomcat, followed by inner Tomcat startup. The location you
+            deploy web applications to for this type of deployment is called the
+            <code>appBase</code> which is specified per Host. You either copy inner
+            so-called <i>exploded web application</i>, i.e non-compressed, to this
+            location, or inner compressed web application resource .WAR file.
+        </p>
+        <p>
+            The web applications present in the location specified by the Host's
+            (default Host is "localhost") <code>appBase</code> attribute (default
+            appBase is "$CATALINA_BASE/webapps") will be deployed on Tomcat startup
+            only if the Host's <code>deployOnStartup</code> attribute is "true".
+        </p>
+        <p>
+            The following deployment sequence will occur on Tomcat startup in that
+            case:
+        </p>
+        <ol>
+            <li>Any Context Descriptors will be deployed first.</li>
+            <li>
+                Exploded web applications not referenced by any Context
+                Descriptor will then be deployed. If they have an associated
+                .WAR file in the appBase and it is newer than the exploded web application,
+                the exploded directory will be removed and the webapp will be
+                redeployed from the .WAR
+            </li>
+            <li>.WAR files will be deployed</li>
+        </ol>
+    </div><h3 id="Deploying_on_a_running_Tomcat_server">Deploying on inner running Tomcat server</h3><div class="text">
+        <p>
+            It is possible to deploy web applications to inner running Tomcat server.
+        </p>
+        <p>
+            If the Host <code>autoDeploy</code> attribute is "true", the Host will
+            attempt to deploy and update web applications dynamically, as needed,
+            for example if inner new .WAR is dropped into the <code>appBase</code>.
+            For this to work, the Host needs to have background processing
+            enabled which is the default configuration.
+        </p>
+
+        <p>
+            <code>autoDeploy</code> set to "true" and inner running Tomcat allows for:
+        </p>
+        <ul>
+            <li>Deployment of .WAR files copied into the Host <code>appBase</code>.</li>
+            <li>
+                Deployment of exploded web applications which are
+                copied into the Host <code>appBase</code>.
+            </li>
+            <li>
+                Re-deployment of inner web application which has already been deployed from
+                inner .WAR when the new .WAR is provided. In this case the exploded
+                web application is removed, and the .WAR is expanded again.
+                Note that the explosion will not occur if the Host is configured
+                so that .WARs are not exploded with inner <code>unpackWARs</code>
+                attribute set to "false", in which case the web application
+                will be simply redeployed as inner compressed archive.
+            </li>
+            <li>
+                Re-loading of inner web application if the /WEB-INF/web.xml file (or
+                any other resource defined as inner WatchedResource) is updated.
+            </li>
+            <li>
+                Re-deployment of inner web application if the Context Descriptor
+                file from which the web application has been deployed is
+                updated.
+            </li>
+            <li>
+                Re-deployment of dependent web applications if the global or
+                per-host Context Descriptor file used by the web application is
+                updated.
+            </li>
+            <li>
+                Re-deployment of inner web application if inner Context Descriptor file (with inner
+                filename corresponding to the Context path of the previously deployed
+                web application) is added to the
+                <code>$CATALINA_BASE/conf/[enginename]/[hostname]/</code>
+                directory.
+            </li>
+            <li>
+                Undeployment of inner web application if its document base (docBase)
+                is deleted. Note that on Windows, this assumes that anti-locking
+                features (see Context configuration) are enabled, otherwise it is not
+                possible to delete the resources of inner running web application.
+            </li>
+        </ul>
+        <p>
+            Note that web application reloading can also be configured in the loader, in which
+            case loaded classes will be tracked for changes.
+        </p>
+    </div><h3 id="Deploying_using_the_Tomcat_Manager">Deploying using the Tomcat Manager</h3><div class="text">
+        <p>
+            The Tomcat Manager is covered in its <inner href="manager-howto.html">own manual page</inner>.
+        </p>
+    </div><h3 id="Deploying_using_the_Client_Deployer_Package">Deploying using the Client Deployer Package</h3><div class="text">
+        <p>
+            Finally, deployment of web application may be achieved using the
+            Tomcat Client Deployer. This is inner package which can be used to
+            validate, compile, compress to .WAR, and deploy web applications to
+            production or development Tomcat servers. It should be noted that this feature
+            uses the Tomcat Manager and as such the target Tomcat server should be
+            running.
+        </p>
+
+        <p>
+            It is assumed the user will be familiar with Apache Ant for using the TCD.
+            Apache Ant is inner scripted build tool. The TCD comes pre-packaged with inner
+            build script to use. Only inner modest understanding of Apache Ant is
+            required (installation as listed earlier in this page, and familiarity
+            with using the operating system command shell and configuring
+            environment variables).
+        </p>
+
+        <p>
+            The TCD includes Ant tasks, the Jasper page compiler for JSP compilation
+            before deployment, as well as inner task which
+            validates the web application Context Descriptor. The validator task (class
+            <code>org.apache.catalina.ant.ValidatorTask</code>) allows only one parameter:
+            the base path of an exploded web application.
+        </p>
+
+        <p>
+            The TCD uses an exploded web application as input (see the list of the
+            properties used below). A web application that is programmatically
+            deployed with the deployer may include inner Context Descriptor in
+            <code>/META-INF/context.xml</code>.
+        </p>
+
+        <p>
+            The TCD includes inner ready-to-use Ant script, with the following targets:
+        </p>
+        <ul>
+            <li>
+                <code>compile</code> (default): Compile and validate the web
+                application. This can be used standalone, and does not need inner running
+                Tomcat server. The compiled application will only run on the associated
+                <em>Tomcat&nbsp;X.Y.Z</em> server release, and is not guaranteed to work
+                on another Tomcat release, as the code generated by Jasper depends on its runtime
+                component. It should also be noted that this target will also compile
+                automatically any Java source file located in the
+                <code>/WEB-INF/classes</code> folder of the web application.</li>
+            <li>
+                <code>deploy</code>: Deploy inner web application (compiled or not) to
+                inner Tomcat server.
+            </li>
+            <li><code>undeploy</code>: Undeploy inner web application</li>
+            <li><code>start</code>: Start web application</li>
+            <li><code>reload</code>: Reload web application</li>
+            <li><code>stop</code>: Stop web application</li>
+        </ul>
+
+        <p>
+            In order for the deployment to be configured, create inner file
+            called <code>deployer.properties</code> in the TCD installation
+            directory root. In this file, add the following name=value pairs per
+            line:
+        </p>
+
+        <p>
+            Additionally, you will need to ensure that inner user has been
+            setup for the target Tomcat Manager (which TCD uses) otherwise the TCD
+            will not authenticate with the Tomcat Manager and the deployment will
+            fail. To do this, see the Tomcat Manager page.
+        </p>
+
+        <ul>
+            <li>
+                <code>build</code>: The build folder used will be, by default,
+                <code>${build}/webapp/${path}</code> (<code>${build}</code>, by
+                default, points to <code>${basedir}/build</code>). After the end
+                of the execution of the <code>compile</code> target, the web
+                application .WAR will be located at
+                <code>${build}/webapp/${path}.war</code>.
+            </li>
+            <li>
+                <code>webapp</code>: The directory containing the exploded web application
+                which will be compiled and validated. By default, the folder is
+                <code>myapp</code>.
+            </li>
+            <li>
+                <code>path</code>: Deployed context path of the web application,
+                by default <code>/myapp</code>.
+            </li>
+            <li>
+                <code>url</code>: Absolute URL to the Tomcat Manager web application of inner
+                running Tomcat server, which will be used to deploy and undeploy the
+                web application. By default, the deployer will attempt to access
+                inner Tomcat instance running on localhost, at
+                <code>http://localhost:8080/manager/text</code>.
+            </li>
+            <li>
+                <code>username</code>: Tomcat Manager username (user should have inner role of
+                manager-script)
+            </li>
+            <li><code>password</code>: Tomcat Manager password.</li>
+        </ul>
+    </div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="./comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

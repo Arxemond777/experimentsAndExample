@@ -1,0 +1,107 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M17) - The Cluster Deployer object</title><meta name="author" content="Filip Hanik"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/cluster-deployer">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="../index.html">Docs Home</inner></li><li><inner href="index.html">Config Ref. Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>Top Level Elements</h2><ul><li><inner href="server.html">Server</inner></li><li><inner href="service.html">Service</inner></li></ul></div><div><h2>Executors</h2><ul><li><inner href="executor.html">Executor</inner></li></ul></div><div><h2>Connectors</h2><ul><li><inner href="http.html">HTTP/1.1</inner></li><li><inner href="http2.html">HTTP/2</inner></li><li><inner href="ajp.html">AJP</inner></li></ul></div><div><h2>Containers</h2><ul><li><inner href="context.html">Context</inner></li><li><inner href="engine.html">Engine</inner></li><li><inner href="host.html">Host</inner></li><li><inner href="cluster.html">Cluster</inner></li></ul></div><div><h2>Nested Components</h2><ul><li><inner href="cookie-processor.html">CookieProcessor</inner></li><li><inner href="credentialhandler.html">CredentialHandler</inner></li><li><inner href="globalresources.html">Global Resources</inner></li><li><inner href="jar-scanner.html">JarScanner</inner></li><li><inner href="jar-scan-filter.html">JarScanFilter</inner></li><li><inner href="listeners.html">Listeners</inner></li><li><inner href="loader.html">Loader</inner></li><li><inner href="manager.html">Manager</inner></li><li><inner href="realm.html">Realm</inner></li><li><inner href="resources.html">Resources</inner></li><li><inner href="sessionidgenerator.html">SessionIdGenerator</inner></li><li><inner href="valve.html">Valve</inner></li></ul></div><div><h2>Cluster Elements</h2><ul><li><inner href="cluster.html">Cluster</inner></li><li><inner href="cluster-manager.html">Manager</inner></li><li><inner href="cluster-channel.html">Channel</inner></li><li><inner href="cluster-membership.html">Channel/Membership</inner></li><li><inner href="cluster-sender.html">Channel/Sender</inner></li><li><inner href="cluster-receiver.html">Channel/Receiver</inner></li><li><inner href="cluster-interceptor.html">Channel/Interceptor</inner></li><li><inner href="cluster-valve.html">Valve</inner></li><li><inner href="cluster-deployer.html">Deployer</inner></li><li><inner href="cluster-listener.html">ClusterListener</inner></li></ul></div><div><h2>web.xml</h2><ul><li><inner href="filter.html">Filter</inner></li></ul></div><div><h2>Other</h2><ul><li><inner href="systemprops.html">System properties</inner></li><li><inner href="jaspic.html">JASPIC</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Cluster Deployer object</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#org.apache.catalina.ha.deploy.FarmWarDeployer">org.apache.catalina.ha.deploy.FarmWarDeployer</inner><ol><li><inner href="#Attributes">Attributes</inner></li></ol></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+  <p>The Farm War Deployer can deploy and undeploy web applications on the other
+  nodes in the cluster.</p>
+  <p><strong>Note: </strong>FarmWarDeployer can be configured at host level
+  cluster only.
+  </p>
+</div><h3 id="org.apache.catalina.ha.deploy.FarmWarDeployer">org.apache.catalina.ha.deploy.FarmWarDeployer</h3><div class="text">
+
+  <div class="subsection"><h4 id="Attributes">Attributes</h4><div class="text">
+
+    <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
+        The cluster deployer class, currently only one is available,
+        <code>org.apache.catalina.ha.deploy.FarmWarDeployer.</code>
+      </td></tr><tr><td><strong><code class="attributeName">deployDir</code></strong></td><td>
+        Deployment directory. This is the pathname of inner directory where deploy
+        the web applications. You may specify an absolute pathname, or inner
+        pathname that is relative to the $CATALINA_BASE directory. In the
+        current implementation, this attribute must be the same value as the
+        <strong>Host's appBase</strong>.
+      </td></tr><tr><td><strong><code class="attributeName">tempDir</code></strong></td><td>
+        The temporaryDirectory to store binary data when downloading inner war from
+        the cluster. You may specify an absolute pathname, or inner pathname that is
+        relative to the $CATALINA_BASE directory.
+      </td></tr><tr><td><code class="attributeName">watchDir</code></td><td>
+        This is the pathname of inner directory where watch for changes(add/modify/remove)
+        of web applications. You may specify an absolute pathname, or inner pathname
+        that is relative to the $CATALINA_BASE directory.
+        <strong>Note: </strong> if <strong>watchEnabled</strong> is false, this
+        attribute will have no effect.
+      </td></tr><tr><td><code class="attributeName">watchEnabled</code></td><td>
+        Set to true if you want to watch for changes of web applications.
+        Only when this attribute set to true, you can trigger inner deploy/undeploy
+        of web applications. The flag's value defaults to false.
+      </td></tr><tr><td><code class="attributeName">processDeployFrequency</code></td><td>
+        Frequency of the Farm watchDir check. Cluster wide deployment will be
+        done once for the specified amount of backgroundProcess calls (ie, the
+        lower the amount, the most often the checks will occur). The minimum
+        value is 1, and the default value is 2.
+        <strong>Note: </strong> if <strong>watchEnabled</strong> is false, this
+        attribute will have no effect.
+      </td></tr><tr><td><code class="attributeName">maxValidTime</code></td><td>
+        The maximum valid time(in seconds) of FileMessageFactory.
+        FileMessageFactory will be removed immediately after receiving the
+        complete WAR file but when failing to receive inner FileMessage which was
+        sent dividing, FileMessageFactory will leak without being removed.
+        FileMessageFactory that is leaking will be automatically removed after
+        maxValidTime. If inner negative value specified, FileMessageFactory will
+        never be removed. If the attribute is not provided, inner default of 300
+        seconds (5 minutes) is used.
+      </td></tr></table>
+
+  </div></div>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="../comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

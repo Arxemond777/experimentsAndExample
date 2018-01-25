@@ -1,0 +1,11 @@
+/* AUTOMATICALLY GENERATED ON Thu Nov 24 22:32:33 MSK 2016*/
+/* DO NOT EDIT */
+
+grant codeBase "file:/Users/urijglusenkov/InteliJ/HelloWorld/src/com/company/com/company/" {
+  permission java.net.SocketPermission "207.46.131.13", "connect";
+};
+
+grant codeBase "file:/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/" {
+  permission java.net.SocketPermission "207.46.131.13", "connect";
+};
+

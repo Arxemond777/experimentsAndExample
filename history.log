@@ -1,0 +1,500 @@
+  187  vi bash
+  188  bash bash
+  189  ls
+  190  ls ch6_relations_beetwen_classes.test1
+  191  vi bash
+  192  rm rf ch6_relations_beetwen_classes.test1/
+  193  rm -rf ch6_relations_beetwen_classes.test1
+  194  vi bash y
+  195  bash bash y
+  196  ls
+  197  vi bash
+  198  bash bash y
+  199  vi bash
+  200  vi ch6_relations_beetwen_classes.test/inner.txt
+  201  bash bash y
+  202  vi bash
+  203  bash bash y
+  204  cd ..
+  205  ls
+  206  rm -rf ch6_relations_beetwen_classes.test/
+  207  сp node/img/nodejs.png meadowlark_travel/site/public/img/
+  208  cp node/img/nodejs.png meadowlark_travel/site/public/img/
+  209  ps aux | less
+  210  htop
+  211  htop | grep node
+  212  htop
+  213  htop
+  214  htop
+  215  kill -9 38347
+  216  htop
+  217  htop
+  218  _pip: https://pypi.python.org/pypi/pip
+  219  linkchecker http://localhost:3000
+  220  linkchecker http://localhost:3000
+  221  sudo fdisk -l
+  222  fdisk -l
+  223  dmesg | tail
+  224  sudo dmesg | tail
+  225  fdisk
+  226  df
+  227  dd if=/Users/urijglusenkov/Downloads/Fedora-Workstation-Live-x86_64-24-1.2.iso of=/dev/disk6s1 
+  228  sudo dd if=/Users/urijglusenkov/Downloads/Fedora-Workstation-Live-x86_64-24-1.2.iso of=/dev/disk6s1 
+  229  umount /dev/disk6s1 
+  230  sudo umount /dev/disk6s1 
+  231  sudo diskutil umount /dev/disk6s1 
+  232  sudo dd if=/Users/urijglusenkov/Downloads/Fedora-Workstation-Live-x86_64-24-1.2.iso of=/dev/disk6s1 
+  233  sudo diskutil umount /dev/disk6s1 
+  234  sudo mkfs.vfat /dev/disk6s1 -I
+  235  sudo dd if=/Users/urijglusenkov/Downloads/Fedora-Workstation-Live-x86_64-24-1.2.iso of=/dev/disk6s1 
+  236  rm -rf /Users/urijglusenkov/VirtualBox\ VMs/fedora/
+  237  rm -rf /Users/urijglusenkov/VirtualBox\ VMs/fedora/
+  238  df
+  239  df
+  240  sudo umount /dev/disk6s2
+  241  sudo diskutil umount /dev/disk6s2
+  242  sudo umount /dev/disk6s2
+  243  df
+  244  df
+  245  sudo umount /dev/disk6s2
+  246  umount /dev/disk6s2
+  247  sudo umount /dev/disk6s2
+  248  sudo brew search mkfs.vfat
+  249  brew search mkfs.vfat
+  250  brew search /mkfs.vfat/
+  251  brew search mkfs
+  252  ping ya.ru
+  253  ping ya.ru
+  254  ls
+  255  git clone https://github.com/Arxemond777/workspace ./workspace
+  256  cd workspace/
+  257  mkdir src app public ch6_relations_beetwen_classes.test git_submodules
+  258  mkdir node_modules
+  259  cd app/
+  260  mkdir service command routes config
+  261  cd config/
+  262  mkdir config_back config_front
+  263  cd ../..
+  264  mkdir JSDoc
+  265  cd src/
+  266  ls
+  267  mkdir projecrs
+  268  rm -rf projecrs/
+  269  mkdir projects
+  270  cd projects/
+  271  cd ../../
+  272  ls app/
+  273  cd src/projects/
+  274  mkdir -p auth/config -p auth/prod_auth/routes
+  275  ls auth/
+  276  ls auth/prod_auth/
+  277  cd auth/prod_auth/
+  278  mkdir models controller -p resource/js -p resource/js -p resource/style -p resource/assets/img -p resource/assets/fonts ch6_relations_beetwen_classes.test command
+  279  ls
+  280  rm -rf -p
+  281  ls
+  282  rm -rf '-p'
+  283  rm -p
+  284  rm "-p"
+  285  ls
+  286  rm -rf -p/
+  287  rm -rf "-p/"
+  288  rm -rf -p/
+  289  cd ..
+  290  ls
+  291  cd prod_auth/
+  292  mkdir -p auth/prod_auth/routes
+  293  ls
+  294  mkdir resource
+  295  cd resource/
+  296  mkdir js css assets
+  297  cd assets/
+  298  cd ..
+  299  rm assets/
+  300  rm -rf assets/
+  301  mkdir style fonts
+  302  cd ../..
+  303  ls
+  304  cp -r prod_auth/ dev_auth
+  305  ls
+  306  ls dev_auth/
+  307  cp -r prod_auth/ template_prod_or_dev_for_new_adminka/
+  308  ls
+  309  cd ../../
+  310  ls
+  311  cd ..
+  312  ls
+  313  cd public/
+  314  ls
+  315  mkdir js html sources_fonts
+  316  cd ..
+  317  git status
+  318  ls
+  319  vi README.md 
+  320  vi README.md 
+  321  ls
+  322  cd src/projects/auth/
+  323  mkdir JSDoc
+  324  cd ..
+  325  cp -r ./auth ./template_for_new_adminka
+  326  cd auth/
+  327  ls
+  328  rm -rf template_prod_or_dev_for_new_adminka/
+  329  cd ..
+  330  cd template_for_new_adminka/
+  331  ls
+  332  rm -rf template_prod_or_dev_for_new_adminka/
+  333  cd ./../
+  334  cd ../..
+  335  vi .gitignore 
+  336  find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+  337  git status
+  338  vi .gitignore 
+  339  git status
+  340  git add *
+  341  git status
+  342  git add -f .gitignore 
+  343  git status
+  344  git add &
+  345  git add 7
+  346  git add .
+  347  git status
+  348  git diff origin/master
+  349  ls
+  350  git add src/
+  351  git add src/ public/ ch6_relations_beetwen_classes.test/ README.md LICENSE JSDoc/ git_submodules/ public/
+  352  git commit -m 'structure directory'
+  353  git push origin master
+  354  ls
+  355  rm -rf JSDoc/
+  356  cd git_submodules/
+  357  cd ..
+  358  vi git_submodules/
+  359  vi git_submodules/t
+  360  git status
+  361  vi src/projects/auth/
+  362  vi src/projects/auth/JSDoc/t
+  363  vi src/projects/auth/config/t
+  364  vi src/projects/auth/dev_auth/t
+  365  git status
+  366  vi app/t
+  367  vi ch6_relations_beetwen_classes.test/t
+  368  vi public/t
+  369  git add .
+  370  git commit -m 'structure directory'
+  371  git push origin master
+  372  vi src/t
+  373  vi src/projects/auth/config/t
+  374  vi src/projects/auth/dev_auth/command/t
+  375  vi src/projects/auth/dev_auth/ch6_relations_beetwen_classes.test/t
+  376  vi src/projects/auth/dev_auth/routes/t
+  377  vi src/projects/auth/dev_auth/resource/t
+  378  vi src/projects/auth/dev_auth/models/t
+  379  vi src/projects/auth/dev_auth/controller/t
+  380  rm -rf src/projects/auth/dev_auth/resource/css/
+  381  vi src/projects/auth/dev_auth/resource/fonts/t
+  382  vi src/projects/auth/dev_auth/resource/js/t
+  383  vi src/projects/auth/dev_auth/resource/style/t
+  384  vi src/projects/auth/prod_auth/command/t
+  385  t
+  386  vi t
+  387  bash t
+  388  mv src/projects/template_for_new_adminka/dev_new_project/ vi src/projects/auth/prod_auth/command/t
+  389  vi src/projects/auth/prod_auth/ch6_relations_beetwen_classes.test/t
+  390  mv src/projects/template_for_new_adminka/dev_auth/ src/projects/template_for_new_adminka/dev_new_project/
+  391  ls src/projects/template_for_new_adminka/dev_new_project/
+  392  ls src/projects/template_for_new_adminka/
+  393  mv src/projects/template_for_new_adminka/prod_auth/ src/projects/template_for_new_adminka/prod_new_project/
+  394  vi t
+  395  bash t
+  396  vi public/html/t
+  397  vi public/js/t
+  398  vi public/sources_fonts/t
+  399  git add .
+  400  git commit -m 'structure directory'
+  401  cd ..
+  402  cp -r workspace/ workspace1/
+  403  ls workspace1/
+  404  cd workspace
+  405  git log
+  406  git status
+  407  git commit -m 'structure directory'
+  408  git rebase -i HEAD~2
+  409  git log
+  410  git rebase -i HEAD~2
+  411  git rebase -i HEAD~3
+  412  git rebase -i HEAD~3
+  413  git log
+  414  fit diff origin master
+  415  fit diff origin/master
+  416  git diff origin/master
+  417  git status
+  418  cd ..
+  419  rm -rf workspace
+  420  cp workspace1/ workspace/
+  421  cp -r workspace1/ workspace/
+  422  cd workspace
+  423  git log
+  424  git rebase -i HEAD~3
+  425  git log
+  426  cd ..
+  427  rm -rf workspace
+  428  cp -r workspace1/ workspace/
+  429  cd workspace
+  430  git log
+  431  git rebase -i db03cef10ec83cba78ded635d45a6d38354847d8
+  432  git log
+  433  git rebase -i db03cef10ec83cba78ded635d45a6d38354847d8
+  434  git log
+  435  git rebase -i 3cd4f64fbcd931477a1b02f9fb4662fef35f1ea2
+  436  git log
+  437  git status
+  438  git push -f origin master
+  439  exit
+  440  vi /System/Library/LaunchDaemons/org.postfix.master.plist 
+  441  ls -la /System/Library/LaunchDaemons/org.postfix.master.plist 
+  442  wh an i
+  443  who an i
+  444  who am i
+  445  exit
+  446  ping ya.ru
+  447  ping biblio-globus.ru
+  448  vi /var/www/html/ch6_relations_beetwen_classes.test.php
+  449  sudo chmod 777 /var/www/html/ch6_relations_beetwen_classes.test.php
+  450  cd ~/Downloads/
+  451  brew install redis
+  452  redis-server
+  453  redis-server -v
+  454  cd /var/www/html/workspace
+  455  node workspace.js 
+  456  git status
+  457  git add src/bundles/Auth/controllers/registryUserController.js src/bundles/Auth/models/registryUserModel.js
+  458  git commit -m 'refactory service and something'
+  459  git status
+  460  git add app/*
+  461  git status
+  462  git add src/* web/* workspace.js package.json 
+  463  git status
+  464  git push origin master
+  465  grep -r '/favicon.ico'
+  466  grep -r '/favicon' ./
+  467  grep -r 'favicon' ./
+  468  redis-cli
+  469  redis-cli
+  470  redis-cli
+  471  redis-cli
+  472  psql -u urijglusenkov
+  473  psql -U urijglusenkov
+  474  vi /usr/local/etc/hosts
+  475  locale hosts
+  476  locate hosts
+  477  vi /private/etc/hosts
+  478  sudo vi /private/etc/hosts
+  479  sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  480  sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  481  vi /usr/local/etc/nginx/sites-enabled/symfony_search 
+  482  sudo vi /usr/local/etc/nginx/sites-enabled/symfony_search 
+  483  sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  484  sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  485  sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  486  cd ../
+  487  mkdir silex
+  488  cd silex/
+  489  composer require silex/silex "~2.0" ./
+  490  composer require silex/silex "~2.0"
+  491  ls
+  492  vi composer.json 
+  493  cat ../symfony_search/composer.json 
+  494  vi composer.json 
+  495  composer update
+  496  vi composer.json 
+  497  composer update
+  498  vi composer.json 
+  499  composer update
+  500  composer update
+  501  cd ..
+  502  ls
+  503  mkdir security
+  504  rm -rf security/
+  505  cd HelloWorld/
+  506  mkdir policy
+  507  ls /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/EvilEmpire.java
+  508  javac -d src/ch3_tools_for_works/ src/ch3_tools_for_works/EvilEmpire.java
+  509  java /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire
+  510  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ ch3_tools_for_works.EvilEmpire
+  511  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager ch3_tools_for_works.EvilEmpire
+  512  policytool
+  513  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager ch3_tools_for_works.EvilEmpire
+  514  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  515  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  516  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  517  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  518  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  519  java -cp /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  520  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  521  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpir
+  522  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  523  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  524  javap src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy
+  525  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  526  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  527  javac -d src/ch3_tools_for_works/ src/ch3_tools_for_works/EvilEmpire.java
+  528  javac -d src/ch3_tools_for_works/ src/ch3_tools_for_works/EvilEmpire.java
+  529  javac -d src/ch3_tools_for_works/ src/ch3_tools_for_works/EvilEmpire.java
+  530  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  531  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  532  javac -d src/ch3_tools_for_works/ src/ch3_tools_for_works/EvilEmpire.java
+  533  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  534  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  535  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  536  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  537  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  538  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy1 ch3_tools_for_works.EvilEmpire
+  539  javap -J-version
+  540  javap -J-Djava.security.manager -J-Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy
+  541  javap -J-Djava.security.manager -J-Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  542  ls -la src/ch3_tools_for_works/ch3_tools_for_works/
+  543  sudo chmod 777 -R src/ch3_tools_for_works/
+  544  sudo chmod 777 src/ch3_tools_for_works/
+  545  sudo chmod 777 src/ch3_tools_for_works/ -R
+  546  sudo chmod 777 src/ch3_tools_for_works/*
+  547  sudo chmod 777 src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy
+  548  ls src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy
+  549  ls -la src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy
+  550  man javap
+  551  javap -classpath src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy -J-Djava.security.manager -J-Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  552  sudo chmod 777 -R src/
+  553  sudo chmod 777 -r src/
+  554  sudo src/ chmod 777 -R 
+  555  sudo  chmod src/ 777 -R 
+  556  sudo  chmod 777 src/ -R 
+  557  sudo  chmod 777 -R src/
+  558  sudo  chmod 777 -R /Users/urijglusenkov/InteliJ/HelloWorld/src/
+  559  sudo  chmod 777  /Users/urijglusenkov/InteliJ/HelloWorld/src/
+  560  sudo chmod 777 /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/
+  561  sudo chmod 777 /Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/ -R
+  562  man chmod
+  563  man chmod
+  564  cd ..
+  565  mkdir ch6_relations_beetwen_classes.test && cd ch6_relations_beetwen_classes.test
+  566  vim EvilEmpire.java 
+  567  javap -d ./ EvilEmpire.java 
+  568  javap -d ./ EvilEmpire
+  569  ls
+  570  vim EvilEmpire.java 
+  571  javac -d ./ EvilEmpire
+  572  javac -d ./ EvilEmpire.java 
+  573  ls
+  574  /Users/urijglusenkov/InteliJ/ch6_relations_beetwen_classes.test/
+  575  policytool
+  576  cd ../HelloWorld/
+  577  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  578  java -cp src/ch3_tools_for_works/ -Djava.security.manager -Djava.security.policy=/Users/urijglusenkov/InteliJ/HelloWorld/src/ch3_tools_for_works/ch3_tools_for_works/EvilEmpire.policy ch3_tools_for_works.EvilEmpire
+  579  cd ..
+  580  cd ch6_relations_beetwen_classes.test/
+  581  policytool
+  582  ls
+  583  java EvilEmpire
+  584  java -Djava.security.manager EvilEmpire
+  585  java -Djava.security.manager -Djava.security.policy=EvilEmpire.policy EvilEmpire
+  586  cd ..
+  587  cp -R ch6_relations_beetwen_classes.test/ ./HelloWorld/
+  588  ls HelloWorld/
+  589  cd HelloWorld/
+  590  sudo rm EvilEmpire.class 
+  591  mkdir policyFucinShiiit
+  592  cd .
+  593  cd ..
+  594  cp -R ch6_relations_beetwen_classes.test/ ./HelloWorld/policyFucinShiiit/
+  595  cd HelloWorld/policyFucinShiiit/
+  596  java -Djava.security.manager -Djava,security.policy=EvilEmpire.policy EvilEmpire
+  597  java -Djava.security.manager -Djava.security.policy=EvilEmpire.policy EvilEmpire
+  598  ls -la 
+  599  cd ..
+  600  ls
+  601  git status
+  602  git add .
+  603  d=$(date); git commit -m "$d"
+  604  git push origin master
+  605  git status
+  606  git add .
+  607  date=$(date); git commit -m "$date"; git push origin master
+  608  git status
+  609  git push origin master
+  610  javap src/ch5_object_in_java/Weekday.java
+  611  javap src/ch5_object_in_java.Weekday.java
+  612  javap 
+  613  javap -cp src/ ch5_object_in_java.Weekday
+  614  javap -cp src/ ch5_object_in_java.Weekday
+  615  cd src/
+  616  javap ch5_object_in_java.Weekday
+  617  cd ..
+  618  javap -cp out/production/HelloWorld/ ch5_object_in_java.Weekday
+  619  javap -cp out/production/HelloWorld/ ch5_object_in_java.Weekday
+  620  javap -cp out/production/HelloWorld/ ch5_object_in_java.Weekday
+  621  javap -cp out/production/HelloWorld/ ch5_object_in_java.Weekday
+  622  javap -cp out/production/HelloWorld/ ch5_object_in_java.Weekday
+  623  git add . 
+  624  date=${date}
+  625  $date
+  626  date={date}
+  627  $date
+  628  date={$date}
+  629  $date
+  630  date="${date}"
+  631  $date
+  632  date="$(date)"
+  633  $date
+  634  date=$(date)
+  635  $date
+  636  date_now=$(date)
+  637  $date_now
+  638  date=$(date)
+  639  "$date"
+  640  date="$(date)"
+  641  "$date"
+  642  $date
+  643  echo $date
+  644  date="$(date)"
+  645  echo $date
+  646  date=$(date) && git commit -m "$date" && git push origin master
+  647  git add .
+  648  date=$(date)
+  649  "$date"
+  650  git commit -m "$date" && git push origin master
+  651  ls -la
+  652  javac -cl=out/production/HelloWorld/ch invoke
+  653  javap -cl=out/production/HelloWorld/ch invoke
+  654* javap -cl=out/product
+  655  javap -cp=out/production/HelloWorld/ch invoke
+  656  javap --cp=out/production/HelloWorld/ch invoke
+  657  javap -help
+  658  javap --cp src/ch7_works_with_class/ invoke
+  659  javap --cp src/ch7_works_with_class/Invoke.java
+  660  javap --cp src/ch7_works_with_class/Invoke
+  661  javap --cp src/ch7_works_with_class/ Invoke
+  662  javap --cp src/ ch7_works_with_class.Invoke
+  663  javac --cp src/ ch7_works_with_class.Invoke
+  664  javac --cp src/ch7_works_with_class/Invoke.java
+  665  javac src/ch7_works_with_class/Invoke.java
+  666  javac --cp src/ ch7_works_with_class/Invoke.java
+  667  javap -help
+  668  javac --cp src/ ch7_works_with_class.Invoke.java
+  669  javac --cp src/ ch7_works_with_class.Invoke
+  670  javac -cp src/ ch7_works_with_class.Invoke
+  671  javac -cp src/ ch7_works_with_class/Invoke.java
+  672  javac -cp src ch7_works_with_class/Invoke.java
+  673  javac -cp src ch7_works_with_class.Invoke.java
+  674  javac -classpath src ch7_works_with_class.Invoke
+  675  javac -classpath src ch7_works_with_class.Reflection
+  676  javac -classpath src ch7_works_with_class.Invoke
+  677  javac -classpath src ch7_works_with_class.Invoke.java
+  678  javac -classpath src/ch7_works_with_class Invoke.java
+  679  javac -classpath src/ch7_works_with_class Invoke.java
+  680  javac -classpath src/ch7_works_with_class Invoke
+  681  javac -classpath src ch7_works_with_class.Invoke
+  682  history
+  683  history | grep javac
+  684  history | grep 'javac'
+  685  vi history
+  686  history > history.log

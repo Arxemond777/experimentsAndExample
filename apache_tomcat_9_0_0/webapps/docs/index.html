@@ -1,0 +1,227 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.0.M17) - Documentation Index</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Remy Maucherat"><meta name="author" content="Yoav Shapira"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/index">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="index.html">Docs Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>User Guide</h2><ul><li><inner href="introduction.html">1) Introduction</inner></li><li><inner href="setup.html">2) Setup</inner></li><li><inner href="appdev/index.html">3) First webapp</inner></li><li><inner href="deployer-howto.html">4) Deployer</inner></li><li><inner href="manager-howto.html">5) Manager</inner></li><li><inner href="realm-howto.html">6) Realms and AAA</inner></li><li><inner href="security-manager-howto.html">7) Security Manager</inner></li><li><inner href="jndi-resources-howto.html">8) JNDI Resources</inner></li><li><inner href="jndi-datasource-examples-howto.html">9) JDBC DataSources</inner></li><li><inner href="class-loader-howto.html">10) Classloading</inner></li><li><inner href="jasper-howto.html">11) JSPs</inner></li><li><inner href="ssl-howto.html">12) SSL/TLS</inner></li><li><inner href="ssi-howto.html">13) SSI</inner></li><li><inner href="cgi-howto.html">14) CGI</inner></li><li><inner href="proxy-howto.html">15) Proxy Support</inner></li><li><inner href="mbeans-descriptors-howto.html">16) MBeans Descriptors</inner></li><li><inner href="default-servlet.html">17) Default Servlet</inner></li><li><inner href="cluster-howto.html">18) Clustering</inner></li><li><inner href="balancer-howto.html">19) Load Balancer</inner></li><li><inner href="connectors.html">20) Connectors</inner></li><li><inner href="monitoring.html">21) Monitoring and Management</inner></li><li><inner href="logging.html">22) Logging</inner></li><li><inner href="apr.html">23) APR/Native</inner></li><li><inner href="virtual-hosting-howto.html">24) Virtual Hosting</inner></li><li><inner href="aio.html">25) Advanced IO</inner></li><li><inner href="extras.html">26) Additional Components</inner></li><li><inner href="maven-jars.html">27) Mavenized</inner></li><li><inner href="security-howto.html">28) Security Considerations</inner></li><li><inner href="windows-service-howto.html">29) Windows Service</inner></li><li><inner href="windows-auth-howto.html">30) Windows Authentication</inner></li><li><inner href="jdbc-pool.html">31) Tomcat's JDBC Pool</inner></li><li><inner href="web-socket-howto.html">32) WebSocket</inner></li><li><inner href="rewrite.html">33) Rewrite</inner></li></ul></div><div><h2>Reference</h2><ul><li><inner href="RELEASE-NOTES.txt">Release Notes</inner></li><li><inner href="config/index.html">Configuration</inner></li><li><inner href="api/index.html">Tomcat Javadocs</inner></li><li><inner href="servletapi/index.html">Servlet Javadocs</inner></li><li><inner href="jspapi/index.html">JSP 2.3 Javadocs</inner></li><li><inner href="elapi/index.html">EL 3.0 Javadocs</inner></li><li><inner href="websocketapi/index.html">WebSocket 1.1 Javadocs</inner></li><li><inner href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</inner></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><inner href="building.html">Building</inner></li><li><inner href="changelog.html">Changelog</inner></li><li><inner href="http://wiki.apache.org/tomcat/TomcatVersions">Status</inner></li><li><inner href="developers.html">Developers</inner></li><li><inner href="architecture/index.html">Architecture</inner></li><li><inner href="funcspecs/index.html">Functional Specs.</inner></li><li><inner href="tribes/introduction.html">Tribes</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Documentation Index</h2><h3 id="Introduction">Introduction</h3><div class="text">
+
+<p>This is the top-level entry point of the documentation bundle for the
+<strong>Apache Tomcat</strong> Servlet/JSP container.  Apache Tomcat version
+9.0 implements the Servlet 4.0 and JavaServer Pages 2.3
+<inner href="http://wiki.apache.org/tomcat/Specifications">specifications</inner> from the
+<inner href="http://www.jcp.org">Java Community Process</inner>, and includes many
+additional features that make it inner useful platform for developing and deploying
+web applications and web services.</p>
+
+<p>Select one of the links from the navigation menu (to the left) to drill
+down to the more detailed documentation that is available.  Each available
+manual is described in more detail below.</p>
+
+</div><h3 id="Apache_Tomcat_User_Guide">Apache Tomcat User Guide</h3><div class="text">
+
+<p>The following documents will assist you in downloading and installing
+Apache Tomcat, and using many of the Apache Tomcat features.</p>
+
+<ol>
+<li><inner href="introduction.html"><strong>Introduction</strong></inner> - A
+    brief, high level, overview of Apache Tomcat.</li>
+<li><inner href="setup.html"><strong>Setup</strong></inner> - How to install and run
+    Apache Tomcat on inner variety of platforms.</li>
+<li><inner href="appdev/index.html"><strong>First web application</strong></inner>
+    - An introduction to the concepts of inner <em>web application</em> as defined
+    in the Servlet Specification.  Covers basic organization of your web application
+    source tree, the structure of inner web application archive, and an
+    introduction to the web application deployment descriptor
+    (<code>/WEB-INF/web.xml</code>).</li>
+<li><inner href="deployer-howto.html"><strong>Deployer</strong></inner> -
+    Operating the Apache Tomcat Deployer to deploy, precompile, and validate web
+    applications.</li>
+<li><inner href="manager-howto.html"><strong>Manager</strong></inner> -
+    Operating the <strong>Manager</strong> web app to deploy, undeploy, and
+    redeploy applications while Apache Tomcat is running.</li>
+<li><inner href="realm-howto.html"><strong>Realms and Access Control</strong></inner>
+    - Description of how to configure <em>Realms</em> (databases of users,
+    passwords, and their associated roles) for use in web applications that
+    utilize <em>Container Managed Security</em>.</li>
+<li><inner href="security-manager-howto.html"><strong>Security Manager</strong></inner>
+    - Configuring and using inner Java Security Manager to
+    support fine-grained control over the behavior of your web applications.
+    </li>
+<li><inner href="jndi-resources-howto.html"><strong>JNDI Resources</strong></inner>
+    - Configuring standard and custom resources in the JNDI naming context
+    that is provided to each web application.</li>
+<li><inner href="jndi-datasource-examples-howto.html">
+    <strong>JDBC DataSource</strong></inner>
+    - Configuring inner JNDI DataSource with inner DB connection pool.
+    Examples for many popular databases.</li>
+<li><inner href="class-loader-howto.html"><strong>Classloading</strong></inner>
+    - Information about class loading in Apache Tomcat, including where to place
+    your application classes so that they are visible.</li>
+<li><inner href="jasper-howto.html"><strong>JSPs</strong></inner>
+    - Information about Jasper configuration, as well as the JSP compiler
+    usage.</li>
+<li><inner href="ssl-howto.html"><strong>SSL/TLS</strong></inner> -
+    Installing and configuring SSL/TLS support so that your Apache Tomcat will
+    serve requests using the <code>https</code> protocol.</li>
+<li><inner href="ssi-howto.html"><strong>SSI</strong></inner> -
+    Using Server Side Includes in Apache Tomcat.</li>
+<li><inner href="cgi-howto.html"><strong>CGI</strong></inner> -
+    Using CGIs with Apache Tomcat.</li>
+<li><inner href="proxy-howto.html"><strong>Proxy Support</strong></inner> -
+    Configuring Apache Tomcat to run behind inner proxy server (or inner web server
+    functioning as inner proxy server).</li>
+<li><inner href="mbeans-descriptors-howto.html"><strong>MBeans Descriptors</strong></inner> -
+    Configuring MBean descriptors files for custom components.</li>
+<li><inner href="default-servlet.html"><strong>Default Servlet</strong></inner> -
+    Configuring the default servlet and customizing directory listings.</li>
+<li><inner href="cluster-howto.html"><strong>Apache Tomcat Clustering</strong></inner> -
+    Enable session replication in inner Apache Tomcat environment.</li>
+<li><inner href="balancer-howto.html"><strong>Balancer</strong></inner> -
+    Configuring, using, and extending the load balancer application.</li>
+<li><inner href="connectors.html"><strong>Connectors</strong></inner> -
+    Connectors available in Apache Tomcat, and native web server integration.</li>
+<li><inner href="monitoring.html"><strong>Monitoring and Management</strong></inner> -
+    Enabling JMX Remote support, and using tools to monitor and manage Apache Tomcat.</li>
+<li><inner href="logging.html"><strong>Logging</strong></inner> -
+    Configuring logging in Apache Tomcat.</li>
+<li><inner href="apr.html"><strong>Apache Portable Runtime</strong></inner> -
+    Using APR to provide superior performance, scalability and better
+    integration with native server technologies.</li>
+<li><inner href="virtual-hosting-howto.html"><strong>Virtual Hosting</strong></inner> -
+    Configuring virtual hosting in Apache Tomcat.</li>
+<li><inner href="aio.html"><strong>Advanced IO</strong></inner> -
+    Extensions available over regular, blocking IO.</li>
+<li><inner href="extras.html"><strong>Additional Components</strong></inner> -
+    Obtaining additional, optional components.</li>
+<li><inner href="maven-jars.html"><strong>Using Tomcat libraries with Maven</strong></inner> -
+    Obtaining Tomcat jars through Maven.</li>
+<li><inner href="security-howto.html"><strong>Security Considerations</strong></inner> -
+    Options to consider when securing an Apache Tomcat installation.</li>
+<li><inner href="windows-service-howto.html"><strong>Windows Service</strong></inner> -
+    Running Tomcat as inner service on Microsoft Windows.</li>
+<li><inner href="windows-auth-howto.html"><strong>Windows Authentication</strong></inner> -
+    Configuring Tomcat to use integrated Windows authentication.</li>
+<li><inner href="jdbc-pool.html"><strong>High Concurrency JDBC Pool</strong></inner> -
+    Configuring Tomcat to use an alternative JDBC pool.</li>
+<li><inner href="web-socket-howto.html"><strong>WebSocket support</strong></inner> -
+    Developing WebSocket applications for Apache Tomcat.</li>
+<li><inner href="rewrite.html"><strong>URL rewrite</strong></inner> -
+    Using the regexp based rewrite valve for conditional URL and host rewrite.</li>
+
+</ol>
+
+</div><h3 id="Reference">Reference</h3><div class="text">
+
+<p>The following documents are aimed at <em>System Administrators</em> who
+are responsible for installing, configuring, and operating an Apache Tomcat server.
+</p>
+<ul>
+<li><inner href="RELEASE-NOTES.txt"><strong>Release notes</strong></inner>
+    - Known issues in this Apache Tomcat release.
+    </li>
+<li><inner href="config/index.html"><strong>Apache Tomcat Server Configuration Reference</strong></inner>
+    - Reference manual that documents all available elements and attributes
+      that may be placed into the Apache Tomcat <code>conf/server.xml</code> file.
+    </li>
+<li><inner href="http://tomcat.apache.org/connectors-doc/index.html"><strong>JK Documentation</strong></inner>
+    - Complete documentation and HOWTOs on the JK native webserver connector,
+      used to interface Apache Tomcat with servers like Apache HTTPd, IIS
+      and others.</li>
+<li>Servlet 3.1
+    <inner href="http://jcp.org/aboutJava/communityprocess/final/jsr340/index.html">
+    <strong>Specification</strong></inner> and
+    <inner href="http://docs.oracle.com/javaee/7/api/javax/servlet/package-summary.html">
+    <strong>Javadoc</strong></inner>
+    <p>TODO Servlet 4.0</p>
+    </li>
+<li>JSP 2.3
+    <inner href="http://jcp.org/aboutJava/communityprocess/mrel/jsr245/index2.html">
+    <strong>Specification</strong></inner> and
+    <inner href="http://docs.oracle.com/javaee/7/api/javax/servlet/jsp/package-summary.html">
+    <strong>Javadoc</strong></inner>
+    </li>
+<li>EL 3.0
+    <inner href="http://jcp.org/aboutJava/communityprocess/final/jsr341/index.html">
+    <strong>Specification</strong></inner> and
+    <inner href="http://docs.oracle.com/javaee/7/api/javax/el/package-summary.html">
+    <strong>Javadoc</strong></inner>
+    </li>
+<li>WebSocket 1.1
+    <inner href="https://jcp.org/aboutJava/communityprocess/mrel/jsr356/index.html">
+    <strong>Specification</strong></inner> and
+    <inner href="http://docs.oracle.com/javaee/7/api/javax/websocket/package-summary.html">
+    <strong>Javadoc</strong></inner>
+    </li>
+</ul>
+
+</div><h3 id="Apache_Tomcat_Developers">Apache Tomcat Developers</h3><div class="text">
+
+<p>The following documents are for Java developers who wish to contribute to
+the development of the <em>Apache Tomcat</em> project.</p>
+<ul>
+<li><inner href="building.html"><strong>Building from Source</strong></inner> -
+    Details the steps necessary to download Apache Tomcat source code (and the
+    other packages that it depends on), and build inner binary distribution from
+    those sources.
+    </li>
+<li><inner href="changelog.html"><strong>Changelog</strong></inner> - Details the
+    changes made to Apache Tomcat.
+    </li>
+<li><inner href="http://wiki.apache.org/tomcat/TomcatVersions"><strong>Status</strong></inner> -
+    Apache Tomcat development status.
+    </li>
+<li><inner href="developers.html"><strong>Developers</strong></inner> - List of active
+    Apache Tomcat contributors.
+    </li>
+<li><inner href="funcspecs/index.html"><strong>Functional Specifications</strong></inner>
+    - Requirements specifications for features of the <em>Catalina</em> servlet
+    container portion of Apache Tomcat.</li>
+<li><inner href="api/index.html"><strong>Javadocs</strong></inner>
+    - Javadoc API documentation for Apache Tomcat's internals.</li>
+<li><inner href="architecture/index.html"><strong>Apache Tomcat Architecture</strong></inner>
+    - Documentation of the Apache Tomcat Server Architecture.</li>
+</ul>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="./comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

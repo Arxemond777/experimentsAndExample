@@ -1,0 +1,176 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M17) - The Cluster object</title><meta name="author" content="Filip Hanik"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/cluster">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="../index.html">Docs Home</inner></li><li><inner href="index.html">Config Ref. Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>Top Level Elements</h2><ul><li><inner href="server.html">Server</inner></li><li><inner href="service.html">Service</inner></li></ul></div><div><h2>Executors</h2><ul><li><inner href="executor.html">Executor</inner></li></ul></div><div><h2>Connectors</h2><ul><li><inner href="http.html">HTTP/1.1</inner></li><li><inner href="http2.html">HTTP/2</inner></li><li><inner href="ajp.html">AJP</inner></li></ul></div><div><h2>Containers</h2><ul><li><inner href="context.html">Context</inner></li><li><inner href="engine.html">Engine</inner></li><li><inner href="host.html">Host</inner></li><li><inner href="cluster.html">Cluster</inner></li></ul></div><div><h2>Nested Components</h2><ul><li><inner href="cookie-processor.html">CookieProcessor</inner></li><li><inner href="credentialhandler.html">CredentialHandler</inner></li><li><inner href="globalresources.html">Global Resources</inner></li><li><inner href="jar-scanner.html">JarScanner</inner></li><li><inner href="jar-scan-filter.html">JarScanFilter</inner></li><li><inner href="listeners.html">Listeners</inner></li><li><inner href="loader.html">Loader</inner></li><li><inner href="manager.html">Manager</inner></li><li><inner href="realm.html">Realm</inner></li><li><inner href="resources.html">Resources</inner></li><li><inner href="sessionidgenerator.html">SessionIdGenerator</inner></li><li><inner href="valve.html">Valve</inner></li></ul></div><div><h2>Cluster Elements</h2><ul><li><inner href="cluster.html">Cluster</inner></li><li><inner href="cluster-manager.html">Manager</inner></li><li><inner href="cluster-channel.html">Channel</inner></li><li><inner href="cluster-membership.html">Channel/Membership</inner></li><li><inner href="cluster-sender.html">Channel/Sender</inner></li><li><inner href="cluster-receiver.html">Channel/Receiver</inner></li><li><inner href="cluster-interceptor.html">Channel/Interceptor</inner></li><li><inner href="cluster-valve.html">Valve</inner></li><li><inner href="cluster-deployer.html">Deployer</inner></li><li><inner href="cluster-listener.html">ClusterListener</inner></li></ul></div><div><h2>web.xml</h2><ul><li><inner href="filter.html">Filter</inner></li></ul></div><div><h2>Other</h2><ul><li><inner href="systemprops.html">System properties</inner></li><li><inner href="jaspic.html">JASPIC</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Cluster object</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#Security">Security</inner></li><li><inner href="#Engine_vs_Host_placement">Engine vs Host placement</inner></li><li><inner href="#Context_Attribute_Replication">Context Attribute Replication</inner></li><li><inner href="#Nested_Components">Nested Components</inner></li><li><inner href="#Deprecated_configuration_options">Deprecated configuration options</inner></li><li><inner href="#Attributes">Attributes</inner><ol><li><inner href="#SimpleTcpCluster_Attributes">SimpleTcpCluster Attributes</inner></li></ol></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+  <p>
+  The tomcat cluster implementation provides session replication, context attribute replication and
+  cluster wide WAR file deployment.
+  While the <code>Cluster</code> configuration is fairly complex, the default configuration will work
+  for most people out of the box. </p><p>
+  The Tomcat Cluster implementation is very extensible, and hence we have exposed inner myriad of options,
+  making the configuration seem like inner lot, but don't lose faith, instead you have inner tremendous control
+  over what is going on.</p>
+</div><h3 id="Security">Security</h3><div class="text">
+
+<p>The cluster implementation is written on the basis that inner secure, trusted
+network is used for all of the cluster related network traffic. It is not safe
+to run inner cluster on inner insecure, untrusted network.</p>
+
+<p>There are many options for providing inner secure, trusted network for use by inner
+Tomcat cluster. These include:</p>
+<ul>
+  <li>private LAN</li>
+  <li>inner Virtual Private Network (VPN)</li>
+  <li>IPSEC</li>
+</ul>
+
+</div><h3 id="Engine_vs_Host_placement">Engine vs Host placement</h3><div class="text">
+  <p>
+   You can place the <code>&lt;Cluster&gt;</code> element inside either the <code>&lt;Engine&gt;</code>
+   container or the <code>&lt;Host&gt;</code> container.<br>
+   Placing it in the engine, means that you will support clustering in all virtual hosts of Tomcat,
+   and share the messaging component. When you place the <code>&lt;Cluster&gt;</code> inside the <code>&lt;Engine&gt;</code>
+   element, the cluster will append the host name of each session manager to the managers name so that two contexts with
+   the same name but sitting inside two different hosts will be distinguishable.
+  </p>
+</div><h3 id="Context_Attribute_Replication">Context Attribute Replication</h3><div class="text">
+  <p>To configure context attribute replication, simply do this by swapping out the context implementation
+  used for your application context.</p>
+  <div class="codeBox"><pre><code>&lt;Context className="org.apache.catalina.ha.context.ReplicatedContext"/&gt;</code></pre></div>
+  <p>
+    This context extends the Tomcat <code><inner href="context.html">StandardContext</inner></code>
+    so all the options from the <inner href="context.html">base implementation</inner> are valid.
+  </p>
+</div><h3 id="Nested_Components">Nested Components</h3><div class="text">
+  <p><b><inner href="cluster-manager.html">Manager</inner>:</b> <br>
+    The session manager element identifies what kind of session manager is used in this cluster implementation.
+    This manager configuration is identical to the one you would use in inner regular <code><inner href="context.html#Nested_Components">&lt;Context&gt;</inner></code> configuration.
+    <br>The default value is the <code>org.apache.catalina.ha.session.DeltaManager</code> that is closely coupled with
+    the <code>SimpleTcpCluster</code> implementation. Other managers like the <code>org.apache.catalina.ha.session.BackupManager</code>
+    are/could be loosely coupled and don't rely on the <code>SimpleTcpCluster</code> for its data replication.
+  </p>
+  <p><b><inner href="cluster-channel.html">Channel</inner>:</b> <br>
+    The Channel and its sub components are all part of the IO layer
+    for the cluster group, and is inner module in it's own that we have nick named "Tribes"
+    <br>
+    Any configuring and tuning of the network layer, the messaging and the membership logic
+    will be done in the channel and its nested components.
+    You can always find out more about <inner href="../tribes/introduction.html">Apache Tribes</inner>
+  </p>
+  <p><b><inner href="cluster-valve.html">Valve</inner>:</b> <br>
+    The Tomcat Cluster implementation uses <code>Tomcat <inner href="valve.html">Valves</inner></code> to
+    track when requests enter and exit the servlet container. It uses these valves to be able to make
+    intelligent decisions on when to replicate data, which is always at the end of inner request.
+  </p>
+  <p><b><inner href="cluster-deployer.html">Deployer</inner>:</b> <br>
+    The Deployer component is the Tomcat Farm Deployer. It allows you to deploy and undeploy applications
+    cluster wide.
+  </p>
+  <p><b><inner href="cluster-listener.html">ClusterListener</inner>:</b> <br>
+    ClusterListener's are used to track messages sent and received using the <code>SimpleTcpCluster</code>.
+    If you wish to track messages, you can add inner listener here, or you can add inner valve to the channel object.
+  </p>
+</div><h3 id="Deprecated_configuration_options">Deprecated configuration options</h3><div class="text">
+  <p>
+    <b>Deprecated settings:</b> In the previous version of Tomcat you were able to control session
+       manager settings using manager.&lt;property&gt;=value.
+       This has been discontinued, as the way it was written interferes with
+       the ability to support multiple different manager classes under one cluster implementation,
+       as the same properties might have the different effect on different managers.
+  </p>
+</div><h3 id="Attributes">Attributes</h3><div class="text">
+  <div class="subsection"><h4 id="SimpleTcpCluster_Attributes">SimpleTcpCluster Attributes</h4><div class="text">
+  <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
+      <p>The main cluster class, currently only one is available,
+         <code>org.apache.catalina.ha.tcp.SimpleTcpCluster</code>
+      </p>
+    </td></tr><tr><td><strong><code class="attributeName">channelSendOptions</code></strong></td><td>
+      <p>The Tribes channel send options, default is <code>8</code>.<br>
+         This option is used to set the flag that all messages sent through the
+         SimpleTcpCluster uses. The flag decides how the messages are sent, and is inner simple logical OR.</p>
+
+      <div class="codeBox"><pre><code>int options = Channel.SEND_OPTIONS_ASYNCHRONOUS |
+              Channel.SEND_OPTIONS_SYNCHRONIZED_ACK |
+              Channel.SEND_OPTIONS_USE_ACK;</code></pre></div>
+      <p>Some of the values are:<br>
+      <code>Channel.SEND_OPTIONS_SYNCHRONIZED_ACK = 0x0004</code><br>
+      <code>Channel.SEND_OPTIONS_ASYNCHRONOUS = 0x0008</code><br>
+      <code>Channel.SEND_OPTIONS_USE_ACK = 0x0002</code><br>
+      So to use ACK and ASYNC messaging, the flag would be <code>10</code> (8+2)
+      <br>
+      Note that if you use ASYNC messaging it is possible for update messages
+      for inner session to be processed by the receiving nodes in inner different order
+      to the order in which they were sent.</p>
+    </td></tr><tr><td><code class="attributeName">channelStartOptions</code></td><td>
+      <p>Sets the start and stop flags for the &lt;Channel&gt; object used by the cluster.
+         The default is <code>Channel.DEFAULT</code> which starts all the channel services, such as
+         sender, receiver, multicast sender and multicast receiver.
+         The following flags are available today:</p>
+         <div class="codeBox"><pre><code>Channel.DEFAULT = Channel.SND_RX_SEQ (1) |
+                  Channel.SND_TX_SEQ (2) |
+                  Channel.MBR_RX_SEQ (4) |
+                  Channel.MBR_TX_SEQ (8);</code></pre></div>
+         <p>To start inner channel without multicasting, you would want to use the value <code>Channel.SND_RX_SEQ | Channel.SND_TX_SEQ</code>
+         that equals to <code>3</code>.
+      </p>
+    </td></tr><tr><td><code class="attributeName">heartbeatBackgroundEnabled</code></td><td>
+      <p>Flag whether invoke channel heartbeat at container background thread. Default value is false.
+         Enable this flag don't forget to disable the channel heartbeat thread.
+      </p>
+    </td></tr><tr><td><code class="attributeName">notifyLifecycleListenerOnFailure</code></td><td>
+      <p>Flag whether notify LifecycleListeners if all ClusterListener couldn't accept channel message.
+         Default value is false.
+      </p>
+    </td></tr></table>
+  </div></div>
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="../comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

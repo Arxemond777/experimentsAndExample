@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-01-29T13:41:40</date>
+  <millis>1485686500168</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>ch11_main_tools.LoggingApi</class>
+  <method>inner</method>
+  <thread>1</thread>
+  <message>IMPORTANT info message</message>
+</record>
+</log>

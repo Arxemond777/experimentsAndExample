@@ -1,0 +1,7 @@
+/* AUTOMATICALLY GENERATED ON Thu Nov 24 22:36:16 MSK 2016*/
+/* DO NOT EDIT */
+
+grant codeBase "file:/Users/urijglusenkov/InteliJ/HelloWorld/policyFucingShiiit/" {
+  permission java.net.SocketPermission "207.46.131.13", "connect";
+};
+

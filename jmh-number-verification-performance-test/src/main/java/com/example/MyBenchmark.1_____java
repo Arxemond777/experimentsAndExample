@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2014, Oracle America, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ *  * Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ *  * Neither the name of Oracle nor the names of its contributors may be used
+ *    to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+ * THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+package main.java.com.example;
+
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.Warmup;
+import org.openjdk.jmh.annotations.Measurement;
+
+public class MyBenchmark {
+
+    @Benchmark
+
+    /**
+     * total groups
+     *
+     * value - total count fork-cycle (in test)
+     * warmups - total count fork WARMUPS-cycle (in test)
+     */
+//    @Fork(value = 1, warmups = 1) // warmups - count Warmup in each Fork-cycle BEFORE Fork-cycle (default 20-warmup/20-iterations
+// in each cycle)
+
+//    @Fork(value = 1) // values - count Fork-cycle (total count Fork-cycle)
+
+    /**
+     * in each Groups
+     */
+    @Warmup(iterations = 2) // count warmup(2) before iterations (for each group)
+    @Measurement(iterations = 5) // // count iterations(5) after warmup (for each group)
+
+    @BenchmarkMode(Mode.Throughput)
+    public void testMethod() throws InterruptedException {
+//        int a = 20; // Начальное значение диапазона - "от"
+//        int b = 1000; // Конечное значение диапазона - "до"
+//        int random_number1 = a + (int) (Math.random() * b); // Генерация 1-го числа
+//        System.out.println("1-ое случайное число: " + random_number1);
+
+        //Thread.sleep(0);
+    }
+
+}
+//// random 20-1000
+//Result "main.java.com.example.MyBenchmark.testMethod":
+//        1.630 ±(99.9%) 0.396 ops/s [Average]
+//        (min, avg, max) = (0.978, 1.630, 2.575), stdev = 0.456
+//        CI (99.9%): [1.234, 2.027] (assumes normal distribution)
+//
+//
+//        # Run complete. Total time: 00:02:50
+//
+//        Benchmark                Mode  Cnt  Score   Error  Units
+//        MyBenchmark.testMethod  thrpt   20  1.630 ± 0.396  ops/s
+//
+//        //Random 100
+//Result "main.java.com.example.MyBenchmark.testMethod":
+//        9.724 ±(99.9%) 0.056 ops/s [Average]
+//        (min, avg, max) = (9.602, 9.724, 9.854), stdev = 0.064
+//        CI (99.9%): [9.668, 9.779] (assumes normal distribution)
+//
+//
+//        # Run complete. Total time: 00:02:06
+//
+//        Benchmark                Mode  Cnt  Score   Error  Units
+//        MyBenchmark.testMethod  thrpt   20  9.724 ± 0.056  ops/s
+// //Random 1000
+//Result "main.java.com.example.MyBenchmark.testMethod":
+//        0.997 ±(99.9%) 0.001 ops/s [Average]
+//        (min, avg, max) = (0.995, 0.997, 1.000), stdev = 0.001
+//        CI (99.9%): [0.996, 0.998] (assumes normal distribution)
+//
+//
+//        # Run complete. Total time: 00:04:01
+//
+//        Benchmark                Mode  Cnt  Score   Error  Units
+//        MyBenchmark.testMethod  thrpt   20  0.997 ± 0.001  ops/s
+//    // equals 1 ms
+//Result "main.java.com.example.MyBenchmark.testMethod":
+//        719.481 ±(99.9%) 10.231 ops/s [Average]
+//        (min, avg, max) = (698.670, 719.481, 743.802), stdev = 11.783
+//        CI (99.9%): [709.250, 729.712] (assumes normal distribution)
+//
+//
+//        # Run complete. Total time: 00:02:02
+//
+//        Benchmark                Mode  Cnt    Score    Error  Units
+//        MyBenchmark.testMethod  thrpt   20  719.481 ± 10.231  ops/s
+//    //equals 0
+//esult "main.java.com.example.MyBenchmark.testMethod":
+//        4072074.108 ±(99.9%) 134592.844 ops/s [Average]
+//        (min, avg, max) = (3451347.473, 4072074.108, 4195832.614), stdev = 154997.319
+//        CI (99.9%): [3937481.265, 4206666.952] (assumes normal distribution)
+//
+//
+//        # Run complete. Total time: 00:02:01
+//
+//        Benchmark                Mode  Cnt        Score        Error  Units
+//        MyBenchmark.testMethod  thrpt   20  4072074.108 ± 134592.844  ops/s
+    //without time quantum
+//Result "main.java.com.example.MyBenchmark.testMethod":
+//        3165212343.679 ±(99.9%) 33240939.335 ops/s [Average]
+//        (min, avg, max) = (3081915003.632, 3165212343.679, 3215518061.903), stdev = 38280315.172
+//        CI (99.9%): [3131971404.344, 3198453283.013] (assumes normal distribution)
+//
+//
+//        # Run complete. Total time: 00:02:02
+//
+//        Benchmark                Mode  Cnt           Score          Error  Units
+//        MyBenchmark.testMethod  thrpt   20  3165212343.679 ± 33240939.335  ops/s

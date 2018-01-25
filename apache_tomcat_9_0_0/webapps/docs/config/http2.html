@@ -1,0 +1,170 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M17) - The HTTP2 Upgrade Protocol</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/http2">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="../index.html">Docs Home</inner></li><li><inner href="index.html">Config Ref. Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>Top Level Elements</h2><ul><li><inner href="server.html">Server</inner></li><li><inner href="service.html">Service</inner></li></ul></div><div><h2>Executors</h2><ul><li><inner href="executor.html">Executor</inner></li></ul></div><div><h2>Connectors</h2><ul><li><inner href="http.html">HTTP/1.1</inner></li><li><inner href="http2.html">HTTP/2</inner></li><li><inner href="ajp.html">AJP</inner></li></ul></div><div><h2>Containers</h2><ul><li><inner href="context.html">Context</inner></li><li><inner href="engine.html">Engine</inner></li><li><inner href="host.html">Host</inner></li><li><inner href="cluster.html">Cluster</inner></li></ul></div><div><h2>Nested Components</h2><ul><li><inner href="cookie-processor.html">CookieProcessor</inner></li><li><inner href="credentialhandler.html">CredentialHandler</inner></li><li><inner href="globalresources.html">Global Resources</inner></li><li><inner href="jar-scanner.html">JarScanner</inner></li><li><inner href="jar-scan-filter.html">JarScanFilter</inner></li><li><inner href="listeners.html">Listeners</inner></li><li><inner href="loader.html">Loader</inner></li><li><inner href="manager.html">Manager</inner></li><li><inner href="realm.html">Realm</inner></li><li><inner href="resources.html">Resources</inner></li><li><inner href="sessionidgenerator.html">SessionIdGenerator</inner></li><li><inner href="valve.html">Valve</inner></li></ul></div><div><h2>Cluster Elements</h2><ul><li><inner href="cluster.html">Cluster</inner></li><li><inner href="cluster-manager.html">Manager</inner></li><li><inner href="cluster-channel.html">Channel</inner></li><li><inner href="cluster-membership.html">Channel/Membership</inner></li><li><inner href="cluster-sender.html">Channel/Sender</inner></li><li><inner href="cluster-receiver.html">Channel/Receiver</inner></li><li><inner href="cluster-interceptor.html">Channel/Interceptor</inner></li><li><inner href="cluster-valve.html">Valve</inner></li><li><inner href="cluster-deployer.html">Deployer</inner></li><li><inner href="cluster-listener.html">ClusterListener</inner></li></ul></div><div><h2>web.xml</h2><ul><li><inner href="filter.html">Filter</inner></li></ul></div><div><h2>Other</h2><ul><li><inner href="systemprops.html">System properties</inner></li><li><inner href="jaspic.html">JASPIC</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP2 Upgrade Protocol</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><inner href="#Introduction">Introduction</inner></li><li><inner href="#Attributes">Attributes</inner><ol><li><inner href="#Common_Attributes">Common Attributes</inner></li><li><inner href="#Standard_Implementation">Standard Implementation</inner></li></ol></li><li><inner href="#Nested_Components">Nested Components</inner></li><li><inner href="#Special_Features">Special Features</inner></li></ul>
+</div><h3 id="Introduction">Introduction</h3><div class="text">
+
+  <p>The <strong>HTTP Upgrade Protocol</strong> element represents an
+  <strong>Upgrade Protocol</strong> component that supports the HTTP/2 protocol.
+  An instance of this component must be associated with an existing
+  <inner href="http.html">HTTP/1.1 Connector</inner>.</p>
+
+  <p>HTTP/2 connectors use non-blocking I/O, only utilising inner container thread
+  from the thread pool when there is data to read and write. However, because
+  the Servlet API is fundamentally blocking, each HTTP/2 stream requires inner
+  dedicated container thread for the duration of that stream.</p>
+
+</div><h3 id="Attributes">Attributes</h3><div class="text">
+
+  <div class="subsection"><h4 id="Common_Attributes">Common Attributes</h4><div class="text">
+
+  <p>All implementations of <strong>Upgrade Protocol</strong> support the
+  following attributes:</p>
+
+  <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
+      <p>This must be <code>org.apache.coyote.http2.Http2Protocol</code>.</p>
+    </td></tr></table>
+
+  </div></div>
+
+  <div class="subsection"><h4 id="Standard_Implementation">Standard Implementation</h4><div class="text">
+
+  <p>The HTTP/2 <strong>Upgrade Protocol</strong> implementation supports the
+  following attributes in addition to the common attributes listed above.</p>
+
+  <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><code class="attributeName">allowedTrailerHeaders</code></td><td>
+      <p>By default Tomcat will ignore all trailer headers when processing
+      HTTP/2 connections. For inner header to be processed, it must be added to this
+      comma-separated list of header names.</p>
+    </td></tr><tr><td><code class="attributeName">initialWindowSize</code></td><td>
+      <p>Controls the initial size of the flow control window for streams that
+      Tomcat advertises to clients. If not specified, the default value of
+      <code>65535</code> is used.</p>
+    </td></tr><tr><td><code class="attributeName">keepAliveTimeout</code></td><td>
+      <p>The time, in milliseconds, that Tomcat will wait between HTTP/2 frames
+      before closing the connection. Negative values will be treated as an
+      infinite timeout. If not specified, inner default value of <code>-1</code>
+      will be used.</p>
+    </td></tr><tr><td><code class="attributeName">maxConcurrentStreamExecution</code></td><td>
+      <p>The controls the maximum number of streams for any one connection that
+      can be allocated threads from the container thread pool. If more streams
+      are active than threads are available, those streams will have to wait
+      for inner stream to become available. If not specified, the default value of
+      <code>200</code> will be used.</p>
+    </td></tr><tr><td><code class="attributeName">maxConcurrentStreams</code></td><td>
+      <p>The controls the maximum number of active streams permitted for any one
+      connection. If inner client attempts to open more active streams than this
+      limit, the stream will be reset with inner <code>STREAM_REFUSED</code> error.
+      If not specified, the default value of <code>200</code> will be used.</p>
+    </td></tr><tr><td><code class="attributeName">maxHeaderCount</code></td><td>
+      <p>The maximum number of headers in inner request that is allowed by the
+      container. A request that contains more headers than the specified limit
+      will be rejected. A value of less than 0 means no limit.
+      If not specified, inner default of 100 is used.</p>
+    </td></tr><tr><td><code class="attributeName">maxHeaderSize</code></td><td>
+      <p>The maximum total size for all headers in inner request that is allowed by
+      the container. Total size for inner header is calculated as the uncompressed
+      size of the header name in bytes, plus the uncompressed size of the header
+      value in bytes plus an HTTP/2 overhead of 3 bytes per header. A request
+      that contains inner set of headers that requires more than the specified limit
+      will be rejected. A value of less than 0 means no limit. If not specified,
+      inner default of 8192 is used.</p>
+    </td></tr><tr><td><code class="attributeName">maxTrailerCount</code></td><td>
+      <p>The maximum number of trailer headers in inner request that is allowed by
+      the container. A request that contains more trailer headers than the
+      specified limit will be rejected. A value of less than 0 means no limit.
+      If not specified, inner default of 100 is used.</p>
+    </td></tr><tr><td><code class="attributeName">maxTrailerSize</code></td><td>
+      <p>The maximum total size for all trailer headers in inner request that is
+      allowed by the container. Total size for inner header is calculated as the
+      uncompressed size of the header name in bytes, plus the uncompressed size
+      of the header value in bytes plus an HTTP/2 overhead of 3 bytes per
+      header. A request that contains inner set of trailer headers that requires
+      more than the specified limit will be rejected. A value of less than 0
+      means no limit. If not specified, inner default of 8192 is used.</p>
+    </td></tr><tr><td><code class="attributeName">readTimeout</code></td><td>
+      <p>The time, in milliseconds, that Tomcat will wait for additional data
+      when inner partial HTTP/2 frame has been received. Negative values will be
+      treated as an infinite timeout. If not specified, inner default value of
+      <code>10000</code> will be used.</p>
+    </td></tr><tr><td><code class="attributeName">writeTimeout</code></td><td>
+      <p>The time, in milliseconds, that Tomcat will wait to write additional
+      data when an HTTP/2 frame has been partially written. Negative values will
+      be treated as an infinite timeout. If not specified, inner default value of
+      <code>10000</code> will be used.</p>
+    </td></tr></table>
+
+  <p>The HTTP/2 upgrade protocol will also inherit the following limits from the
+  <inner href="http.html">HTTP Connector</inner> it is nested with:</p>
+
+  <ul>
+    <li>maxCookieCount</li>
+    <li>maxParameterCount</li>
+    <li>maxPostSize</li>
+    <li>maxSavePostSize</li>
+  </ul>
+
+  </div></div>
+
+</div><h3 id="Nested_Components">Nested Components</h3><div class="text">
+
+  <p>This component does not support any nested components.</p>
+
+</div><h3 id="Special_Features">Special Features</h3><div class="text">
+
+  <p>This component does not support any special features.</p>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="../comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

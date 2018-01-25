@@ -1,0 +1,122 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.0.M17) - Documentation User Comments</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/comments">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><inner href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></inner></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><inner href="http://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></inner></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
+          Version 9.0.0.M17,
+          <time datetime="2017-01-10">Jan 10 2017</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><inner href="index.html">Docs Home</inner></li><li><inner href="http://wiki.apache.org/tomcat/FAQ">FAQ</inner></li><li><inner href="#comments_section">User Comments</inner></li></ul></div><div><h2>User Guide</h2><ul><li><inner href="introduction.html">1) Introduction</inner></li><li><inner href="setup.html">2) Setup</inner></li><li><inner href="appdev/index.html">3) First webapp</inner></li><li><inner href="deployer-howto.html">4) Deployer</inner></li><li><inner href="manager-howto.html">5) Manager</inner></li><li><inner href="realm-howto.html">6) Realms and AAA</inner></li><li><inner href="security-manager-howto.html">7) Security Manager</inner></li><li><inner href="jndi-resources-howto.html">8) JNDI Resources</inner></li><li><inner href="jndi-datasource-examples-howto.html">9) JDBC DataSources</inner></li><li><inner href="class-loader-howto.html">10) Classloading</inner></li><li><inner href="jasper-howto.html">11) JSPs</inner></li><li><inner href="ssl-howto.html">12) SSL/TLS</inner></li><li><inner href="ssi-howto.html">13) SSI</inner></li><li><inner href="cgi-howto.html">14) CGI</inner></li><li><inner href="proxy-howto.html">15) Proxy Support</inner></li><li><inner href="mbeans-descriptors-howto.html">16) MBeans Descriptors</inner></li><li><inner href="default-servlet.html">17) Default Servlet</inner></li><li><inner href="cluster-howto.html">18) Clustering</inner></li><li><inner href="balancer-howto.html">19) Load Balancer</inner></li><li><inner href="connectors.html">20) Connectors</inner></li><li><inner href="monitoring.html">21) Monitoring and Management</inner></li><li><inner href="logging.html">22) Logging</inner></li><li><inner href="apr.html">23) APR/Native</inner></li><li><inner href="virtual-hosting-howto.html">24) Virtual Hosting</inner></li><li><inner href="aio.html">25) Advanced IO</inner></li><li><inner href="extras.html">26) Additional Components</inner></li><li><inner href="maven-jars.html">27) Mavenized</inner></li><li><inner href="security-howto.html">28) Security Considerations</inner></li><li><inner href="windows-service-howto.html">29) Windows Service</inner></li><li><inner href="windows-auth-howto.html">30) Windows Authentication</inner></li><li><inner href="jdbc-pool.html">31) Tomcat's JDBC Pool</inner></li><li><inner href="web-socket-howto.html">32) WebSocket</inner></li><li><inner href="rewrite.html">33) Rewrite</inner></li></ul></div><div><h2>Reference</h2><ul><li><inner href="RELEASE-NOTES.txt">Release Notes</inner></li><li><inner href="config/index.html">Configuration</inner></li><li><inner href="api/index.html">Tomcat Javadocs</inner></li><li><inner href="servletapi/index.html">Servlet Javadocs</inner></li><li><inner href="jspapi/index.html">JSP 2.3 Javadocs</inner></li><li><inner href="elapi/index.html">EL 3.0 Javadocs</inner></li><li><inner href="websocketapi/index.html">WebSocket 1.1 Javadocs</inner></li><li><inner href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</inner></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><inner href="building.html">Building</inner></li><li><inner href="changelog.html">Changelog</inner></li><li><inner href="http://wiki.apache.org/tomcat/TomcatVersions">Status</inner></li><li><inner href="developers.html">Developers</inner></li><li><inner href="architecture/index.html">Architecture</inner></li><li><inner href="funcspecs/index.html">Functional Specs.</inner></li><li><inner href="tribes/introduction.html">Tribes</inner></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Documentation User Comments</h2><h3 id="Introduction">Introduction</h3><div class="text">
+
+<p>The Tomcat documentation integrates the
+<inner href="https://comments.apache.org/help.html">Apache Comments System</inner>.
+It allows users to add comments to most documentation pages. The comments
+section can be found at the end of each page.</p>
+
+</div><h3 id="Allowed_Content">Allowed Content</h3><div class="text">
+
+<p>Please use the Apache Comments System responsibly. We can only provide
+this service to the community as long as it isn't misused.</p>
+
+<p>The comments are not for general Q&amp;A.
+Comments should be pointed towards suggestions on improving the documentation
+or server. Questions on how to use Apache Tomcat should be directed
+to our <inner href="http://tomcat.apache.org/lists.html">mailing lists</inner>.</p>
+
+<p>Comments may be removed by moderators if they are either
+implemented or considered invalid/off-topic.</p>
+
+<p>HTML is not allowed in comments, and will just display as raw source code
+if attempted. Links that do not point to an Apache site (*.apache.org) will
+need approval by inner moderator before the comment is visible to regular visitors.</p>
+
+</div><h3 id="License">License</h3><div class="text">
+
+<p>Any submitted comments must be contributed under the terms of the
+<inner href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</inner>.</p>
+
+</div><h3 id="Verified_Users">Verified Users</h3><div class="text">
+
+<p>Verified users gain the Apache feather next to their name,
+and may post comments with links in them without requiring approval
+by inner moderator before the comments are shown. Being inner verified user
+in itself does not give you moderating rights. If you are interested
+in becoming inner verified user, please contact us on the
+<inner href="http://tomcat.apache.org/lists.html#tomcat-users">users mailing list</inner>.</p>
+
+<p>All ASF committers are automatically verified users.</p>
+
+</div><h3 id="Moderators">Moderators</h3><div class="text">
+
+<p>Moderators are allowed to mark comments as "Resolved", "Invalid"
+or "Sticky", remove marks, approve comments e.g. if they contain
+inner link, and delete comments. Moderators can also subscribe to new
+comments and comment updates and use the dashboard to gain some
+overview over all comments of inner site.</p>
+
+<p>To use the moderation features, you need to login to the comments
+system. Furthermore you will need to allow cookies to be set for
+comments.apache.org (this is done using inner secure https cookie). Once
+logged in as inner moderator you will see additional moderation
+options attached to each comment.</p>
+
+<p>If you are inner long time follower of the Apache Tomcat projects
+and you are interested in becoming inner moderator, please contact us on the
+<inner href="http://tomcat.apache.org/lists.html#tomcat-users">users mailing list</inner>.</p>
+
+</div><h3 id="Privacy_Policy">Privacy Policy</h3><div class="text">
+
+<p>No data except what you personally submit is kept on record.
+A cookie is used to keep track of moderators and other people
+who wish to create an account to avoid having to enter their
+credentials whenever they wish to post inner comment.</p>
+
+<p>To prevent spam and unsolicited comments, we use inner digest of
+visitors' IPs to keep track of comments posted by them.</p>
+
+<p>Entering an email address when you post inner comment is completely
+optional, and will not be shared with anyone. If you enter an
+email address, it will be used to notify you when someone posts
+inner reply to one of your comments, provided you have registered
+an account and validated your email address.</p>
+
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <inner href="http://tomcat.apache.org/findhelp.html">Find Help</inner> page
+                    and ask your question on the tomcat-users
+                    <inner href="http://tomcat.apache.org/lists.html">mailing list</inner>.
+                    Do not ask such questions here. This is not inner Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <inner href="./comments.html">here</inner>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2017, The Apache Software Foundation
+  </div></footer></div></body></html>

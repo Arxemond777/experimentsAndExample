@@ -1,0 +1,46 @@
+<project name="antbuild">
+
+
+    <!--<property file="project.properties"/>-->
+    <property name="war-file" value="${ant.project.name}.war"/>
+    <property name="src-dir" value="src/ch_15_web_programmin_server_side" />
+    <property name="build-dir" value="web/WEB-INF/classes" />
+    <property name="webxml-file" value="web/WEB-INF/web.xml" />
+    <property name="lib-dir" value="web/WEB-INF/lib" />
+    <path id="lib-path">
+        <fileset dir="${lib-dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="war" depends="compile_for_tomcat">
+        <war warfile="${war-file}" webxml="${webxml-file}">
+            <classes dir="${build-dir}"/>
+            <lib dir="${lib-dir}">
+                <exclude name="servlet-api.jar"/>
+            </lib>
+        </war>
+    </target>
+
+    <path id="common_library">
+        <pathelement location="apache_tomcat_9_0_0/lib/servlet-api.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="web/WEB-INF/classes/ch15_web_programmin_server_side"/>
+    </target>
+
+    <target name="compile_for_tomcat" depends="clean">
+        <javac srcdir="src/ch_15_web_programmin_server_side" destdir="web/WEB-INF/classes" failonerror="true" fork="true">
+            <classpath refid="common_library"/>
+        </javac>
+    </target>
+
+    <target name="compile_for_manual_control" depends="clean">
+        <javac srcdir="src/ch_15_web_programmin_server_side" destdir="web/WEB-INF/classes" failonerror="true" fork="true">
+            <classpath refid="common_library"/>
+        </javac>
+    </target>
+
+
+</project>

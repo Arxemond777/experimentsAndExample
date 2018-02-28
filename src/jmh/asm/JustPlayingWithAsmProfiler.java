@@ -39,25 +39,25 @@ public class JustPlayingWithAsmProfiler {
 
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
-    @Fork(value = 3, warmups = 3)
-    @Warmup(iterations = 3)
-    @Measurement(iterations = 3)
+    @Fork(value = 1, warmups = 1)
+    @Warmup(iterations = 1)
+    @Measurement(iterations = 1)
     public int withOneCheck(BenchmarkState benchmarkState) {
         return new Random().nextInt() + (benchmarkState.b.checker() ? 1 : 2);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
-    @Fork(value = 3, warmups = 3)
-    @Warmup(iterations = 3)
-    @Measurement(iterations = 3)
+    @Fork(value = 1, warmups = 1)
+    @Warmup(iterations = 1)
+    @Measurement(iterations = 1)
     public int withManyCheck(BenchmarkState benchmarkState) {
         return new Random().nextInt() + (benchmarkState.b.checker() ? 1 : 2) + (benchmarkState.b.checker() ? 1 : 2);
     }
 
     @State(Scope.Benchmark)
     public static class BenchmarkState {
-        volatile B b = new B();
+        volatile B b = new B(new Random().nextInt());
     }
 
     /*@Benchmark
@@ -85,8 +85,14 @@ interface A {
 
 class B implements A {
 
+    private final int i;
+
+    B (int i) {
+        this.i = i;
+    }
+
     @Override
     public int a() {
-        return new Random().nextInt();
+        return i;
     }
 }

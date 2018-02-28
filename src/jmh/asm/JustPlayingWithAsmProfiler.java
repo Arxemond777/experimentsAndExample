@@ -2,6 +2,8 @@ package jmh.asm;
 
 import org.openjdk.jmh.annotations.*;
 
+import java.util.Random;
+
 // experimentsAndExample/jmh-number-verification-performance-test/src/main/java/com/example/MyBenchmark.1_____java
 
 /**
@@ -29,13 +31,36 @@ import org.openjdk.jmh.annotations.*;
  jmh.asm.JustPlayingWithAsmProfiler -prof perfasm
  */
 
-@State(Scope.Benchmark)
+//@State(Scope.Benchmark)
 public class JustPlayingWithAsmProfiler {
     public static void main(String[] args) throws Exception {
         org.openjdk.jmh.Main.main(args);
     }
 
     @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @Fork(value = 3, warmups = 3)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
+    public int withOneCheck(BenchmarkState benchmarkState) {
+        return new Random().nextInt() + (benchmarkState.b.checker() ? 1 : 2);
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @Fork(value = 3, warmups = 3)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
+    public int withManyCheck(BenchmarkState benchmarkState) {
+        return new Random().nextInt() + (benchmarkState.b.checker() ? 1 : 2) + (benchmarkState.b.checker() ? 1 : 2);
+    }
+
+    @State(Scope.Benchmark)
+    public static class BenchmarkState {
+        volatile B b = new B();
+    }
+
+    /*@Benchmark
     @BenchmarkMode(Mode.Throughput)
     @Fork(value = 1, warmups = 1)
     @Warmup(iterations = 1)
@@ -47,5 +72,21 @@ public class JustPlayingWithAsmProfiler {
     @State(Scope.Benchmark)
     public static class BenchmarkState {
         volatile double x = Math.PI;
+    }*/
+}
+
+interface A {
+    int a();
+
+    default boolean checker() {
+        return a() % 2 == 0;
+    }
+}
+
+class B implements A {
+
+    @Override
+    public int a() {
+        return new Random().nextInt();
     }
 }

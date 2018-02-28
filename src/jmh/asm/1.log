@@ -1,0 +1,878 @@
+/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/bin/java -Xms512m -Xmx2560m -XX:+UseParNewGC -XX:MinHeapFreeRatio=15 -XX:MaxHeapFreeRatio=30 -javaagent:/home/glushenkov/Documents/IntelliJ/lib/idea_rt.jar=34701:/home/glushenkov/Documents/IntelliJ/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/charsets.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/deploy.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/dnsns.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/jaccess.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/jfxrt.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/localedata.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/nashorn.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/sunec.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/ext/zipfs.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/javaws.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/jce.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/jfr.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/jfxswt.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/jsse.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/management-agent.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/plugin.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/resources.jar:/usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/lib/rt.jar:/home/glushenkov/IdeaProjects/experimentsAndExample/target/classes:/home/glushenkov/IdeaProjects/experimentsAndExample/apache_tomcat_9_0_0/lib/servlet-api.jar:/home/glushenkov/.m2/repository/org/openjdk/jmh/jmh-core/1.20/jmh-core-1.20.jar:/home/glushenkov/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/glushenkov/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/glushenkov/.m2/repository/org/openjdk/jmh/jmh-generator-asm/1.20/jmh-generator-asm-1.20.jar:/home/glushenkov/.m2/repository/org/openjdk/jmh/jmh-generator-reflection/1.20/jmh-generator-reflection-1.20.jar:/home/glushenkov/.m2/repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar:/home/glushenkov/.m2/repository/com/rabbitmq/amqp-client/5.1.2/amqp-client-5.1.2.jar:/home/glushenkov/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/glushenkov/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/home/glushenkov/.m2/repository/org/apache/commons/commons-lang3/3.0/commons-lang3-3.0.jar jmh.asm.JustPlayingWithAsmProfiler
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# JMH version: 1.20
+# VM version: JDK 1.8.0_144, VM 25.144-b01
+# VM invoker: /usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/bin/java
+# VM options: -Xms512m -Xmx2560m -XX:+UseParNewGC -XX:MinHeapFreeRatio=15 -XX:MaxHeapFreeRatio=30 -javaagent:/home/glushenkov/Documents/IntelliJ/lib/idea_rt.jar=34701:/home/glushenkov/Documents/IntelliJ/bin -Dfile.encoding=UTF-8
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: jmh.asm.JustPlayingWithAsmProfiler.withManyCheck
+
+# Run progress: 0.00% complete, ETA 00:13:20
+# Fork: 1 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 4882029.627 ops/s
+# Warmup Iteration   2: 5467122.783 ops/s
+# Warmup Iteration   3: 5551758.113 ops/s
+# Warmup Iteration   4: 5528887.951 ops/s
+# Warmup Iteration   5: 5484238.008 ops/s
+# Warmup Iteration   6: 5632468.752 ops/s
+# Warmup Iteration   7: 5430605.351 ops/s
+# Warmup Iteration   8: 5614182.095 ops/s
+# Warmup Iteration   9: 5682803.283 ops/s
+# Warmup Iteration  10: 5616687.976 ops/s
+# Warmup Iteration  11: 5336076.223 ops/s
+# Warmup Iteration  12: 5439089.790 ops/s
+# Warmup Iteration  13: 5400669.651 ops/s
+# Warmup Iteration  14: 5430633.622 ops/s
+# Warmup Iteration  15: 5378353.341 ops/s
+# Warmup Iteration  16: 5371345.551 ops/s
+# Warmup Iteration  17: 5330759.051 ops/s
+# Warmup Iteration  18: 5538884.793 ops/s
+# Warmup Iteration  19: 5527472.825 ops/s
+# Warmup Iteration  20: 5481398.568 ops/s
+Iteration   1: 5296039.138 ops/s
+Iteration   2: 5276383.864 ops/s
+Iteration   3: 5345022.998 ops/s
+Iteration   4: 5314582.519 ops/s
+Iteration   5: 5447676.332 ops/s
+Iteration   6: 5466780.611 ops/s
+Iteration   7: 5485361.684 ops/s
+Iteration   8: 5450012.036 ops/s
+Iteration   9: 5499954.021 ops/s
+Iteration  10: 5300316.809 ops/s
+Iteration  11: 5510557.527 ops/s
+Iteration  12: 5451926.483 ops/s
+Iteration  13: 5395959.898 ops/s
+Iteration  14: 5437908.022 ops/s
+Iteration  15: 5498350.475 ops/s
+Iteration  16: 5601917.445 ops/s
+Iteration  17: 5486690.044 ops/s
+Iteration  18: 5408444.739 ops/s
+Iteration  19: 5364743.227 ops/s
+Iteration  20: 5534962.458 ops/s
+
+# Run progress: 5.00% complete, ETA 00:12:53
+# Fork: 2 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 5068597.819 ops/s
+# Warmup Iteration   2: 5336795.623 ops/s
+# Warmup Iteration   3: 5291491.473 ops/s
+# Warmup Iteration   4: 5361415.161 ops/s
+# Warmup Iteration   5: 5578318.773 ops/s
+# Warmup Iteration   6: 5451059.459 ops/s
+# Warmup Iteration   7: 5587573.002 ops/s
+# Warmup Iteration   8: 5466644.214 ops/s
+# Warmup Iteration   9: 5494588.550 ops/s
+# Warmup Iteration  10: 5481494.244 ops/s
+# Warmup Iteration  11: 5357767.587 ops/s
+# Warmup Iteration  12: 5529910.615 ops/s
+# Warmup Iteration  13: 5454244.601 ops/s
+# Warmup Iteration  14: 5504276.972 ops/s
+# Warmup Iteration  15: 5429894.118 ops/s
+# Warmup Iteration  16: 5445021.557 ops/s
+# Warmup Iteration  17: 5290670.013 ops/s
+# Warmup Iteration  18: 5501467.995 ops/s
+# Warmup Iteration  19: 5534813.953 ops/s
+# Warmup Iteration  20: 5425585.470 ops/s
+Iteration   1: 5386879.152 ops/s
+Iteration   2: 5712502.995 ops/s
+Iteration   3: 5650103.881 ops/s
+Iteration   4: 5627725.567 ops/s
+Iteration   5: 5527188.347 ops/s
+Iteration   6: 5451034.679 ops/s
+Iteration   7: 5446019.002 ops/s
+Iteration   8: 5343123.858 ops/s
+Iteration   9: 5262972.695 ops/s
+Iteration  10: 5472274.640 ops/s
+Iteration  11: 5406456.889 ops/s
+Iteration  12: 5301743.091 ops/s
+Iteration  13: 5407773.015 ops/s
+Iteration  14: 5526876.269 ops/s
+Iteration  15: 5293263.507 ops/s
+Iteration  16: 5462766.085 ops/s
+Iteration  17: 5448798.193 ops/s
+Iteration  18: 5484773.652 ops/s
+Iteration  19: 5475635.275 ops/s
+Iteration  20: 5367940.515 ops/s
+
+# Run progress: 10.00% complete, ETA 00:12:11
+# Fork: 3 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 4932897.175 ops/s
+# Warmup Iteration   2: 5532778.364 ops/s
+# Warmup Iteration   3: 5653039.776 ops/s
+# Warmup Iteration   4: 5662544.638 ops/s
+# Warmup Iteration   5: 5721109.599 ops/s
+# Warmup Iteration   6: 5524721.228 ops/s
+# Warmup Iteration   7: 5397030.213 ops/s
+# Warmup Iteration   8: 5650726.946 ops/s
+# Warmup Iteration   9: 5364278.024 ops/s
+# Warmup Iteration  10: 5589363.499 ops/s
+# Warmup Iteration  11: 5525290.369 ops/s
+# Warmup Iteration  12: 5538933.312 ops/s
+# Warmup Iteration  13: 5669156.242 ops/s
+# Warmup Iteration  14: 5608953.449 ops/s
+# Warmup Iteration  15: 5699469.844 ops/s
+# Warmup Iteration  16: 5495118.744 ops/s
+# Warmup Iteration  17: 5468000.261 ops/s
+# Warmup Iteration  18: 5658207.344 ops/s
+# Warmup Iteration  19: 5653828.991 ops/s
+# Warmup Iteration  20: 5540238.139 ops/s
+Iteration   1: 5542063.762 ops/s
+Iteration   2: 5383274.341 ops/s
+Iteration   3: 5610244.361 ops/s
+Iteration   4: 5592613.616 ops/s
+Iteration   5: 5637743.523 ops/s
+Iteration   6: 5363784.839 ops/s
+Iteration   7: 5416393.240 ops/s
+Iteration   8: 5500860.697 ops/s
+Iteration   9: 5500537.811 ops/s
+Iteration  10: 5638752.953 ops/s
+Iteration  11: 5579946.909 ops/s
+Iteration  12: 5636383.385 ops/s
+Iteration  13: 5421343.273 ops/s
+Iteration  14: 5569845.502 ops/s
+Iteration  15: 5457382.232 ops/s
+Iteration  16: 5464497.522 ops/s
+Iteration  17: 5523662.432 ops/s
+Iteration  18: 5363620.655 ops/s
+Iteration  19: 5624764.388 ops/s
+Iteration  20: 5496065.225 ops/s
+
+# Run progress: 15.00% complete, ETA 00:11:30
+# Fork: 4 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 5031092.239 ops/s
+# Warmup Iteration   2: 5524508.097 ops/s
+# Warmup Iteration   3: 5657874.645 ops/s
+# Warmup Iteration   4: 5244113.813 ops/s
+# Warmup Iteration   5: 5465799.202 ops/s
+# Warmup Iteration   6: 5535138.945 ops/s
+# Warmup Iteration   7: 5555887.547 ops/s
+# Warmup Iteration   8: 5286966.880 ops/s
+# Warmup Iteration   9: 5502044.023 ops/s
+# Warmup Iteration  10: 5478213.037 ops/s
+# Warmup Iteration  11: 5146666.846 ops/s
+# Warmup Iteration  12: 5560236.252 ops/s
+# Warmup Iteration  13: 5535699.692 ops/s
+# Warmup Iteration  14: 5423218.830 ops/s
+# Warmup Iteration  15: 5423323.518 ops/s
+# Warmup Iteration  16: 5518614.397 ops/s
+# Warmup Iteration  17: 5476727.913 ops/s
+# Warmup Iteration  18: 5399751.703 ops/s
+# Warmup Iteration  19: 5447308.698 ops/s
+# Warmup Iteration  20: 5427770.071 ops/s
+Iteration   1: 5373269.345 ops/s
+Iteration   2: 5481042.096 ops/s
+Iteration   3: 5460089.980 ops/s
+Iteration   4: 5453116.654 ops/s
+Iteration   5: 5470640.706 ops/s
+Iteration   6: 5489428.731 ops/s
+Iteration   7: 5341044.466 ops/s
+Iteration   8: 5485229.744 ops/s
+Iteration   9: 5536467.875 ops/s
+Iteration  10: 5541730.695 ops/s
+Iteration  11: 5457558.818 ops/s
+Iteration  12: 5411909.348 ops/s
+Iteration  13: 5527774.335 ops/s
+Iteration  14: 5471858.260 ops/s
+Iteration  15: 5260695.013 ops/s
+Iteration  16: 5476699.474 ops/s
+Iteration  17: 5452239.159 ops/s
+Iteration  18: 5281328.952 ops/s
+Iteration  19: 5458796.898 ops/s
+Iteration  20: 5584224.339 ops/s
+
+# Run progress: 20.00% complete, ETA 00:10:50
+# Fork: 5 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 5008741.535 ops/s
+# Warmup Iteration   2: 5157611.275 ops/s
+# Warmup Iteration   3: 5445510.107 ops/s
+# Warmup Iteration   4: 5492279.999 ops/s
+# Warmup Iteration   5: 5400963.283 ops/s
+# Warmup Iteration   6: 5372611.271 ops/s
+# Warmup Iteration   7: 5442832.715 ops/s
+# Warmup Iteration   8: 5461204.772 ops/s
+# Warmup Iteration   9: 5383517.822 ops/s
+# Warmup Iteration  10: 5542913.500 ops/s
+# Warmup Iteration  11: 5514924.423 ops/s
+# Warmup Iteration  12: 5560961.571 ops/s
+# Warmup Iteration  13: 5492000.194 ops/s
+# Warmup Iteration  14: 5515307.138 ops/s
+# Warmup Iteration  15: 5589204.460 ops/s
+# Warmup Iteration  16: 5484424.728 ops/s
+# Warmup Iteration  17: 5523945.930 ops/s
+# Warmup Iteration  18: 5525919.616 ops/s
+# Warmup Iteration  19: 5579341.135 ops/s
+# Warmup Iteration  20: 5371457.814 ops/s
+Iteration   1: 5466786.894 ops/s
+Iteration   2: 5540669.763 ops/s
+Iteration   3: 5493397.156 ops/s
+Iteration   4: 5653052.495 ops/s
+Iteration   5: 5510856.116 ops/s
+Iteration   6: 5274370.073 ops/s
+Iteration   7: 5404883.245 ops/s
+Iteration   8: 5357815.528 ops/s
+Iteration   9: 5564404.928 ops/s
+Iteration  10: 5469472.039 ops/s
+Iteration  11: 5220627.690 ops/s
+Iteration  12: 5373827.561 ops/s
+Iteration  13: 5376735.834 ops/s
+Iteration  14: 5386369.086 ops/s
+Iteration  15: 5406994.054 ops/s
+Iteration  16: 5423777.559 ops/s
+Iteration  17: 5550292.744 ops/s
+Iteration  18: 5266688.759 ops/s
+Iteration  19: 5406455.271 ops/s
+Iteration  20: 5419760.038 ops/s
+
+# Run progress: 25.00% complete, ETA 00:10:09
+# Fork: 6 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 5017347.286 ops/s
+# Warmup Iteration   2: 5407370.115 ops/s
+# Warmup Iteration   3: 5593810.867 ops/s
+# Warmup Iteration   4: 5536132.279 ops/s
+# Warmup Iteration   5: 5613502.749 ops/s
+# Warmup Iteration   6: 5476782.685 ops/s
+# Warmup Iteration   7: 5373032.149 ops/s
+# Warmup Iteration   8: 5616103.783 ops/s
+# Warmup Iteration   9: 5552765.620 ops/s
+# Warmup Iteration  10: 5616893.425 ops/s
+# Warmup Iteration  11: 5562789.866 ops/s
+# Warmup Iteration  12: 5692550.571 ops/s
+# Warmup Iteration  13: 5658953.255 ops/s
+# Warmup Iteration  14: 5621070.050 ops/s
+# Warmup Iteration  15: 5571228.658 ops/s
+# Warmup Iteration  16: 5514923.006 ops/s
+# Warmup Iteration  17: 5297709.328 ops/s
+# Warmup Iteration  18: 5551880.174 ops/s
+# Warmup Iteration  19: 5539219.938 ops/s
+# Warmup Iteration  20: 5602895.892 ops/s
+Iteration   1: 5582294.099 ops/s
+Iteration   2: 5503536.635 ops/s
+Iteration   3: 5571909.409 ops/s
+Iteration   4: 5481766.357 ops/s
+Iteration   5: 5493682.349 ops/s
+Iteration   6: 5500060.676 ops/s
+Iteration   7: 5567854.939 ops/s
+Iteration   8: 5319229.671 ops/s
+Iteration   9: 5333590.504 ops/s
+Iteration  10: 5423606.743 ops/s
+Iteration  11: 5559980.056 ops/s
+Iteration  12: 5182923.014 ops/s
+Iteration  13: 5375920.990 ops/s
+Iteration  14: 5394284.456 ops/s
+Iteration  15: 5443122.782 ops/s
+Iteration  16: 5418091.875 ops/s
+Iteration  17: 5523344.893 ops/s
+Iteration  18: 5473820.340 ops/s
+Iteration  19: 5343094.755 ops/s
+Iteration  20: 5386854.751 ops/s
+
+# Run progress: 30.00% complete, ETA 00:09:28
+# Fork: 7 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 4937283.648 ops/s
+# Warmup Iteration   2: 5405071.541 ops/s
+# Warmup Iteration   3: 5623429.211 ops/s
+# Warmup Iteration   4: 5584873.000 ops/s
+# Warmup Iteration   5: 5489084.867 ops/s
+# Warmup Iteration   6: 5608503.654 ops/s
+# Warmup Iteration   7: 5495758.174 ops/s
+# Warmup Iteration   8: 5536643.997 ops/s
+# Warmup Iteration   9: 5525820.180 ops/s
+# Warmup Iteration  10: 5089103.204 ops/s
+# Warmup Iteration  11: 5155286.524 ops/s
+# Warmup Iteration  12: 5324480.744 ops/s
+# Warmup Iteration  13: 5443775.580 ops/s
+# Warmup Iteration  14: 5295915.725 ops/s
+# Warmup Iteration  15: 5525472.567 ops/s
+# Warmup Iteration  16: 5597755.538 ops/s
+# Warmup Iteration  17: 5515348.461 ops/s
+# Warmup Iteration  18: 5520703.553 ops/s
+# Warmup Iteration  19: 5602546.473 ops/s
+# Warmup Iteration  20: 5524158.115 ops/s
+Iteration   1: 5391278.970 ops/s
+Iteration   2: 5526946.464 ops/s
+Iteration   3: 5455337.034 ops/s
+Iteration   4: 5432454.953 ops/s
+Iteration   5: 5646857.798 ops/s
+Iteration   6: 5278439.187 ops/s
+Iteration   7: 5490066.613 ops/s
+Iteration   8: 5434984.525 ops/s
+Iteration   9: 5406196.029 ops/s
+Iteration  10: 5422087.312 ops/s
+Iteration  11: 5429181.615 ops/s
+Iteration  12: 5391312.041 ops/s
+Iteration  13: 5407953.624 ops/s
+Iteration  14: 5435288.079 ops/s
+Iteration  15: 5375042.482 ops/s
+Iteration  16: 5539421.227 ops/s
+Iteration  17: 5512895.940 ops/s
+Iteration  18: 5505519.260 ops/s
+Iteration  19: 5233080.108 ops/s
+Iteration  20: 5359742.839 ops/s
+
+# Run progress: 35.00% complete, ETA 00:08:48
+# Fork: 8 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 5023367.156 ops/s
+# Warmup Iteration   2: 5251004.196 ops/s
+# Warmup Iteration   3: 5536020.210 ops/s
+# Warmup Iteration   4: 5650680.763 ops/s
+# Warmup Iteration   5: 5625246.225 ops/s
+# Warmup Iteration   6: 5629146.217 ops/s
+# Warmup Iteration   7: 5668981.750 ops/s
+# Warmup Iteration   8: 5573447.109 ops/s
+# Warmup Iteration   9: 5445497.553 ops/s
+# Warmup Iteration  10: 5431353.669 ops/s
+# Warmup Iteration  11: 5507328.617 ops/s
+# Warmup Iteration  12: 5526069.933 ops/s
+# Warmup Iteration  13: 5590180.456 ops/s
+# Warmup Iteration  14: 5333911.800 ops/s
+# Warmup Iteration  15: 5385848.648 ops/s
+# Warmup Iteration  16: 5432774.128 ops/s
+# Warmup Iteration  17: 5402014.865 ops/s
+# Warmup Iteration  18: 5528938.463 ops/s
+# Warmup Iteration  19: 5513306.450 ops/s
+# Warmup Iteration  20: 5467886.297 ops/s
+Iteration   1: 5460188.068 ops/s
+Iteration   2: 5497548.665 ops/s
+Iteration   3: 5440632.402 ops/s
+Iteration   4: 5572254.768 ops/s
+Iteration   5: 5532243.525 ops/s
+Iteration   6: 5391308.423 ops/s
+Iteration   7: 5478754.648 ops/s
+Iteration   8: 5450471.808 ops/s
+Iteration   9: 5419522.559 ops/s
+Iteration  10: 5463952.218 ops/s
+Iteration  11: 5450022.970 ops/s
+Iteration  12: 5550718.888 ops/s
+Iteration  13: 5503027.992 ops/s
+Iteration  14: 5403471.887 ops/s
+Iteration  15: 5408327.920 ops/s
+Iteration  16: 5563169.537 ops/s
+Iteration  17: 5409561.779 ops/s
+Iteration  18: 5499341.693 ops/s
+Iteration  19: 5426246.699 ops/s
+Iteration  20: 5442160.523 ops/s
+
+# Run progress: 40.00% complete, ETA 00:08:07
+# Fork: 9 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 4876481.092 ops/s
+# Warmup Iteration   2: 5515858.170 ops/s
+# Warmup Iteration   3: 5402005.278 ops/s
+# Warmup Iteration   4: 5526900.111 ops/s
+# Warmup Iteration   5: 5564673.496 ops/s
+# Warmup Iteration   6: 5434199.237 ops/s
+# Warmup Iteration   7: 5317186.222 ops/s
+# Warmup Iteration   8: 5451508.399 ops/s
+# Warmup Iteration   9: 5165349.364 ops/s
+# Warmup Iteration  10: 5511933.818 ops/s
+# Warmup Iteration  11: 5037965.704 ops/s
+# Warmup Iteration  12: 5044499.475 ops/s
+# Warmup Iteration  13: 5077568.209 ops/s
+# Warmup Iteration  14: 5050259.091 ops/s
+# Warmup Iteration  15: 5099416.793 ops/s
+# Warmup Iteration  16: 5271232.998 ops/s
+# Warmup Iteration  17: 5140608.878 ops/s
+# Warmup Iteration  18: 5159674.047 ops/s
+# Warmup Iteration  19: 5270775.450 ops/s
+# Warmup Iteration  20: 5324417.432 ops/s
+Iteration   1: 5358799.508 ops/s
+Iteration   2: 5237257.267 ops/s
+Iteration   3: 5374350.122 ops/s
+Iteration   4: 5292555.936 ops/s
+Iteration   5: 5284967.511 ops/s
+Iteration   6: 5141253.111 ops/s
+Iteration   7: 5127939.453 ops/s
+Iteration   8: 5322687.052 ops/s
+Iteration   9: 5332421.291 ops/s
+Iteration  10: 5302502.218 ops/s
+Iteration  11: 5238330.532 ops/s
+Iteration  12: 5210300.088 ops/s
+Iteration  13: 5253332.229 ops/s
+Iteration  14: 5220400.393 ops/s
+Iteration  15: 5129434.975 ops/s
+Iteration  16: 5261224.242 ops/s
+Iteration  17: 5113885.508 ops/s
+Iteration  18: 5165442.267 ops/s
+Iteration  19: 5214982.750 ops/s
+Iteration  20: 5222154.988 ops/s
+
+# Run progress: 45.00% complete, ETA 00:07:26
+# Fork: 10 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 4746623.744 ops/s
+# Warmup Iteration   2: 5197874.540 ops/s
+# Warmup Iteration   3: 5301060.982 ops/s
+# Warmup Iteration   4: 5242855.986 ops/s
+# Warmup Iteration   5: 5313707.318 ops/s
+# Warmup Iteration   6: 5216318.435 ops/s
+# Warmup Iteration   7: 5322269.140 ops/s
+# Warmup Iteration   8: 5354110.545 ops/s
+# Warmup Iteration   9: 5304440.870 ops/s
+# Warmup Iteration  10: 5217012.693 ops/s
+# Warmup Iteration  11: 5101123.188 ops/s
+# Warmup Iteration  12: 5272946.351 ops/s
+# Warmup Iteration  13: 5313958.567 ops/s
+# Warmup Iteration  14: 5305528.266 ops/s
+# Warmup Iteration  15: 5282717.456 ops/s
+# Warmup Iteration  16: 5315080.994 ops/s
+# Warmup Iteration  17: 5087028.627 ops/s
+# Warmup Iteration  18: 5255626.943 ops/s
+# Warmup Iteration  19: 5087747.251 ops/s
+# Warmup Iteration  20: 5227557.102 ops/s
+Iteration   1: 5374900.011 ops/s
+Iteration   2: 5263348.783 ops/s
+Iteration   3: 5311991.442 ops/s
+Iteration   4: 5082652.547 ops/s
+Iteration   5: 5158561.414 ops/s
+Iteration   6: 5320133.389 ops/s
+Iteration   7: 5335761.298 ops/s
+Iteration   8: 5315253.477 ops/s
+Iteration   9: 5360701.527 ops/s
+Iteration  10: 5302907.057 ops/s
+Iteration  11: 5306043.715 ops/s
+Iteration  12: 5345294.029 ops/s
+Iteration  13: 5353963.428 ops/s
+Iteration  14: 5318493.971 ops/s
+Iteration  15: 5343633.787 ops/s
+Iteration  16: 5273336.837 ops/s
+Iteration  17: 5285131.461 ops/s
+Iteration  18: 5366810.244 ops/s
+Iteration  19: 5352885.800 ops/s
+Iteration  20: 5290289.497 ops/s
+
+
+Result "jmh.asm.JustPlayingWithAsmProfiler.withManyCheck":
+  5416589.508 ±(99.9%) 27820.450 ops/s [Average]
+  (min, avg, max) = (5082652.547, 5416589.508, 5712502.995), stdev = 117793.526
+  CI (99.9%): [5388769.058, 5444409.957] (assumes normal distribution)
+
+
+# JMH version: 1.20
+# VM version: JDK 1.8.0_144, VM 25.144-b01
+# VM invoker: /usr/lib/jvm/jdk-8u144-linux-x64/jdk1.8.0_144/jre/bin/java
+# VM options: -Xms512m -Xmx2560m -XX:+UseParNewGC -XX:MinHeapFreeRatio=15 -XX:MaxHeapFreeRatio=30 -javaagent:/home/glushenkov/Documents/IntelliJ/lib/idea_rt.jar=34701:/home/glushenkov/Documents/IntelliJ/bin -Dfile.encoding=UTF-8
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: jmh.asm.JustPlayingWithAsmProfiler.withOneCheck
+
+# Run progress: 50.00% complete, ETA 00:06:46
+# Fork: 1 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8054610.759 ops/s
+# Warmup Iteration   2: 8694278.733 ops/s
+# Warmup Iteration   3: 8771015.460 ops/s
+# Warmup Iteration   4: 8626237.052 ops/s
+# Warmup Iteration   5: 8882673.609 ops/s
+# Warmup Iteration   6: 8872511.580 ops/s
+# Warmup Iteration   7: 8901877.364 ops/s
+# Warmup Iteration   8: 8883247.362 ops/s
+# Warmup Iteration   9: 8901180.462 ops/s
+# Warmup Iteration  10: 8734124.731 ops/s
+# Warmup Iteration  11: 8829427.624 ops/s
+# Warmup Iteration  12: 8850618.725 ops/s
+# Warmup Iteration  13: 8928974.067 ops/s
+# Warmup Iteration  14: 8898242.321 ops/s
+# Warmup Iteration  15: 8896066.715 ops/s
+# Warmup Iteration  16: 8632315.281 ops/s
+# Warmup Iteration  17: 8907773.649 ops/s
+# Warmup Iteration  18: 8411836.914 ops/s
+# Warmup Iteration  19: 8870456.049 ops/s
+# Warmup Iteration  20: 8918981.121 ops/s
+Iteration   1: 8529467.517 ops/s
+Iteration   2: 8903000.076 ops/s
+Iteration   3: 8894939.954 ops/s
+Iteration   4: 8905646.277 ops/s
+Iteration   5: 8609816.687 ops/s
+Iteration   6: 8864480.605 ops/s
+Iteration   7: 8804605.620 ops/s
+Iteration   8: 8849095.036 ops/s
+Iteration   9: 8907777.309 ops/s
+Iteration  10: 8850998.224 ops/s
+Iteration  11: 8842669.663 ops/s
+Iteration  12: 8818612.489 ops/s
+Iteration  13: 8643427.078 ops/s
+Iteration  14: 8662161.104 ops/s
+Iteration  15: 8738240.477 ops/s
+Iteration  16: 8382043.463 ops/s
+Iteration  17: 8781627.758 ops/s
+Iteration  18: 8691666.833 ops/s
+Iteration  19: 8801748.034 ops/s
+Iteration  20: 8736440.309 ops/s
+
+# Run progress: 55.00% complete, ETA 00:06:05
+# Fork: 2 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 7918131.486 ops/s
+# Warmup Iteration   2: 8478147.153 ops/s
+# Warmup Iteration   3: 8869914.283 ops/s
+# Warmup Iteration   4: 8795301.629 ops/s
+# Warmup Iteration   5: 8527957.381 ops/s
+# Warmup Iteration   6: 8140962.820 ops/s
+# Warmup Iteration   7: 8303201.840 ops/s
+# Warmup Iteration   8: 8467064.648 ops/s
+# Warmup Iteration   9: 8689425.986 ops/s
+# Warmup Iteration  10: 8356641.341 ops/s
+# Warmup Iteration  11: 8703898.408 ops/s
+# Warmup Iteration  12: 8735390.759 ops/s
+# Warmup Iteration  13: 8670023.264 ops/s
+# Warmup Iteration  14: 8813983.911 ops/s
+# Warmup Iteration  15: <failure>
+
+java.lang.ArithmeticException: / by zero
+	at jmh.asm.A.checker(JustPlayingWithAsmProfiler.java:78)
+	at jmh.asm.JustPlayingWithAsmProfiler.withOneCheck(JustPlayingWithAsmProfiler.java:44)
+	at jmh.asm.generated.JustPlayingWithAsmProfiler_withOneCheck_jmhTest.withOneCheck_thrpt_jmhStub(JustPlayingWithAsmProfiler_withOneCheck_jmhTest.java:121)
+	at jmh.asm.generated.JustPlayingWithAsmProfiler_withOneCheck_jmhTest.withOneCheck_Throughput(JustPlayingWithAsmProfiler_withOneCheck_jmhTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:453)
+	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:437)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+
+# Run progress: 60.00% complete, ETA 00:05:08
+# Fork: 3 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8252029.311 ops/s
+# Warmup Iteration   2: 8607015.079 ops/s
+# Warmup Iteration   3: 8459272.518 ops/s
+# Warmup Iteration   4: 8785227.582 ops/s
+# Warmup Iteration   5: 8677660.140 ops/s
+# Warmup Iteration   6: 8804203.796 ops/s
+# Warmup Iteration   7: 8746748.259 ops/s
+# Warmup Iteration   8: 8408748.179 ops/s
+# Warmup Iteration   9: 8691251.898 ops/s
+# Warmup Iteration  10: 8532278.229 ops/s
+# Warmup Iteration  11: 8653563.586 ops/s
+# Warmup Iteration  12: 8709402.154 ops/s
+# Warmup Iteration  13: 8952231.015 ops/s
+# Warmup Iteration  14: 8835814.644 ops/s
+# Warmup Iteration  15: 8821142.731 ops/s
+# Warmup Iteration  16: 8726150.264 ops/s
+# Warmup Iteration  17: 8776947.792 ops/s
+# Warmup Iteration  18: 8791610.043 ops/s
+# Warmup Iteration  19: 8709131.841 ops/s
+# Warmup Iteration  20: 8939358.698 ops/s
+Iteration   1: 8849988.407 ops/s
+Iteration   2: 8871559.462 ops/s
+Iteration   3: 8872576.265 ops/s
+Iteration   4: 8907287.332 ops/s
+Iteration   5: 8955750.926 ops/s
+Iteration   6: 8778261.799 ops/s
+Iteration   7: 8803521.803 ops/s
+Iteration   8: 8737849.964 ops/s
+Iteration   9: 8431273.116 ops/s
+Iteration  10: 8711296.596 ops/s
+Iteration  11: 8696568.680 ops/s
+Iteration  12: 8714755.274 ops/s
+Iteration  13: 8560322.205 ops/s
+Iteration  14: 8738358.377 ops/s
+Iteration  15: 8940266.481 ops/s
+Iteration  16: 8739527.365 ops/s
+Iteration  17: 8872452.445 ops/s
+Iteration  18: 8700737.578 ops/s
+Iteration  19: 8725890.950 ops/s
+Iteration  20: 8754905.792 ops/s
+
+# Run progress: 65.00% complete, ETA 00:04:30
+# Fork: 4 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8281842.083 ops/s
+# Warmup Iteration   2: 8700674.688 ops/s
+# Warmup Iteration   3: 8881435.273 ops/s
+# Warmup Iteration   4: 8895663.347 ops/s
+# Warmup Iteration   5: 9039033.492 ops/s
+# Warmup Iteration   6: 9057040.913 ops/s
+# Warmup Iteration   7: 9073767.585 ops/s
+# Warmup Iteration   8: 8910284.158 ops/s
+# Warmup Iteration   9: 9001216.699 ops/s
+# Warmup Iteration  10: 8963350.490 ops/s
+# Warmup Iteration  11: 8940264.344 ops/s
+# Warmup Iteration  12: 8859546.422 ops/s
+# Warmup Iteration  13: 8781984.443 ops/s
+# Warmup Iteration  14: 8666840.776 ops/s
+# Warmup Iteration  15: 8917904.398 ops/s
+# Warmup Iteration  16: 8839409.417 ops/s
+# Warmup Iteration  17: 8665322.379 ops/s
+# Warmup Iteration  18: 8816101.319 ops/s
+# Warmup Iteration  19: 8780238.130 ops/s
+# Warmup Iteration  20: 8847828.017 ops/s
+Iteration   1: 8790063.204 ops/s
+Iteration   2: 8844188.972 ops/s
+Iteration   3: 8887491.961 ops/s
+Iteration   4: 8809055.849 ops/s
+Iteration   5: 8827475.557 ops/s
+Iteration   6: 8862208.014 ops/s
+Iteration   7: 8977294.836 ops/s
+Iteration   8: 8488510.876 ops/s
+Iteration   9: 8818836.384 ops/s
+Iteration  10: 8836393.660 ops/s
+Iteration  11: 8682174.050 ops/s
+Iteration  12: 8700790.152 ops/s
+Iteration  13: 8741202.804 ops/s
+Iteration  14: 8917768.804 ops/s
+Iteration  15: 8895432.136 ops/s
+Iteration  16: 8954819.677 ops/s
+Iteration  17: 8851376.078 ops/s
+Iteration  18: 8988481.759 ops/s
+Iteration  19: 8855027.412 ops/s
+Iteration  20: 8879722.630 ops/s
+
+# Run progress: 70.00% complete, ETA 00:03:52
+# Fork: 5 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8104687.585 ops/s
+# Warmup Iteration   2: 8848127.596 ops/s
+# Warmup Iteration   3: 8973672.417 ops/s
+# Warmup Iteration   4: 8795507.555 ops/s
+# Warmup Iteration   5: 8593162.459 ops/s
+# Warmup Iteration   6: 8778048.193 ops/s
+# Warmup Iteration   7: 8774206.384 ops/s
+# Warmup Iteration   8: 8485262.879 ops/s
+# Warmup Iteration   9: 8667294.270 ops/s
+# Warmup Iteration  10: 8492156.068 ops/s
+# Warmup Iteration  11: 8993386.699 ops/s
+# Warmup Iteration  12: 8886583.654 ops/s
+# Warmup Iteration  13: 8924540.940 ops/s
+# Warmup Iteration  14: 8756355.352 ops/s
+# Warmup Iteration  15: 8737321.908 ops/s
+# Warmup Iteration  16: 8894261.797 ops/s
+# Warmup Iteration  17: 8955680.372 ops/s
+# Warmup Iteration  18: 8924388.503 ops/s
+# Warmup Iteration  19: 8700533.091 ops/s
+# Warmup Iteration  20: 8835457.808 ops/s
+Iteration   1: 8599361.072 ops/s
+Iteration   2: 8924607.052 ops/s
+Iteration   3: 8872187.816 ops/s
+Iteration   4: 8937492.264 ops/s
+Iteration   5: 8864248.821 ops/s
+Iteration   6: 8856822.260 ops/s
+Iteration   7: 8819355.613 ops/s
+Iteration   8: 8807807.122 ops/s
+Iteration   9: 8948552.797 ops/s
+Iteration  10: 8634651.380 ops/s
+Iteration  11: 9000327.416 ops/s
+Iteration  12: 8937328.683 ops/s
+Iteration  13: 8872354.859 ops/s
+Iteration  14: 8861590.556 ops/s
+Iteration  15: 8843415.907 ops/s
+Iteration  16: 8919139.451 ops/s
+Iteration  17: 8866653.971 ops/s
+Iteration  18: 8997134.325 ops/s
+Iteration  19: 8774723.584 ops/s
+Iteration  20: 8956725.151 ops/s
+
+# Run progress: 75.00% complete, ETA 00:03:14
+# Fork: 6 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8266436.017 ops/s
+# Warmup Iteration   2: 8704028.260 ops/s
+# Warmup Iteration   3: 8799864.122 ops/s
+# Warmup Iteration   4: 9180264.356 ops/s
+# Warmup Iteration   5: 9034245.217 ops/s
+# Warmup Iteration   6: 9071097.308 ops/s
+# Warmup Iteration   7: 8902536.873 ops/s
+# Warmup Iteration   8: 8780379.255 ops/s
+# Warmup Iteration   9: 8835723.561 ops/s
+# Warmup Iteration  10: 8606393.993 ops/s
+# Warmup Iteration  11: 8866028.378 ops/s
+# Warmup Iteration  12: 8703404.928 ops/s
+# Warmup Iteration  13: 8906604.976 ops/s
+# Warmup Iteration  14: 8845523.522 ops/s
+# Warmup Iteration  15: 8978222.363 ops/s
+# Warmup Iteration  16: 8803795.264 ops/s
+# Warmup Iteration  17: 8863216.186 ops/s
+# Warmup Iteration  18: 8861738.433 ops/s
+# Warmup Iteration  19: 8925273.425 ops/s
+# Warmup Iteration  20: 8654843.969 ops/s
+Iteration   1: 8576930.130 ops/s
+Iteration   2: 8768618.974 ops/s
+Iteration   3: 8618789.736 ops/s
+Iteration   4: 9011378.183 ops/s
+Iteration   5: 8993215.896 ops/s
+Iteration   6: 8943242.569 ops/s
+Iteration   7: 8895185.007 ops/s
+Iteration   8: 8867369.228 ops/s
+Iteration   9: 8713615.948 ops/s
+Iteration  10: 8933324.602 ops/s
+Iteration  11: 8940125.677 ops/s
+Iteration  12: 8982751.622 ops/s
+Iteration  13: 8998343.643 ops/s
+Iteration  14: 8986693.310 ops/s
+Iteration  15: 8867129.280 ops/s
+Iteration  16: 8873985.165 ops/s
+Iteration  17: 8921528.015 ops/s
+Iteration  18: 9059775.252 ops/s
+Iteration  19: 9002996.689 ops/s
+Iteration  20: 8868709.493 ops/s
+
+# Run progress: 80.00% complete, ETA 00:02:36
+# Fork: 7 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8347586.035 ops/s
+# Warmup Iteration   2: 8779011.420 ops/s
+# Warmup Iteration   3: 8903575.190 ops/s
+# Warmup Iteration   4: 8855081.280 ops/s
+# Warmup Iteration   5: 8897954.173 ops/s
+# Warmup Iteration   6: 8769962.211 ops/s
+# Warmup Iteration   7: 8898323.782 ops/s
+# Warmup Iteration   8: 8892510.181 ops/s
+# Warmup Iteration   9: 8965191.225 ops/s
+# Warmup Iteration  10: 8845778.482 ops/s
+# Warmup Iteration  11: 8898332.226 ops/s
+# Warmup Iteration  12: 8872572.107 ops/s
+# Warmup Iteration  13: 8942850.673 ops/s
+# Warmup Iteration  14: 8959189.976 ops/s
+# Warmup Iteration  15: 9105210.043 ops/s
+# Warmup Iteration  16: 8869345.618 ops/s
+# Warmup Iteration  17: 8544284.183 ops/s
+# Warmup Iteration  18: 8714632.777 ops/s
+# Warmup Iteration  19: 8875082.016 ops/s
+# Warmup Iteration  20: 8495422.203 ops/s
+Iteration   1: 8778472.430 ops/s
+Iteration   2: 8843669.864 ops/s
+Iteration   3: 9018755.534 ops/s
+Iteration   4: 8919085.649 ops/s
+Iteration   5: 8958569.578 ops/s
+Iteration   6: 8990898.658 ops/s
+Iteration   7: 8976519.690 ops/s
+Iteration   8: 8964740.342 ops/s
+Iteration   9: 9009093.897 ops/s
+Iteration  10: 8851320.299 ops/s
+Iteration  11: 8868049.252 ops/s
+Iteration  12: 8916118.733 ops/s
+Iteration  13: 8658169.060 ops/s
+Iteration  14: 8483407.880 ops/s
+Iteration  15: 8850614.693 ops/s
+Iteration  16: 8939538.791 ops/s
+Iteration  17: 8968290.226 ops/s
+Iteration  18: 8935369.914 ops/s
+Iteration  19: 9014053.258 ops/s
+Iteration  20: 9010631.336 ops/s
+
+# Run progress: 85.00% complete, ETA 00:01:57
+# Fork: 8 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8177319.229 ops/s
+# Warmup Iteration   2: 8805460.482 ops/s
+# Warmup Iteration   3: 9071399.922 ops/s
+# Warmup Iteration   4: 9090397.804 ops/s
+# Warmup Iteration   5: 9135507.657 ops/s
+# Warmup Iteration   6: 8614750.582 ops/s
+# Warmup Iteration   7: 9108519.347 ops/s
+# Warmup Iteration   8: 9085533.198 ops/s
+# Warmup Iteration   9: 9256280.687 ops/s
+# Warmup Iteration  10: 8915711.633 ops/s
+# Warmup Iteration  11: 9045319.452 ops/s
+# Warmup Iteration  12: 8977963.011 ops/s
+# Warmup Iteration  13: 8903217.636 ops/s
+# Warmup Iteration  14: 9284756.194 ops/s
+# Warmup Iteration  15: 9178574.498 ops/s
+# Warmup Iteration  16: 9124973.842 ops/s
+# Warmup Iteration  17: 9022180.323 ops/s
+# Warmup Iteration  18: 9004998.876 ops/s
+# Warmup Iteration  19: 8853220.446 ops/s
+# Warmup Iteration  20: 8812710.232 ops/s
+Iteration   1: 8368018.104 ops/s
+Iteration   2: 8686711.845 ops/s
+Iteration   3: 9027034.416 ops/s
+Iteration   4: 8542444.714 ops/s
+Iteration   5: 9069588.142 ops/s
+Iteration   6: 8902768.776 ops/s
+Iteration   7: 9034603.683 ops/s
+Iteration   8: 8784279.761 ops/s
+Iteration   9: 8742843.535 ops/s
+Iteration  10: 9017538.113 ops/s
+Iteration  11: 9009157.359 ops/s
+Iteration  12: 8727056.002 ops/s
+Iteration  13: 8795957.691 ops/s
+Iteration  14: 8921665.932 ops/s
+Iteration  15: 8964195.188 ops/s
+Iteration  16: 8989169.945 ops/s
+Iteration  17: 8970021.489 ops/s
+Iteration  18: 8861458.449 ops/s
+Iteration  19: 9107268.098 ops/s
+Iteration  20: 8896100.103 ops/s
+
+# Run progress: 90.00% complete, ETA 00:01:18
+# Fork: 9 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 8517721.295 ops/s
+# Warmup Iteration   2: 8671982.862 ops/s
+# Warmup Iteration   3: 8885160.307 ops/s
+# Warmup Iteration   4: 8718337.422 ops/s
+# Warmup Iteration   5: 8942526.613 ops/s
+# Warmup Iteration   6: 8990273.258 ops/s
+# Warmup Iteration   7: 8886135.931 ops/s
+# Warmup Iteration   8: 8824342.717 ops/s
+# Warmup Iteration   9: 8834650.978 ops/s
+# Warmup Iteration  10: 8949550.491 ops/s
+# Warmup Iteration  11: 8879724.235 ops/s
+# Warmup Iteration  12: 8879088.833 ops/s
+# Warmup Iteration  13: 8371995.450 ops/s
+# Warmup Iteration  14: 8756279.164 ops/s
+# Warmup Iteration  15: 8618288.191 ops/s
+# Warmup Iteration  16: 8833177.061 ops/s
+# Warmup Iteration  17: 8730667.354 ops/s
+# Warmup Iteration  18: 8977912.985 ops/s
+# Warmup Iteration  19: 8916387.569 ops/s
+# Warmup Iteration  20: 9012386.360 ops/s
+Iteration   1: 9064446.121 ops/s
+Iteration   2: 8943786.443 ops/s
+Iteration   3: 8993972.395 ops/s
+Iteration   4: 9019937.983 ops/s
+Iteration   5: 8869783.622 ops/s
+Iteration   6: 8807361.366 ops/s
+Iteration   7: 8882651.216 ops/s
+Iteration   8: 8897644.477 ops/s
+Iteration   9: 8941489.401 ops/s
+Iteration  10: 9106835.573 ops/s
+Iteration  11: 8872722.305 ops/s
+Iteration  12: 8497055.146 ops/s
+Iteration  13: 8856294.285 ops/s
+Iteration  14: 8855828.354 ops/s
+Iteration  15: 8863087.308 ops/s
+Iteration  16: 8805086.194 ops/s
+Iteration  17: 8878559.371 ops/s
+Iteration  18: 8850167.215 ops/s
+Iteration  19: 9057533.062 ops/s
+Iteration  20: 8624913.270 ops/s
+
+# Run progress: 95.00% complete, ETA 00:00:39
+# Fork: 10 of 10
+Java HotSpot(TM) 64-Bit Server VM warning: Using the ParNew young collector with the Serial old collector is deprecated and will likely be removed in a future release
+# Warmup Iteration   1: 7912494.049 ops/s
+# Warmup Iteration   2: 8550710.687 ops/s
+# Warmup Iteration   3: 8997369.285 ops/s
+# Warmup Iteration   4: 9067157.843 ops/s
+# Warmup Iteration   5: 8686980.531 ops/s
+# Warmup Iteration   6: 8852922.420 ops/s
+# Warmup Iteration   7: 8587997.816 ops/s
+# Warmup Iteration   8: 8968585.933 ops/s
+# Warmup Iteration   9: 9138988.793 ops/s
+# Warmup Iteration  10: 8943045.288 ops/s
+# Warmup Iteration  11: 8863860.611 ops/s
+# Warmup Iteration  12: 8931868.289 ops/s
+# Warmup Iteration  13: 8820341.939 ops/s

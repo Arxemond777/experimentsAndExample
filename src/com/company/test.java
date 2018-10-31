@@ -27,7 +27,7 @@ public class test implements A {
 
         child child = new child();
         child.info();
-        //b.bc(new c());
+//        b.bc(new c());
     }
 
     public void ab() {
